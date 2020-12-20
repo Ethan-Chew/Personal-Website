@@ -1,4 +1,23 @@
 /*MOBILE*/
+
+.column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.worksHeader {
+    font-size: 16px !important;
+}
+
+.worksCaption {
+    font-size: 13px !important;
+}
+
+.worksDate {
+    font-size: 6px !important;
+}
+
 html {
     box-sizing:border-box
 }
@@ -1481,6 +1500,11 @@ a {
     background-color: #009688 !important
 }
 
+.w3-specialOrange, .w3-hover-specialOrange:hover {
+    color: #fff !important;
+    background-color: #FF5733 !important
+}
+
 .w3-yellow, .w3-hover-yellow:hover {
     color: #000 !important;
     background-color: #ffeb3b !important
@@ -1603,12 +1627,21 @@ a {
     color: #f44336 !important
 }
 
+.worksHeaderColour {
+    color: #6059FF !important;
+}
+
+
 .w3-text-sand, .w3-hover-text-sand:hover {
     color: #fdf5e6 !important
 }
 
 .w3-text-teal, .w3-hover-text-teal:hover {
     color: #009688 !important
+}
+
+.w3-text-specialOrange, .w3-hover-text-specialOrange:hover {
+    color: #FF5733 !important
 }
 
 .w3-text-yellow, .w3-hover-text-yellow:hover {
@@ -1809,6 +1842,13 @@ li {
 
 /*DESKTOP*/
 @media only screen and (min-width: 768px) {
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
     html {
         box-sizing:border-box
     }
@@ -3291,6 +3331,11 @@ li {
         background-color: #009688 !important
     }
 
+    .w3-specialOrange, .w3-hover-specialOrange:hover {
+        color: #fff !important;
+        background-color: #FF5733 !important
+    }
+
     .w3-yellow, .w3-hover-yellow:hover {
         color: #000 !important;
         background-color: #ffeb3b !important
@@ -3413,12 +3458,20 @@ li {
         color: #f44336 !important
     }
 
+    .worksHeaderColour {
+        color: #6059FF !important;
+    }
+
     .w3-text-sand, .w3-hover-text-sand:hover {
         color: #fdf5e6 !important
     }
 
     .w3-text-teal, .w3-hover-text-teal:hover {
         color: #009688 !important
+    }
+
+    .w3-text-specialOrange, .w3-hover-text-specialOrange:hover {
+        color: #FF5733 !important
     }
 
     .w3-text-yellow, .w3-hover-text-yellow:hover {
@@ -3616,4 +3669,5 @@ li {
         background: #3F4FAE;
         color: white;
     }
+
 }
