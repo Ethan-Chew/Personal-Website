@@ -1,5 +1,12 @@
 /*MOBILE*/
 
+.aboutSectionContainer {
+    height: 250px;
+    width: 150px;
+    padding-right: 10px;
+    padding-left: 15px;
+}
+
 .column {
     width: 100%;
     display: block;
@@ -1841,7 +1848,13 @@ li {
 }
 
 /*DESKTOP*/
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 770px) {
+    .aboutSectionContainer {
+        height: 410px;
+        width: 500px;
+        padding-right: 10px;
+        padding-left: 15px;
+    }
 
     .column {
         float: left;
