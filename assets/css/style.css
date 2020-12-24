@@ -1360,6 +1360,15 @@ a {
     padding: 12px 24px !important
 }
 
+.w3-padding-xlarge {
+    padding: 15px 30px !important
+}
+
+.w3-padding-works {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
 .w3-padding-16 {
     padding-top: 16px !important;
     padding-bottom:16px !important
@@ -1509,7 +1518,7 @@ a {
 
 .w3-specialOrange, .w3-hover-specialOrange:hover {
     color: #fff !important;
-    background-color: #FF5733 !important
+    background-color: #565656 !important
 }
 
 .w3-yellow, .w3-hover-yellow:hover {
@@ -1648,7 +1657,7 @@ a {
 }
 
 .w3-text-specialOrange, .w3-hover-text-specialOrange:hover {
-    color: #FF5733 !important
+    color: #565656 !important
 }
 
 .w3-text-yellow, .w3-hover-text-yellow:hover {
@@ -1795,10 +1804,6 @@ a {
     border-color: #e7ffff !important
 }
 
-body, h1 {
-    font-family: "Raleway", sans-serif
-}
-
 body, html {
     height: 100%
 }
@@ -1823,6 +1828,7 @@ li {
     border-radius: 50%;
     cursor: pointer;
 }
+
 .socialMediaLinks a:hover {
     opacity: 0.7;
 }
@@ -3197,6 +3203,15 @@ li {
         padding: 12px 24px !important
     }
 
+    .w3-padding-xlarge {
+        padding: 15px 30px !important
+    }
+
+    .w3-padding-works {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
     .w3-padding-16 {
         padding-top: 16px !important;
         padding-bottom:16px !important
@@ -3346,7 +3361,7 @@ li {
 
     .w3-specialOrange, .w3-hover-specialOrange:hover {
         color: #fff !important;
-        background-color: #FF5733 !important
+        background-color: #565656 !important
     }
 
     .w3-yellow, .w3-hover-yellow:hover {
@@ -3484,7 +3499,7 @@ li {
     }
 
     .w3-text-specialOrange, .w3-hover-text-specialOrange:hover {
-        color: #FF5733 !important
+        color: #565656 !important
     }
 
     .w3-text-yellow, .w3-hover-text-yellow:hover {
@@ -3629,10 +3644,6 @@ li {
 
     .w3-border-pale-blue, .w3-hover-border-pale-blue:hover {
         border-color: #e7ffff !important
-    }
-
-    body, h1 {
-        font-family: "Raleway", sans-serif
     }
 
     body, html {
