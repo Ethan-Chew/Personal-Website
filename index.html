@@ -16,26 +16,97 @@
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway";
     }
+
+    .w3-worksColor, .w3-hover-worksColor:hover {
+        color: #fff !important;
+        background-color: #E38585 !important
+    }
+
+    .w3-text-worksColor, .w3-hover-text-worksColor:hover {
+        color: #E38585 !important
+    }
+
+    * {box-sizing: border-box}
+    body {margin: 0}
+
+    #resumeContainer {
+        width: 1200px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .blocks {
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    .block {
+        margin-bottom: 10px;
+        page-break-inside: avoid;
+        break-inside: avoid-column;
+    }
+
+    @media (max-width: 1220px) {
+        .blocks {padding: 0 10px}
+    }
+
+    @media (max-width: 990px) {
+        .blocks {column-count: 2}
+    }
+
+    @media (max-width: 500px) {
+        .blocks {column-count: 1}
+    }
+
+    .headerImg {
+        background-image: url("assets/img/banner-img.jpg");
+        min-height: 100%;
+    }
+
+    header {
+        height: 700px;
+    }
 </style>
+
+<script>
+    function navBar() {
+        var x = document.getElementById("Small Nav");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
 
 <!-- Navigation Bar -->
 <div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card">
-        <!--        <a href="#home" class="w3-bar-item w3-button"><b>Ethan Chew</b></a>-->
+    <!-- Normal Navigation Bar -->
+    <div class="w3-bar w3-white w3-padding w3-card" id="Navigation Bar">
         <img class="w3-bar-item w3-button" href="#home" src="/assets/img/Name%20Logo.png" alt="NameLogo" width="85" height="40">
-        <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item w3-button w3-round-xlarge">About Me</a>
-            <a href="#resume" class="w3-bar-item w3-button w3-round-xlarge">Resume</a>
-            <a href="#works" class="w3-bar-item w3-button w3-round-xlarge">My Works</a>
-            <a href="#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge">Contact</a>
+            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="navBar()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#about" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">About Me</a>
+            <a href="#resume" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">Resume</a>
+            <a href="#works" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">My Works</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge w3-hide-small">Contact</a>
         </div>
+    </div>
+
+    <!-- Small Navigation Bar -->
+    <div id="Small Nav" class="w3-bar-block w3-white w3-padding w3-card w3-hide w3-hide-large w3-hide-medium">
+        <a href="#about" class="w3-bar-item w3-button">About Me</a>
+        <a href="#resume" class="w3-bar-item w3-button">Resume</a>
+        <a href="#works" class="w3-bar-item w3-button">My Works</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge">Contact</a>
     </div>
 </div>
 
 <!-- Header -->
-<header class="w3-display-container w3-content w3-wide w3-card-4" style="max-width:1500px;" id="home">
-    <img class="w3-image" src="/assets/img/banner-img.jpg" alt="BannerImg" width="1500" height="600">
+<header class="w3-display-container w3-content w3-wide w3-card-4" style="max-width:1920px; height: auto;" id="home">
+    <img class="w3-image" src="/assets/img/banner-img.jpg" alt="BannerImg" style="width: 1920px;">
     <div class="w3-center">
         <div class="w3-display-middle">
             <h2 class="w3-jumbo w3-animate-top w3-center" style="color: white"><b>Ethan Chew</b></h2>
@@ -46,11 +117,10 @@
 </header>
 
 <!-- Page content -->
-<div class="w3-content w3-padding-24" style="max-width:1920px">
+<div class="w3-content" style="max-width:1920px">
     <!-- About Section -->
     <div class="w3-container w3-padding-16" id="about">
         <h3 class="w3-border-bottom w3-border-dark-gray"><b>About Me</b></h3>
-
         <div class="w3-row">
             <div class="w3-container w3-padding w3-card column aboutSectionContainer">
                 <h2 class="">Hello!</h2>
@@ -86,123 +156,114 @@
 
     </div>
 
-    <!--Resume Section-->
-    <div class="w3-content w3-padding-large w3-light-gray" style="max-width:1920px" id="resume">
+    <!--Resume Container-->
+    <div class="w3-content w3-padding-xlarge w3-light-gray w3-padding-large" style="max-width:1920px" id="resume">
         <h3 class="w3-border-bottom w3-border-dark-gray"><b>Resume</b></h3>
 
-        <!--Programming Languages-->
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-large "><b><i class="fa fa-code fa-fw w3-margin-right w3-text-specialOrange"></i>Programming Languages</b></h2>
+        <div id="resumeContainer">
+            <section class="blocks">
+                <!--Programming Languages-->
+                <div class="block w3-padding-large w3-card-2 w3-white">
+                    <p class="w3-large"><b><i class="fa fa-code fa-fw w3-margin-right w3-text-worksColor"></i>Programming Languages</b></p>
 
-            <hr>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-worksColor" style="width:75%">
+                            <div class="w3-center w3-text-white">Python</div>
+                        </div>
+                    </div>
 
-            <p>Python</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:75%">75%</div>
-            </div>
-            <p>Swift</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:70%">
-                    <div class="w3-center w3-text-white">70%</div>
+                    <br>
+
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-worksColor" style="width:75%">
+                            <div class="w3-center w3-text-white">Swift</div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-worksColor" style="width:67%">
+                            <div class="w3-center w3-text-white">Python</div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <p>C++</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:30%">30%</div>
-            </div>
 
-            <br>
-        </div>
-
-        <!--Tools-->
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-large "><b><i class="fa fa-tools fa-fw w3-margin-right w3-text-specialOrange"></i>Tools</b></h2>
-
-            <hr>
-
-            <p>JetBrains IDEs</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:75%">75%</div>
-            </div>
-            <p>Xcode</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:75%">
-                    <div class="w3-center w3-text-white">75%</div>
+                <!--Accomplishments-->
+                <div class="block w3-padding-large w3-card-2 w3-white">
+                    <p class="w3-large"><b><i class="fa fa-certificate fa-fw w3-margin-right w3-text-worksColor"></i>Accomplishments</b></p>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Youth Cyber Exploration Programme</b></h5>
+                        <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2020</h6>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Hackwise</b></h5>
+                        <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>December 2020</h6>
+                        <hr>
+                    </div>
                 </div>
-            </div>
-            <p>Adobe XD</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:67%">67%</div>
-            </div>
-            <p>Davinci Resolve</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-specialOrange" style="width:50%">50%</div>
-            </div>
 
-            <br>
-        </div>
+                <!--Work Experience-->
+                <div class="block w3-padding-large w3-card-2 w3-white">
+                    <p class="w3-large"><b><i class="fa fa-suitcase fa-fw w3-margin-right w3-text-worksColor"></i>Work Experience</b></p>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Chief Admin Officer - SST Inc.</b></h5>
+                        <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>June 2020 - <span class="w3-tag w3-worksColor w3-round">Current</span></h6>
+                        <hr>
+                    </div>
 
-        <!--Languages-->
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-large "><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-specialOrange"></i>Languages</b></h2>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Chief Executive Officer - Newspace Inc.</b></h5>
+                        <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2020 - <span class="w3-tag w3-worksColor w3-round">Current</span></h6>
+                        <hr>
+                    </div>
+                </div>
 
-            <hr>
+                <!--Tools-->
+                <div class="block w3-padding-large w3-card-2 w3-white">
+                    <p class="w3-large"><b><i class="fa fa-tools fa-fw w3-margin-right w3-text-worksColor"></i>Tools</b></p>
 
-            <p>English</p>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-round-xlarge w3-specialOrange" style="height:24px;width:100%"></div>
-            </div>
-            <p>Chinese</p>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-round-xlarge w3-specialOrange" style="height:24px;width:80%"></div>
-            </div>
+                    <div class="w3-padding-small">
+                        <h5 class="w3-opacity"><b>Developer Tools</b></h5>
+                        <ul class="w3-padding-xsmall">
+                            <li>- GitHub</li>
+                            <li>- Xcode</li>
+                            <li>- Visual Studio Code</li>
+                            <li>- IntelliJ IDEA</li>
+                            <li>- PyCharm</li>
+                        </ul>
 
-            <br>
-        </div>
+                        <h5 class="w3-opacity"><b>Design Tools</b></h5>
+                        <ul class="w3-padding-xsmall">
+                            <li>- Adobe XD</li>
+                            <li>- Figma</li>
+                        </ul>
 
-        <!--Work Experience-->
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16 "><i class="fa fa-suitcase fa-fw w3-margin-right w3-text-specialOrange"></i>Work Experience</h2>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Chief Admin Officer - SST Inc.</b></h5>
-                <h6 class="w3-text-specialOrange"><i class="fa fa-calendar fa-fw w3-margin-right"></i>June 2020 - <span class="w3-tag w3-specialOrange w3-round">Current</span></h6>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Chief Executive Officer - Newspace Inc.</b></h5>
-                <h6 class="w3-text-specialOrange"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2020 - <span class="w3-tag w3-specialOrange w3-round">Current</span></h6>
-                <hr>
-            </div>
-        </div>
+                        <h5 class="w3-opacity"><b>Post-Production</b></h5>
+                        <ul class="w3-padding-xsmall">
+                            <li>- Davinci Resolve</li>
+                            <li>- iMovie</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <!--Education Experience-->
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16 "><i class="fa fa-book fa-fw w3-margin-right w3-text-specialOrange"></i>Education</h2>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>School of Science and Technology, Singapore</b></h5>
-                <h6 class="w3-text-specialOrange"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2019 - 2022</h6>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Radin Mas Primary School</b></h5>
-                <h6 class="w3-text-specialOrange"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2018</h6>
-                <hr>
-            </div>
-        </div>
-
-        <!--Accomplishments-->
-        <div class="w3-container w3-card w3-white">
-            <h2 class="w3-text-grey w3-padding-16 "><i class="fa fa-certificate fa-fw w3-margin-right w3-text-specialOrange"></i>Accomplishments</h2>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Youth Cyber Exploration Programme</b></h5>
-                <h6 class="w3-text-specialOrange"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2020</h6>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Hackwise 2020</b></h5>
-                <h6 class="w3-text-specialOrange"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2020</h6>
-                <hr>
-            </div>
+                <!--Education-->
+                <div class="block w3-padding-large w3-card-2 w3-white">
+                    <p class="w3-large"><b><i class="fa fa-book fa-fw w3-margin-right w3-text-worksColor"></i>Education</b></p>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>School of Science and Technology, Singapore</b></h5>
+                        <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2019 - 2022</h6>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Radin Mas Primary School</b></h5>
+                        <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2018</h6>
+                        <hr>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -216,70 +277,91 @@
 
                 <!--Pocket Science-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2020</li>
-                        <li class="w3-text-gray w3-xlarge">Pocket Science</li>
-                        <li class="w3-text-gray w3-small">Swift</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <!--Image-->
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            Developed using Swift and Cocoapods, Pocket Science hopes to help primary school students are struggling with remembering keywords for their science exams so therefore we decided to help them to study everything by consolidating the all keywords in one app sorted by chapters
-                        </p>
+                        <!--Text-->
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2020</li>
+                                <li class="w3-text-gray w3-worksName">Pocket Science</li>
+                                <li class="w3-text-gray w3-small">Swift</li>
 
-                        <a href="https://github.com/Newspace-Inc/Pocket-Science-iOS">GitHub Repository</a>
-                    </ul>
+                            </ul><br>
+
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Newspace-Inc/Pocket-Science-iOS">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Quake-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2020</li>
-                        <li class="w3-text-gray w3-xlarge">Quake</li>
-                        <li class="w3-text-gray w3-small">Swift</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <!--Image-->
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            Quake is a Earthquake Detection and Quiz App developed using Swift and Cocoapods. This version in GitHub has a Non-Functional API as of 20th December 2020.
-                        </p>
+                        <!--Text-->
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2020</li>
+                                <li class="w3-text-gray w3-worksName">Quake</li>
+                                <li class="w3-text-gray w3-small">Swift</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Quake">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Quake">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--To-Do List-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2020</li>
-                        <li class="w3-text-gray w3-xlarge">To-Do List App</li>
-                        <li class="w3-text-gray w3-small">Swift</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            This is a To-Do List App built in Swift, with a 'Study Mode' feature. It is currently a Work In Progress.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2020</li>
+                                <li class="w3-text-gray w3-worksName">To-Do List App</li>
+                                <li class="w3-text-gray w3-small">Swift</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/To-Do-List">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/To-Do-List">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Random Clicker-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2019</li>
-                        <li class="w3-text-gray w3-xlarge">Random Clicker</li>
-                        <li class="w3-text-gray w3-small">Swift</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            This Random Clicker is built solely on Swift. It is a generic clicker app, however, it randomises the clicker button. This was one of the first iOS Apps I have Developed.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2019</li>
+                                <li class="w3-text-gray w3-worksName">Random Clicker</li>
+                                <li class="w3-text-gray w3-small">Swift</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Random-Clicker">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Random-Clicker">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -288,70 +370,86 @@
 
                 <!--Newdawns-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2018-2019</li>
-                        <li class="w3-text-gray w3-xlarge">Newdawns</li>
-                        <li class="w3-text-gray w3-small">JavaScript</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            NewDawns is a game bot, where you can expand your army, choose an ideology, go to war, increase your population and economy.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2018-2019</li>
+                                <li class="w3-text-gray w3-worksName">Newdawns</li>
+                                <li class="w3-text-gray w3-small">JavaScript</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Newdawns">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Newdawns">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Lvlse-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2019</li>
-                        <li class="w3-text-gray w3-xlarge">Lvlse</li>
-                        <li class="w3-text-gray w3-small">JavaScript</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            Lvlse is a Discord Bot that gives users points as they speak in the server.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2019</li>
+                                <li class="w3-text-gray w3-worksName">Lvlse</li>
+                                <li class="w3-text-gray w3-small">JavaScript</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Lvlse">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Lvlse">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Melodia-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2019</li>
-                        <li class="w3-text-gray w3-xlarge">Melodia</li>
-                        <li class="w3-text-gray w3-small">JavaScript</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            Melodia is a Discord Music Bot that plays music in a Voice Channel.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2019</li>
+                                <li class="w3-text-gray w3-worksName">Melodia</li>
+                                <li class="w3-text-gray w3-small">JavaScript</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Melodia">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Melodia">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Moderation Bot-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2020</li>
-                        <li class="w3-text-gray w3-xlarge">Moderation Bot</li>
-                        <li class="w3-text-gray w3-small">JavaScript</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            This is a Moderation and Fun bot for Discord
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2020</li>
+                                <li class="w3-text-gray w3-worksName">Moderation Bot</li>
+                                <li class="w3-text-gray w3-small">JavaScript</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Moderation-Bot">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Moderation-Bot">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -359,38 +457,47 @@
                 <h3 class="w3-border-bottom w3-border-dark-gray">Personal Projects</h3>
 
                 <!--Personal Projects-->
-                <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2020</li>
-                        <li class="w3-text-gray w3-xlarge">Small Projects</li>
-                        <li class="w3-text-gray w3-small">C++, Swift</li>
-                    </ul>
+                <div class="w3-panel w3-card">
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/Random%20Langs.png" src="Random Languages Img" class="worksIconSize">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            Random Projects made with different Programming Languages.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2020</li>
+                                <li class="w3-text-gray w3-worksName">Small Projects</li>
+                                <li class="w3-text-gray w3-small">C++, Swift</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Personal Website-->
                 <div class="w3-panel w3-card w3-padding-works">
-                    <ul class="w3-padding-xsmall">
-                        <li class="w3-text-gray w3-large">2020</li>
-                        <li class="w3-text-gray w3-xlarge">Personal Website</li>
-                        <li class="w3-text-gray w3-small">HTML, CSS</li>
-                    </ul>
+                    <div class="w3-bar">
+                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                            <img src="assets/img/HTML.png" src="HTML Img" class="worksIconSize">
+                        </div>
 
-                    <ul class="w3-padding-xsmall">
-                        <p>
-                            The GitHub Repository for my Personal Website built using HTML and CSS.
-                        </p>
+                        <div class="w3-bar-item">
+                            <ul class="w3-padding-xsmall">
+                                <li class="w3-text-gray w3-large">2020</li>
+                                <li class="w3-text-gray w3-worksName">Personal Website</li>
+                                <li class="w3-text-gray w3-small">HTML, CSS</li>
+                            </ul><br>
 
-                        <a href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
-                    </ul>
+                            <ul class="w3-padding-xsmall">
+                                <a href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

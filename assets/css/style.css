@@ -1234,6 +1234,15 @@ a {
     font-size: 12.5px !important
 }
 
+.w3-worksName {
+    font-size: 20px !important
+}
+
+.worksIconSize {
+    width: 60px;
+    height: 60px;
+}
+
 .tableHeading {
     font-size: 24px !important;
 }
@@ -3075,6 +3084,15 @@ li {
 
     .w3-xlarge {
         font-size:24px !important
+    }
+
+    .w3-worksName {
+        font-size: 24px !important
+    }
+
+    .worksIconSize {
+        width: 140px;
+        height: 140px;
     }
 
     .tableHeading {
