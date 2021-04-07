@@ -79,6 +79,6 @@ function hidePJ() {
     }
 }
 
-function toggleMobileHam(obj) {
-    obj.classList.toggle("hamburgTransition");
-}
+// function toggleMobileHam(obj) {
+//     obj.classList.toggle("hamburgTransition");
+// }

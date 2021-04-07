@@ -6,11 +6,30 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+
     <script src="https://kit.fontawesome.com/fdf12baabd.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
     <link rel='icon' href='assets/img/Favicon.png' type='image/x-icon'>
     <title>Ethan Chew</title>
 </head>
+
 <body class="w3-gray">
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBpmszb8QyFvfH2QFG9DuVzKh0nNRRutKA",
+            authDomain: "ethanchew-me.firebaseapp.com",
+            projectId: "ethanchew-me",
+            storageBucket: "ethanchew-me.appspot.com",
+            messagingSenderId: "476991180749",
+            appId: "1:476991180749:web:2bfdd5e4c8f0cfae64fe84",
+            measurementId: "G-1WSVX5927K"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
 <!-- Navigation Bar -->
 <div class="w3-top">
     <!-- Normal Navigation Bar -->
@@ -20,19 +39,19 @@
             <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="navBar()" title="Toggle Navigation Menu">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="https://ethan-chew.github.io/#about" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">About Me</a>
-            <a href="https://ethan-chew.github.io/#resume" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">Resume</a>
-            <a href="https://ethan-chew.github.io/#works" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">My Works</a>
-            <a href="https://ethan-chew.github.io/#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge w3-hide-small">Contact</a>
+            <a href="https://ethanchew.me/#about" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">About Me</a>
+            <a href="https://ethanchew.me/#resume" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">Resume</a>
+            <a href="https://ethanchew.me/#works" class="w3-bar-item w3-button w3-round-xlarge w3-hide-small">My Works</a>
+            <a href="https://ethanchew.me/#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge w3-hide-small">Contact</a>
         </div>
     </div>
 
     <!-- Small Navigation Bar -->
     <div id="Small Nav" class="w3-bar-block w3-white w3-padding w3-card w3-hide w3-hide-large w3-hide-medium">
-        <a href="https://ethan-chew.github.io/#about" class="w3-bar-item w3-button">About Me</a>
-        <a href="https://ethan-chew.github.io/#resume" class="w3-bar-item w3-button">Resume</a>
-        <a href="https://ethan-chew.github.io/#works" class="w3-bar-item w3-button">My Works</a>
-        <a href="https://ethan-chew.github.io/#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge">Contact</a>
+        <a href="https://ethanchew.me/#about" class="w3-bar-item w3-button">About Me</a>
+        <a href="https://ethanchew.me/#resume" class="w3-bar-item w3-button">Resume</a>
+        <a href="https://ethanchew.me/#works" class="w3-bar-item w3-button">My Works</a>
+        <a href="https://ethanchew.me/#contact" class="w3-bar-item w3-button w3-border w3-round-xlarge">Contact</a>
     </div>
 </div>
 
