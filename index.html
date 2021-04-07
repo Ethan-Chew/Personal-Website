@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!--    <script src="assets/js/index.js"></script>-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+
     <script src="https://kit.fontawesome.com/fdf12baabd.js" crossorigin="anonymous"></script>
-<!--    <script src="assets/js/index.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+    <noscript>JavaScript is Required to view the site.</noscript>
     <link rel='icon' href='assets/img/Favicon.png' type='image/x-icon'>
     <title>Ethan Chew</title>
 </head>
@@ -68,6 +73,22 @@
         height: 700px;
     }
 </style>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyBpmszb8QyFvfH2QFG9DuVzKh0nNRRutKA",
+        authDomain: "ethanchew-me.firebaseapp.com",
+        projectId: "ethanchew-me",
+        storageBucket: "ethanchew-me.appspot.com",
+        messagingSenderId: "476991180749",
+        appId: "1:476991180749:web:2bfdd5e4c8f0cfae64fe84",
+        measurementId: "G-1WSVX5927K"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
 
 <!-- Navigation Bar -->
 <div class="w3-top">
@@ -111,9 +132,9 @@
     <!-- About Section -->
     <div class="w3-display-container w3-padding-16" style="padding-left: 30px; padding-right: 30px;" id="about">
         <div style="padding-top: 60px;">
-            <h3 class="w3-xxlarge w3-display-topmiddle"><b>About Me</b></h3>
+            <h3 class="contentHeader w3-display-topmiddle"><b>About Me</b></h3>
             <div class="w3-row">
-                <div class="w3-container w3-padding w3-card column aboutSectionContainer w3-round-xlarge">
+                <div class="w3-container w3-padding w3-card column aboutSectionContainer w3-round-xlarge w3-center">
                     <h2>Hello!</h2>
                     <p style="font-family: Nunito Sans">
                         I'm Ethan Chew, a 14 year old, studying Computing in the School of Science and Technology, Singapore. I am a Self-Taught Developer and Designer. I have been programming since 2016, starting off with Scratch and Lua.
@@ -137,9 +158,9 @@
                         To contact me, there are links below. For work purposes, use the Google Form below.
                     </p>
                     <div class="socialMediaLinks">
-                        <a href="https://github.com/Ethan-Chew" class="fab fa-github"></a>
-                        <a href="https://www.linkedin.com/in/ethan-chew/" class="fab fa-linkedin-in"></a>
-                        <a href="https://discord.com/users/598106065934090260/" class="fab fa-discord"></a>
+                        <a href="https://go.ethanchew.me/github" class="fab fa-github"></a>
+                        <a href="https://go.ethanchew.me/LinkedIn" class="fab fa-linkedin-in"></a>
+                        <a href="https://go.ethanchew.me/discord" class="fab fa-discord"></a>
                         <a href="mailto:general@ethanchew.me" class="far fa-envelope-open"></a>
                     </div>
                 </div>
@@ -150,10 +171,10 @@
     <!--Resume Container-->
     <div class="w3-content w3-padding-xlarge w3-light-gray w3-display-container" style="max-width:1920px" id="resume">
         <div style="padding-top: 60px;">
-            <h3 class="w3-xxlarge w3-display-topmiddle"><b>Resume</b></h3>
+            <h3 class="contentHeader w3-display-topmiddle"><b>Resume</b></h3>
 
             <div id="resumeContainer">
-                <section class="blocks">
+                <section class="blocks" style="padding-bottom: 20px">
                     <!--Programming Languages-->
                     <div class="block w3-padding-large w3-card-2 w3-white w3-round-xlarge">
                         <p class="w3-large"><b><i class="fa fa-code fa-fw w3-margin-right w3-text-worksColor"></i>Programming Languages</b></p>
@@ -175,8 +196,8 @@
                         <br>
 
                         <div class="w3-light-grey w3-round-xlarge w3-small">
-                            <div class="w3-container w3-center w3-round-xlarge w3-worksColor" style="width:67%">
-                                <div class="w3-center w3-text-white">Python</div>
+                            <div class="w3-container w3-center w3-round-xlarge w3-worksColor" style="width:70%">
+                                <div class="w3-center w3-text-white">Javascript</div>
                             </div>
                         </div>
 
@@ -236,14 +257,16 @@
                             <h5 class="w3-opacity"><b>Post-Production</b></h5>
                             <ul class="w3-padding-xsmall">
                                 <li>- Davinci Resolve</li>
-                                <li>- iMovie</li>
+                                <li>- iMovie/Garageband</li>
                             </ul>
                         </div>
                     </div>
 
                     <!--Education-->
                     <div class="block w3-padding-large w3-card-2 w3-white w3-round-xlarge">
-                        <p class="w3-large"><b><i class="fa fa-book fa-fw w3-margin-right w3-text-worksColor"></i>Education</b></p>
+                        <p class="w3-large">
+                            <b><i class="fa fa-book fa-fw w3-margin-right w3-text-worksColor"></i>Education</b>
+                        </p>
                         <div class="w3-container">
                             <h5 class="w3-opacity"><b>School of Science and Technology, Singapore</b></h5>
                             <h6 class="w3-text-worksColor"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2019 - 2022</h6>
@@ -256,6 +279,52 @@
                         </div>
                     </div>
                 </section>
+
+                <!--School Projects-->
+                <div class="block w3-padding-large w3-card-2 w3-white w3-round-xlarge">
+                    <p class="w3-large">
+                        <b><i class="fa fa-book fa-fw w3-margin-right w3-text-worksColor"></i>School Projects</b>
+                        <button onclick="hideSchoolWorks()" class="w3-margin-left fa fa-arrow-circle-down openCloseBtn" id="hideShowSP"></button>
+                    </p>
+                    <p style="display: block; font-family: Nunito Sans" id="expandText">Press the Button to Expand</p>
+                    <div id="schProjContainer" style="display: none">
+                        <div class="w3-container" >
+                            <h5 class="w3-opacity"><b>2020 History Performance Task</b></h5>
+                            <h6 class="w3-text-worksColor" style="font-family: Nunito Sans"><i class=""></i>In this Performance Task, we researched and created a documentary about Lee Kong Chian, a Chinese businessman and philanthropist.</h6>
+                            <ul style="padding-top: 5px; padding-bottom: 5px; padding-left: 0px;">
+                                <a href="./403.html" style="font-family: Nunito Sans">Viewing Link</a>
+                            </ul>
+                            <hr>
+                        </div>
+                        <div class="w3-container" >
+                            <h5 class="w3-opacity"><b>2020 Physics Performance Task</b></h5>
+                            <h6 class="w3-text-worksColor" style="font-family: Nunito Sans"><i class=""></i>In this Performance Task, I researched and made an online prototype of a simple burglar alarm with the Arduino Uno.</h6>
+                            <ul style="padding-top: 5px; padding-bottom: 5px; padding-left: 0px;">
+                                <a href="./403.html" style="font-family: Nunito Sans">Viewing Link</a>
+                            </ul>
+                            <hr>
+                        </div>
+                        <div class="w3-container" >
+                            <h5 class="w3-opacity"><b>2020 Chinese Performance Task</b></h5>
+                            <h6 class="w3-text-worksColor" style="font-family: Nunito Sans"><i class=""></i>In this Performance Task, we created a video showing the journey that we experienced when going to Gardens by the Bay in Singapore.</h6>
+                            <ul style="padding-top: 5px; padding-bottom: 5px; padding-left: 0px;">
+                                <a href="./403.html" style="font-family: Nunito Sans">Viewing Link</a>
+                            </ul>
+                            <hr>
+                        </div>
+                        <div class="w3-container" >
+                            <h5 class="w3-opacity"><b>2021 Additional Mathematics Performance Task</b></h5>
+                            <h6 class="w3-text-worksColor" style="font-family: Nunito Sans"><i class=""></i>In this Performance Task, we researched and created a online model and report of a proposed shelter that we can build for our school.</h6>
+                            <ul style="padding-top: 5px; padding-bottom: 0px; padding-left: 0px;">
+                                <a href="https://drive.google.com/file/d/1LH2iEPa-2XNDk0QW81trw9R8KNDeUD8m/view?usp=sharing" style="font-family: Nunito Sans">Viewing Link (Individual)</a>
+                            </ul>
+                            <ul style="padding-top: 0px; padding-bottom: 5px; padding-left: 0px;">
+                                <a href="https://drive.google.com/file/d/1Zs2RoHpGhmhWXBafdbUDfbY_sKVZWYdn/view?usp=sharing" style="font-family: Nunito Sans">Viewing Link (Group)</a>
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -263,234 +332,249 @@
     <!--Works-->
     <div class="w3-display-container w3-padding-xlarge" style="max-width:1920px" id="works">
         <div style="padding-top: 60px;">
-            <h3 class="w3-xxlarge w3-display-topmiddle"><b>My Works</b></h3>
+            <h3 class="contentHeader w3-display-topmiddle"><b>My Works</b></h3>
+            <div class="w3-padding-large w3-card w3-round-xlarge w3-padding-16">
+                <h3 class="">
+                    iOS Apps
+                    <button onclick="hideiOSApps()" class="w3-margin-left fa fa-arrow-circle-down openCloseBtn" id="hideShowApp"></button>
+                </h3>
+                <p style="display: block; font-family: Nunito Sans" id="expandText1">Press the Button to Expand</p>
 
-            <div class="w3-padding-large">
-                <h3 class="">iOS Apps</h3>
+                <div id="iOSAppContainer" style="display: none">
+                    <!--Pocket Science-->
+                    <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                        <div class="w3-bar">
+                            <!--Image-->
+                            <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                            </div>
 
-                <!--Pocket Science-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <!--Image-->
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
-                        </div>
+                            <!--Text-->
+                            <div class="w3-bar-item">
+                                <ul class="w3-padding-xsmall">
+                                    <li class="w3-text-gray w3-large">2020-2021</li>
+                                    <li class="w3-text-gray w3-worksName">Pocket Science</li>
+                                    <li class="w3-text-gray w3-small">Swift</li>
 
-                        <!--Text-->
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2020-2021</li>
-                                <li class="w3-text-gray w3-worksName">Pocket Science</li>
-                                <li class="w3-text-gray w3-small">Swift</li>
+                                </ul><br>
 
-                            </ul><br>
-
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Newspace-Inc/Pocket-Science-iOS">GitHub Repository</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Quake-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <!--Image-->
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
-                        </div>
-
-                        <!--Text-->
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2020</li>
-                                <li class="w3-text-gray w3-worksName">Quake</li>
-                                <li class="w3-text-gray w3-small">Swift</li>
-                            </ul><br>
-
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Quake">GitHub Repository</a>
-                            </ul>
+                                <ul class="w3-padding-xsmall">
+                                    <a style="font-family: Nunito Sans" href="https://github.com/Newspace-Inc/Pocket-Science-iOS">GitHub Repository</a>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!--To-Do List-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
-                        </div>
+                    <!--Quake-->
+                    <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                        <div class="w3-bar">
+                            <!--Image-->
+                            <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                            </div>
 
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2020</li>
-                                <li class="w3-text-gray w3-worksName">To-Do List App</li>
-                                <li class="w3-text-gray w3-small">Swift</li>
-                            </ul><br>
+                            <!--Text-->
+                            <div class="w3-bar-item">
+                                <ul class="w3-padding-xsmall">
+                                    <li class="w3-text-gray w3-large">2020</li>
+                                    <li class="w3-text-gray w3-worksName">Quake</li>
+                                    <li class="w3-text-gray w3-small">Swift</li>
+                                </ul><br>
 
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/To-Do-List">GitHub Repository</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Random Clicker-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
-                        </div>
-
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2019</li>
-                                <li class="w3-text-gray w3-worksName">Random Clicker</li>
-                                <li class="w3-text-gray w3-small">Swift</li>
-                            </ul><br>
-
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Random-Clicker">GitHub Repository</a>
-                            </ul>
+                                <ul class="w3-padding-xsmall">
+                                    <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Quake">GitHub Repository</a>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="w3-padding-large">
-                <h3 class="">Discord Bots (Discord.js)</h3>
+                    <!--To-Do List-->
+                    <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                        <div class="w3-bar">
+                            <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                            </div>
 
-                <!--Newdawns-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
-                        </div>
+                            <div class="w3-bar-item">
+                                <ul class="w3-padding-xsmall">
+                                    <li class="w3-text-gray w3-large">2020</li>
+                                    <li class="w3-text-gray w3-worksName">To-Do List App</li>
+                                    <li class="w3-text-gray w3-small">Swift</li>
+                                </ul><br>
 
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2018-2019</li>
-                                <li class="w3-text-gray w3-worksName">Newdawns</li>
-                                <li class="w3-text-gray w3-small">JavaScript</li>
-                            </ul><br>
-
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Newdawns">GitHub Repository</a>
-                            </ul>
+                                <ul class="w3-padding-xsmall">
+                                    <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/To-Do-List">GitHub Repository</a>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!--Lvlse-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
-                        </div>
+                    <!--Random Clicker-->
+                    <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                        <div class="w3-bar">
+                            <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                <img src="assets/img/Swift.png" class="worksIconSize" alt="Swift Img">
+                            </div>
 
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2019</li>
-                                <li class="w3-text-gray w3-worksName">Lvlse</li>
-                                <li class="w3-text-gray w3-small">JavaScript</li>
-                            </ul><br>
+                            <div class="w3-bar-item">
+                                <ul class="w3-padding-xsmall">
+                                    <li class="w3-text-gray w3-large">2019</li>
+                                    <li class="w3-text-gray w3-worksName">Random Clicker</li>
+                                    <li class="w3-text-gray w3-small">Swift</li>
+                                </ul><br>
 
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Lvlse">GitHub Repository</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Melodia-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
-                        </div>
-
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2019</li>
-                                <li class="w3-text-gray w3-worksName">Melodia</li>
-                                <li class="w3-text-gray w3-small">JavaScript</li>
-                            </ul><br>
-
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Melodia">GitHub Repository</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Moderation Bot-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/JavaScript.png" src="JavaScript Img" class="worksIconSize">
-                        </div>
-
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2020</li>
-                                <li class="w3-text-gray w3-worksName">Moderation Bot</li>
-                                <li class="w3-text-gray w3-small">JavaScript</li>
-                            </ul><br>
-
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Moderation-Bot">GitHub Repository</a>
-                            </ul>
+                                <ul class="w3-padding-xsmall">
+                                    <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Random-Clicker">GitHub Repository</a>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="w3-padding-large w3-padding-works">
-                <h3 class="">Personal Projects</h3>
+            <div class="w3-padding-24">
+                <div class="w3-padding-large w3-card w3-round-xlarge w3-padding-16">
+                    <h3 class="">Discord Bots (Discord.js)
+                        <button onclick="hideDiscBot()" class="w3-margin-left fa fa-arrow-circle-down openCloseBtn" id="hideShowBot"></button>
+                    </h3>
+                    <p style="display: block; font-family: Nunito Sans" id="expandText2">Press the Button to Expand</p>
+                    <div id="discBotContainer" style="display: none">
+                        <!--Newdawns-->
+                        <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                            <div class="w3-bar">
+                                <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                    <img src="assets/img/JavaScript.png" alt="JavaScript Img" class="worksIconSize">
+                                </div>
 
-                <!--Personal Projects-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/Random%20Langs.png" src="Random Languages Img" class="worksIconSize">
+                                <div class="w3-bar-item">
+                                    <ul class="w3-padding-xsmall">
+                                        <li class="w3-text-gray w3-large">2018-2019</li>
+                                        <li class="w3-text-gray w3-worksName">Newdawns</li>
+                                        <li class="w3-text-gray w3-small">JavaScript</li>
+                                    </ul><br>
+
+                                    <ul class="w3-padding-xsmall">
+                                        <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Newdawns">GitHub Repository</a>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2020</li>
-                                <li class="w3-text-gray w3-worksName">Small Projects</li>
-                                <li class="w3-text-gray w3-small">C++, Swift</li>
-                            </ul><br>
+                        <!--Lvlse-->
+                        <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                            <div class="w3-bar">
+                                <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                    <img src="assets/img/JavaScript.png" alt="JavaScript Img" class="worksIconSize">
+                                </div>
 
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
-                            </ul>
+                                <div class="w3-bar-item">
+                                    <ul class="w3-padding-xsmall">
+                                        <li class="w3-text-gray w3-large">2019</li>
+                                        <li class="w3-text-gray w3-worksName">Lvlse</li>
+                                        <li class="w3-text-gray w3-small">JavaScript</li>
+                                    </ul><br>
+
+                                    <ul class="w3-padding-xsmall">
+                                        <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Lvlse">GitHub Repository</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Melodia-->
+                        <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                            <div class="w3-bar">
+                                <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                    <img src="assets/img/JavaScript.png" alt="JavaScript Img" class="worksIconSize">
+                                </div>
+
+                                <div class="w3-bar-item">
+                                    <ul class="w3-padding-xsmall">
+                                        <li class="w3-text-gray w3-large">2019</li>
+                                        <li class="w3-text-gray w3-worksName">Melodia</li>
+                                        <li class="w3-text-gray w3-small">JavaScript</li>
+                                    </ul><br>
+
+                                    <ul class="w3-padding-xsmall">
+                                        <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Melodia">GitHub Repository</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Moderation Bot-->
+                        <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                            <div class="w3-bar">
+                                <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                    <img src="assets/img/JavaScript.png" alt="JavaScript Img" class="worksIconSize">
+                                </div>
+
+                                <div class="w3-bar-item">
+                                    <ul class="w3-padding-xsmall">
+                                        <li class="w3-text-gray w3-large">2020</li>
+                                        <li class="w3-text-gray w3-worksName">Moderation Bot</li>
+                                        <li class="w3-text-gray w3-small">JavaScript</li>
+                                    </ul><br>
+
+                                    <ul class="w3-padding-xsmall">
+                                        <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Moderation-Bot">GitHub Repository</a>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!--Personal Website-->
-                <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
-                    <div class="w3-bar">
-                        <div class="w3-bar-item w3-hide-small w3-hide-medium">
-                            <img src="assets/img/HTML.png" src="HTML Img" class="worksIconSize">
+            <div class="w3-padding-large w3-padding-works w3-card w3-round-xlarge w3-padding-16">
+                <h3 class="">Personal Projects
+                    <button onclick="hidePJ()" class="w3-margin-left fa fa-arrow-circle-down openCloseBtn" id="hideShowPJ"></button>
+                </h3>
+                <p style="display: block; font-family: Nunito Sans" id="expandText3">Press the Button to Expand</p>
+
+                <div id="personalProjContainer" style="display: none">
+                    <!--Personal Projects-->
+                    <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                        <div class="w3-bar">
+                            <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                <img src="assets/img/Random%20Langs.png" alt="Random Languages Img" class="worksIconSize">
+                            </div>
+
+                            <div class="w3-bar-item">
+                                <ul class="w3-padding-xsmall">
+                                    <li class="w3-text-gray w3-large">2020</li>
+                                    <li class="w3-text-gray w3-worksName">Small Projects</li>
+                                    <li class="w3-text-gray w3-small">C++, Swift</li>
+                                </ul><br>
+
+                                <ul class="w3-padding-xsmall">
+                                    <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="w3-bar-item">
-                            <ul class="w3-padding-xsmall">
-                                <li class="w3-text-gray w3-large">2020</li>
-                                <li class="w3-text-gray w3-worksName">Personal Website</li>
-                                <li class="w3-text-gray w3-small">HTML, CSS</li>
-                            </ul><br>
+                    <!--Personal Website-->
+                    <div class="w3-panel w3-card w3-padding-works w3-round-xlarge">
+                        <div class="w3-bar">
+                            <div class="w3-bar-item w3-hide-small w3-hide-medium">
+                                <img src="assets/img/HTML.png" alt="HTML Img" class="worksIconSize">
+                            </div>
 
-                            <ul class="w3-padding-xsmall">
-                                <a href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
-                            </ul>
+                            <div class="w3-bar-item">
+                                <ul class="w3-padding-xsmall">
+                                    <li class="w3-text-gray w3-large">2020</li>
+                                    <li class="w3-text-gray w3-worksName">Personal Website</li>
+                                    <li class="w3-text-gray w3-small">HTML, CSS</li>
+                                </ul><br>
+
+                                <ul class="w3-padding-xsmall">
+                                    <a style="font-family: Nunito Sans" href="https://github.com/Ethan-Chew/Small-Projects">GitHub Repository</a>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

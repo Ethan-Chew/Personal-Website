@@ -1,10 +1,28 @@
 /*MOBILE*/
+:root {
+    color-scheme: light;
+}
 
 .aboutSectionContainer {
     height: 250px;
     width: 150px;
     padding-right: 10px;
     padding-left: 15px;
+}
+
+.openCloseBtn {
+    border: 0px solid;
+    border-radius: 15px;
+    box-shadow: 0px 1px 3px #666666;
+    font-size: 12px;
+    background: #3fcc29;
+    padding: 10px 17px 10px 17px;
+    text-decoration: none;
+}
+
+.openCloseBtn:hover {
+    background: #2e8a1d;
+    text-decoration: none;
 }
 
 .column {
@@ -1267,6 +1285,10 @@ a {
     font-size:36px !important
 }
 
+.contentHeader {
+    font-size: 30px !important;
+}
+
 .w3-xxxlarge {
     font-size:48px !important
 }
@@ -1872,6 +1894,11 @@ li {
 
 /*DESKTOP*/
 @media only screen and (min-width: 770px) {
+    /*Force light mode*/
+    :root {
+        color-scheme: light;
+    }
+
     .aboutSectionContainer {
         height: 410px;
         width: 500px;
@@ -3125,6 +3152,10 @@ li {
 
     .w3-xxlarge {
         font-size:36px !important
+    }
+
+    .contentHeader {
+        font-size: 36px !important;
     }
 
     .w3-xxxlarge {

@@ -5,11 +5,28 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
-    <script src="https://kit.fontawesome.com/fdf12baabd.js" crossorigin="anonymous"></script>
     <link rel='icon' href='assets/img/Favicon.png' type='image/x-icon'>
+
+    <script src="https://kit.fontawesome.com/fdf12baabd.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
     <title>Ethan Chew</title>
 </head>
 <body class="w3-gray">
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBpmszb8QyFvfH2QFG9DuVzKh0nNRRutKA",
+        authDomain: "ethanchew-me.firebaseapp.com",
+        projectId: "ethanchew-me",
+        storageBucket: "ethanchew-me.appspot.com",
+        messagingSenderId: "476991180749",
+        appId: "1:476991180749:web:2bfdd5e4c8f0cfae64fe84",
+        measurementId: "G-1WSVX5927K"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
 <!-- Navigation Bar -->
 <div class="w3-top">
     <!-- Normal Navigation Bar -->
@@ -40,7 +57,7 @@
         <img src="assets/img/Name%20Logo.png" alt="Ethan Chew" width="150" height="30">
     </a>
     <p>
-        <b>Error 404.</b>
+        <b>Error 404</b>
     </p>
     <p>
         The Website Path you are searching for does not exist. That's all I know.
