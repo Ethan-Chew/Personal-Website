@@ -6,7 +6,7 @@ import {
     HStack,
     IconButton,
     Divider,
-    Link
+    Container
   } from '@chakra-ui/react';
 import { useRouter } from 'next/router'
 import { FaDiscord, FaLinkedin, FaGithub } from 'react-icons/fa'
@@ -20,7 +20,7 @@ export default function Header() {
   }
 
   return (
-    <Box mt={5}>
+    <Container maxW="container.lg" mt={5} mb={3}>
       <VStack alignItems="left" spacing={4}>
         <VStack alignItems="left">
           <Heading fontSize="50px">Ethan Chew</Heading>
@@ -34,7 +34,7 @@ export default function Header() {
           <IconButton icon={<FaDiscord size={22} />} aria-label={"Discord"}  onClick={() => router.push(links.Discord)}/>
         </HStack>
       </VStack>
-    </Box>
+    </Container>
   )
 }
 

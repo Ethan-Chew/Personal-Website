@@ -20,7 +20,7 @@ const TabBox = () => {
                                     <VStack alignItems="left">
                                         <Text fontSize="20px"><b>JavaScript</b></Text>
                                         <Text>
-                                            Currently, most of the projects I've worked on are written in JavaScript. For example, this website and other projects on my GitHub account.
+                                            Currently, most of the projects I have worked on are written in JavaScript. For example, this website and other projects on my GitHub account.
                                         </Text>
                                     </VStack>
 
@@ -106,7 +106,7 @@ const TabBox = () => {
                                         <Text fontSize="18px"><b>2021 Additional Mathematics Performance Task</b></Text>
                                         <Text>In this Performance Task, we researched and created a online model and report of a proposed shelter that we can build for our school.</Text>
                                     </VStack>
-                                    <VStack alignItems="left">
+                                    <VStack alignItems="left" spacing={0}>
                                         <Link href="https://drive.google.com/file/d/1LH2iEPa-2XNDk0QW81trw9R8KNDeUD8m/view?usp=sharing" isExternal color="teal.500">Viewing Link (Individual)</Link>
                                         <Link href="https://drive.google.com/file/d/1Zs2RoHpGhmhWXBafdbUDfbY_sKVZWYdn/view?usp=sharing" isExternal color="teal.500">Viewing Link (Group)</Link>
                                     </VStack>

@@ -1,4 +1,4 @@
-import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image } from "@chakra-ui/react"
+import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container } from "@chakra-ui/react"
 import { useEffect } from "react"
 
 // Components
@@ -40,32 +40,42 @@ export default function Home() {
 
   return (
     <Box mx={20} ml={3} mr={3}>
-      <VStack spacing={10} alignItems="left">
-        <Header/>
+      <VStack spacing={10} alignItems="center">
+        <Header />
 
-        <VStack alignItems="left">
-          <Heading mb={3}>Education</Heading>
-          {Schools.map((school) => (
-            <EducationBox key={school.name} school={school} />
-          ))}
-        </VStack>
+        <Container maxW="container.lg">
+          <Heading mb={4}>Education</Heading>
+          <VStack alignItems="left" spacing={5}>
+            {Schools.map((school) => (
+              <EducationBox key={school.name} school={school} />
+            ))}
+          </VStack>
+        </Container>
+
         <Divider />
-        <VStack alignItems="left">
-          <Heading mb={3}>Work Experience</Heading>
-          {Jobs.map((job) => (
-            <ExpBox key={job.name} data={job} />
-          ))}
-        </VStack>
+
+        <Container maxW="container.lg">
+          <Heading mb={4}>Work Experience</Heading>
+          <VStack spacing={3} alignItems="left">
+            {Jobs.map((job) => (
+              <ExpBox key={job.name} data={job} />
+            ))}
+          </VStack>
+        </Container>
+
         <Divider />
-        <VStack alignItems="left">
-          <Heading mb={3}>Projects</Heading>
+
+        <Container maxW="container.lg">
+          <Heading mb={4}>Projects</Heading>
           <ProjectsBox />
-        </VStack>
+        </Container>
+
         <Divider />
-        <VStack alignItems="left">
-          <Heading mb={3}>Knowledge and Skills</Heading>
+
+        <Container maxW="container.lg">
+          <Heading mb={4}>Knowledge and Skills</Heading>
           <TabBox />
-        </VStack>
+        </Container>
       </VStack>
     </Box>
   )

@@ -86,7 +86,7 @@ const ProjectsBox = () => {
             {iosStatus ?
                 <VStack spacing={3} alignItems="left">
                 {iOSApps.map((Project) => (
-                    <DataBox id={Project.name} Project={Project} />
+                    <DataBox key={Project.name} Project={Project} />
                 ))}
                 </VStack> 
                 : <Text>Press the Button to Expand</Text>}
@@ -103,7 +103,7 @@ const ProjectsBox = () => {
             {reactStatus ?
                 <VStack spacing={3} alignItems="left">
                 {reactApps.map((Project) => (
-                    <DataBox id={Project.name} Project={Project} />
+                    <DataBox key={Project.name} Project={Project} />
                 ))}
                 </VStack> 
                 : <Text>Press the Button to Expand</Text>}
