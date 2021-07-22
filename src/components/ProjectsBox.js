@@ -1,6 +1,10 @@
-import { Box, HStack, Text, IconButton, Badge, VStack, Link } from "@chakra-ui/react"
+import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image } from "@chakra-ui/react"
 import { useState } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+
+const Swift = require("/src/assets/img/Swift.png")
+const JS = require("../assets/img/JavaScript.png")
+const Others = require("../assets/img/Random Langs.png")
 
 const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)
@@ -9,30 +13,65 @@ const ProjectsBox = () => {
 
     // Project Data
     const iOSApps = [{
-        name: "Placeholder 1",
+        name: "Pocket Science",
+        language: "Swift",
+        currentlyUpdated: true,
+        year: "2020-2021",
+        ghRepo: "https://github.com/Newspace-Inc/Pocket-Science-iOS",
+        pic: "Swift"
+    }, {
+        name: "Scout Attendance",
         language: "Swift",
         currentlyUpdated: false,
-        lastUpdated: "",
-        desc: "Placeholder",
-        ghRepo: ""
+        year: "2021",
+        ghRepo: "https://github.com/Ethan-Chew/ScoutsAttendance",
+        pic: "Swift"
+    }, {
+        name: "Quake",
+        language: "Swift",
+        currentlyUpdated: false,
+        year: "2020",
+        ghRepo: "https://github.com/Ethan-Chew/Quake",
+        pic: "Swift"
+    }, {
+        name: "Random Clicker",
+        language: "Swift",
+        currentlyUpdated: false,
+        year: "2019",
+        ghRepo: "https://github.com/Ethan-Chew/Random-Clicker",
+        pic: "Swift"
     }]
 
     const reactApps = [{
-        name: "Placeholder 2",
-        language: "JavaScript",
+        name: "SST Inc. Management Platform",
+        language: "TypeScript, React",
         currentlyUpdated: true,
-        lastUpdated: "",
-        desc: "Placeholder",
-        ghRepo: ""
+        year: "2021",
+        ghRepo: "https://github.com/theboi/smp-sstinc-org",
+        pic: "JS"
     }]
 
     const ppApps = [{
-        name: "Placeholder",
-        language: "Python",
+        name: "Small Projects",
+        language: "Python, C++",
         currentlyUpdated: false,
-        lastUpdated: "",
-        desc: "Placeholder",
-        ghRepo: ""
+        year: "2020",
+        ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
+        pic: "Others"
+    }, {
+        name: "Web Apps",
+        language: "JavaScript, React",
+        currentlyUpdated: true,
+        year: "2021",
+        ghRepo: "https://github.com/Ethan-Chew/Web-Apps",
+        pic: "JS"
+    }, {
+        name: "Personal Website",
+        language: "JavaScript, React",
+        currentlyUpdated: true,
+        year: "2021",
+        ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
+        pic: "JS"
     }]
   
     return(
@@ -45,11 +84,11 @@ const ProjectsBox = () => {
                 <IconButton colorScheme="teal" aria-label={iosStatus ? "Close" : "Open"} size="sm" icon={iosStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {iosStatus ? setiosStatus(false) : setiosStatus(true)}}/>
             </HStack>
             {iosStatus ?
-                <Box>
+                <VStack spacing={3} alignItems="left">
                 {iOSApps.map((Project) => (
                     <DataBox id={Project.name} Project={Project} />
                 ))}
-                </Box> 
+                </VStack> 
                 : <Text>Press the Button to Expand</Text>}
           </Box>
         </Box>
@@ -62,11 +101,11 @@ const ProjectsBox = () => {
                 <IconButton colorScheme="teal" aria-label={reactStatus ? "Close" : "Open"} size="sm" icon={reactStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {reactStatus ? setreactStatus(false) : setreactStatus(true)}}/>
             </HStack>
             {reactStatus ?
-                <Box>
+                <VStack spacing={3} alignItems="left">
                 {reactApps.map((Project) => (
                     <DataBox id={Project.name} Project={Project} />
                 ))}
-                </Box> 
+                </VStack> 
                 : <Text>Press the Button to Expand</Text>}
           </Box>
         </Box>
@@ -79,11 +118,11 @@ const ProjectsBox = () => {
                 <IconButton colorScheme="teal" aria-label={ppStatus ? "Close" : "Open"} size="sm" icon={ppStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {ppStatus ? setppStatus(false) : setppStatus(true)}}/>
             </HStack>
             {ppStatus ?
-                <Box>
+                <VStack spacing={3} alignItems="left">
                 {ppApps.map((Project) => (
-                    <DataBox id={Project.name} Project={Project} />
+                    <DataBox key={Project.name} Project={Project} />
                 ))}
-                </Box> 
+                </VStack> 
                 : <Text>Press the Button to Expand</Text>}
           </Box>
         </Box>
@@ -93,21 +132,30 @@ const ProjectsBox = () => {
 
 const DataBox = ({Project}) => {    
     return(
-        <VStack alignItems="left" spacing={2}>
-            <Box>
+        <Box borderRadius="md" border="1px grey solid">
+            <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack>
-                    <Text fontSize="20px"><b>{Project.name}</b></Text>
-                    {(Project.currentlyUpdated) ? <Badge colorScheme="green">Updated</Badge> : <Badge colorScheme="red">No longer updated</Badge>}
+                    <Box>
+                        {Project.pic === "Swift" ? <Image src={Swift} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
+                        {Project.pic === "JS" ? <Image src={JS} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Others" ? <Image src={Others} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                    </Box>
+                    <Box>
+                        <VStack alignItems="left" spacing={0}>
+                            <Text><b>{Project.year}</b></Text>
+                        <HStack>
+                            <Text fontSize="22px"><b>{Project.name}</b></Text>
+                            {(Project.currentlyUpdated) ? <Badge colorScheme="green">Updated</Badge> : <Badge colorScheme="red">No longer updated</Badge>}
+                        </HStack>
+                            <Text fontSize="17px">{Project.language}</Text>
+                        </VStack>
+                        <Link href={Project.ghRepo} isExternal color="teal.500">
+                            GitHub Repository
+                        </Link>
+                    </Box>
                 </HStack>
-                <Text><b>{Project.language}</b></Text>
-            </Box>
-            <Box>
-                <Text>{Project.desc}</Text>
-                <Link href={Project.ghRepo} isExternal color="teal.500">
-                    GitHub Repository
-                </Link>
-            </Box>
-        </VStack>
+            </VStack>
+        </Box>
     )
 }
 
