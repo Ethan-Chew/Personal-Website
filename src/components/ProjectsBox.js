@@ -2,10 +2,6 @@ import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image } from "@chak
 import { useState } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 
-const Swift = require("/src/assets/img/Swift.png")
-const JS = require("../assets/img/JavaScript.png")
-const Others = require("../assets/img/Random Langs.png")
-
 const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)
     const [reactStatus, setreactStatus] = useState(false)
@@ -52,13 +48,6 @@ const ProjectsBox = () => {
     }]
 
     const ppApps = [{
-        name: "Small Projects",
-        language: "Python, C++",
-        currentlyUpdated: false,
-        year: "2020",
-        ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
-        pic: "Others"
-    }, {
         name: "Web Apps",
         language: "JavaScript, React",
         currentlyUpdated: true,
@@ -70,8 +59,15 @@ const ProjectsBox = () => {
         language: "JavaScript, React",
         currentlyUpdated: true,
         year: "2021",
-        ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
+        ghRepo: "https://github.com/Ethan-Chew/Personal-Website/tree/React",
         pic: "JS"
+    }, {
+        name: "Small Projects",
+        language: "Python, C++",
+        currentlyUpdated: false,
+        year: "2020",
+        ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
+        pic: "Others"
     }]
   
     return(
@@ -132,13 +128,13 @@ const ProjectsBox = () => {
 
 const DataBox = ({Project}) => {    
     return(
-        <Box borderRadius="md" border="1px grey solid">
+        <Box borderRadius="lg" boxShadow="md" p="1" bg="#252a35">
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
-                <HStack>
+                <HStack spacing={4}>
                     <Box>
-                        {Project.pic === "Swift" ? <Image src={Swift} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
-                        {Project.pic === "JS" ? <Image src={JS} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "Others" ? <Image src={Others} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Swift" ? <Image src="/Swift.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
+                        {Project.pic === "JS" ? <Image src="/JavaScript.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Others" ? <Image src="/Random Langs.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                     </Box>
                     <Box>
                         <VStack alignItems="left" spacing={0}>

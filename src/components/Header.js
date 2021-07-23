@@ -10,13 +10,15 @@ import {
   } from '@chakra-ui/react';
 import { useRouter } from 'next/router'
 import { FaDiscord, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
 
 export default function Header() {
   const router = useRouter()
   const links = {
     "Github": "https://go.ethanchew.me/github",
     "Discord": "https://go.ethanchew.me/discord",
-    "LinkedIn": "https://go.ethanchew.me/linkedin"
+    "LinkedIn": "https://go.ethanchew.me/linkedin",
+    "Email": "mailto:ethanchewmh@gmail.com"
   }
 
   return (
@@ -32,6 +34,7 @@ export default function Header() {
           <IconButton icon={<FaGithub size={22} />} aria-label={"GitHub"}  onClick={() => router.push(links.Github)}/>
           <IconButton icon={<FaLinkedin size={22} />} aria-label={"LinkedIn"}  onClick={() => router.push(links.LinkedIn)}/>
           <IconButton icon={<FaDiscord size={22} />} aria-label={"Discord"}  onClick={() => router.push(links.Discord)}/>
+          <IconButton icon={<MdEmail size={22} />} aria-label={"Mail"}  onClick={() => router.push(links.Email)}/>
         </HStack>
       </VStack>
     </Container>

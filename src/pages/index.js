@@ -82,14 +82,11 @@ export default function Home() {
 }
 
 const EducationBox = ({school}) => {
-  const sst = require("../assets/img/sst.png")
-  const sap = require("../assets/img/sap.webp")
-
   return(
     <Box>
       <VStack alignItems="left">
-        {school.name === "School of Science and Technology, Singapore" ? <Image src={sst} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-        {school.name === "Swift Accelerator Program" ? <Image src={sap} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+        {school.name === "School of Science and Technology, Singapore" ? <Image src="/sst.png" height="90px" width="340px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+        {school.name === "Swift Accelerator Program" ? <Image src="sap.webp" height="90px" width="120px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
         <HStack>
           <Text fontSize="20px"><b>{school.name}</b></Text>
           {school.endYear > "2021" ? <Badge colorScheme="green">Current</Badge> : null}
@@ -111,6 +108,7 @@ const ExpBox = ({data}) => {
   return(
     <Box>
       <VStack alignItems="left">
+        <Image  src="/sstinc.webp" height="90px" width="150px" />
         <Text fontSize="20px"><b>{data.title} - {data.location}</b></Text>
         <AspectRatio ratio={6/1} maxW="190px">
           <Box p={2} borderRadius="md" bg="grey">
