@@ -103,8 +103,6 @@ const EducationBox = ({school}) => {
 }
 
 const ExpBox = ({data}) => {
-  const inc = require("../assets/img/sstinc.webp")
-
   return(
     <Box>
       <VStack alignItems="left">
