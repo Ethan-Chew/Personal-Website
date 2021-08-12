@@ -19,7 +19,7 @@ export default function Footer() {
                     Open sourced on{" "}
                     <Link color="blue.200" href="https://github.com/Ethan-Chew/Personal-Website" target="_blank" rel="noreferrer">GitHub</Link>
                     .{" "}
-                    Last Updated: July 2021
+                    Last Updated: August 2021
                 </Text>
             </Container>
         </Box>

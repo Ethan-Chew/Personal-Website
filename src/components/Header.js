@@ -29,7 +29,7 @@ export default function Header() {
           <Text fontSize="20px">Developer, Designer, Student</Text>
         </VStack>
         <Divider />
-        <Text>A <b>15 year old</b> student studing <b>Computing+</b> at the <b>School of Science and Technology, Singapore</b>.</Text>
+        <Text>A <b>{new Date().getFullYear() - 2006} year old</b> student studing <b>Computing+</b> at the <b>School of Science and Technology, Singapore</b>.</Text>
         <HStack alignItems="left">
           <IconButton icon={<FaGithub size={22} />} aria-label={"GitHub"}  onClick={() => router.push(links.Github)}/>
           <IconButton icon={<FaLinkedin size={22} />} aria-label={"LinkedIn"}  onClick={() => router.push(links.LinkedIn)}/>
@@ -40,4 +40,3 @@ export default function Header() {
     </Container>
   )
 }
-

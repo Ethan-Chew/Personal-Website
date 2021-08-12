@@ -4,7 +4,7 @@ import { MdDateRange } from 'react-icons/md'
 const TabBox = () => {
     return(
         <Box>
-            <Tabs>
+            <Tabs variant="enclosed" isFitted>
                 <TabList>
                     <Tab>Languages/Frameworks</Tab>
                     <Tab>Tools</Tab>

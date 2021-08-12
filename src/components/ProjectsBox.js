@@ -1,6 +1,7 @@
 import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image } from "@chakra-ui/react"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import { Client } from '@notionhq/client'
 
 const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)
@@ -45,15 +46,6 @@ const ProjectsBox = () => {
         year: "2021",
         ghRepo: "https://github.com/theboi/smp-sstinc-org",
         pic: "JS"
-    }]
-
-    const ppApps = [{
-        name: "Web Apps",
-        language: "JavaScript, React",
-        currentlyUpdated: true,
-        year: "2021",
-        ghRepo: "https://github.com/Ethan-Chew/Web-Apps",
-        pic: "JS"
     }, {
         name: "Personal Website",
         language: "JavaScript, React",
@@ -62,13 +54,33 @@ const ProjectsBox = () => {
         ghRepo: "https://github.com/Ethan-Chew/Personal-Website/tree/React",
         pic: "JS"
     }, {
+        name: "Web Apps",
+        language: "JavaScript, React",
+        currentlyUpdated: true,
+        year: "2021",
+        ghRepo: "https://github.com/Ethan-Chew/Web-Apps",
+        pic: "JS"
+    }]
+
+    const ppApps = [{
         name: "Small Projects",
         language: "Python, C++",
         currentlyUpdated: false,
         year: "2020",
         ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
         pic: "Others"
+    }, {
+        name: "Personal Website (Old)",
+        language: "HTML, JavaScript, CSS",
+        currentlyUpdated: false,
+        year: "2020",
+        ghRepo: "https://github.com/Ethan-Chew/Personal-Website/tree/master",
+        pic: "HTML"
     }]
+
+    useEffect(() => {
+        console.log("Loading Projects...")
+    }, [])
   
     return(
       <VStack spacing={5} alignItems="left">
@@ -135,6 +147,7 @@ const DataBox = ({Project}) => {
                         {Project.pic === "Swift" ? <Image src="/Swift.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
                         {Project.pic === "JS" ? <Image src="/JavaScript.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                         {Project.pic === "Others" ? <Image src="/Random Langs.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "HTML" ? <Image src="/HTML.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                     </Box>
                     <Box>
                         <VStack alignItems="left" spacing={0}>

@@ -1,5 +1,6 @@
 import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container } from "@chakra-ui/react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+// import { getEdu, getJob } from "./api/getAPI";
 
 // Components
 import Header from "../components/Header";
@@ -7,9 +8,13 @@ import ProjectsBox from "../components/ProjectsBox"
 import TabBox from "../components/TabBox";
 
 export default function Home() {
+  // Data Variables
+  // const [Schools, setSchools] = useState([{}])
+  // const [Jobs, setJobs] = useState([{}])
+
   useEffect(() => {
     document.title = "Ethan Chew";
-  })
+  }, [])
 
   // Data
   const Schools = [{
@@ -106,7 +111,7 @@ const ExpBox = ({data}) => {
   return(
     <Box>
       <VStack alignItems="left">
-        <Image  src="/sstinc.webp" height="90px" width="150px" />
+        <Image src="/sstinc.webp" height="70px" width="130px" />
         <Text fontSize="20px"><b>{data.title} - {data.location}</b></Text>
         <AspectRatio ratio={6/1} maxW="190px">
           <Box p={2} borderRadius="md" bg="grey">
