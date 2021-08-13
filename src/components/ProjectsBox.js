@@ -1,7 +1,7 @@
 import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image } from "@chakra-ui/react"
 import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
-import { Client } from '@notionhq/client'
+// import { Client } from '@notionhq/client'
 
 const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)

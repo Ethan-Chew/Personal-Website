@@ -15,12 +15,12 @@ const TabBox = () => {
                 <TabPanels>
                     <TabPanel>
                         <Box>
-                            <VStack spacing={6} alignItems="left">
+                            <VStack spacing={8} alignItems="left">
                                 <VStack spacing={4} alignItems="left">
                                     <VStack alignItems="left">
-                                        <Text fontSize="20px"><b>JavaScript</b></Text>
+                                        <Text fontSize="20px"><b>JavaScript/TypeScript</b></Text>
                                         <Text>
-                                            Currently, most of the projects I have worked on are written in JavaScript. For example, this website and other projects on my GitHub account.
+                                            Currently, most of the projects I have worked on are written in JavaScript, while some are in TypeScript. For example, this website and other projects on my GitHub account.
                                         </Text>
                                     </VStack>
 
@@ -68,7 +68,8 @@ const TabBox = () => {
                                     <Text fontSize="20px"><b>Post-Production</b></Text>
                                     <VStack alignItems="left" spacing={1}>
                                         <Text>- Davinci Resolve</Text>
-                                        <Text>- iMovie/Garageband</Text>
+                                        <Text>- iMovie</Text>
+                                        <Text>- Garageband</Text>
                                     </VStack>
                                 </VStack>
                             </VStack>
@@ -77,7 +78,7 @@ const TabBox = () => {
                     <TabPanel>
                         <Box>
                             <VStack spacing={5} alignItems="left">
-                                <Text fontSize="20px"><b>Competitions</b></Text>
+                                <Text fontSize="22px"><b>Competitions</b></Text>
                                 <VStack spacing={3} alignItems="left">
                                     <VStack alignItems="left">
                                         <Text fontSize="18px"><b>Youth Cyber Exploration Programme</b></Text>
@@ -99,7 +100,7 @@ const TabBox = () => {
                     </TabPanel>
                     <TabPanel>
                         <VStack spacing={5} alignItems="left">
-                            <Text fontSize="20px"><b>School Projects</b></Text>
+                            <Text fontSize="22px"><b>School Projects</b></Text>
                             <VStack spacing={5} alignItems="left">
                                 <VStack alignItems="left" spacing={2}>
                                     <VStack alignItems="left">
