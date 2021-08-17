@@ -1,6 +1,6 @@
 import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { Head } from "next/head"
+import Head from "next/head"
 // import { getEdu, getJob } from "./api/getAPI";
 
 // Components
@@ -65,7 +65,7 @@ export default function Home() {
             <Heading mb={4}>Work Experience</Heading>
             <VStack spacing={3} alignItems="left">
               {Jobs.map((job) => (
-                <ExpBox key={job.name} data={job} />
+                <ExpBox key={job.title} data={job} />
               ))}
             </VStack>
           </Container>
