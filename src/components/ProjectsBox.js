@@ -144,10 +144,10 @@ const DataBox = ({Project}) => {
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack spacing={4}>
                     <Box>
-                        {Project.pic === "Swift" ? <Image src="/Swift.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
-                        {Project.pic === "JS" ? <Image src="/JavaScript.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "Others" ? <Image src="/Random Langs.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "HTML" ? <Image src="/HTML.png" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Swift" ? <Image src="/Swift.png" alt="Swift" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
+                        {Project.pic === "JS" ? <Image src="/JavaScript.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Others" ? <Image src="/Random Langs.png" alt="Others" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "HTML" ? <Image src="/HTML.png" boxSize="100" alt="HTML" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                     </Box>
                     <Box>
                         <VStack alignItems="left" spacing={0}>

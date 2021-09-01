@@ -93,8 +93,8 @@ const EducationBox = ({school}) => {
   return(
     <Box>
       <VStack alignItems="left">
-        {school.name === "School of Science and Technology, Singapore" ? <Image src="/sst.png" height="90px" width="340px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-        {school.name === "Swift Accelerator Program" ? <Image src="sap.webp" height="90px" width="120px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+        {school.name === "School of Science and Technology, Singapore" ? <Image src="/sst.png" alt="School of Science and Technology, Singapore" height="90px" width="340px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+        {school.name === "Swift Accelerator Program" ? <Image src="sap.webp" alt="Swift Accelerator Program" height="90px" width="120px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
         <HStack>
           <Text fontSize="20px"><b>{school.name}</b></Text>
           {school.endYear > "2021" ? <Badge colorScheme="green">Current</Badge> : null}
@@ -114,7 +114,7 @@ const ExpBox = ({data}) => {
   return(
     <Box>
       <VStack alignItems="left">
-        <Image src="/sstinc.webp" height="70px" width="130px" />
+        <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" />
         <Text fontSize="20px"><b>{data.title} - {data.location}</b></Text>
         <AspectRatio ratio={6/1} maxW="190px">
           <Box p={2} borderRadius="md" bg="grey">
