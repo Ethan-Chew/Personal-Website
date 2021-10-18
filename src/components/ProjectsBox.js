@@ -1,4 +1,4 @@
-import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image } from "@chakra-ui/react"
+import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image, useColorMode } from "@chakra-ui/react"
 import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 // import { Client } from '@notionhq/client'
@@ -7,6 +7,7 @@ const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)
     const [reactStatus, setreactStatus] = useState(false)
     const [ppStatus, setppStatus] = useState(false)
+    const { colorMode } = useColorMode()
 
     // Project Data
     const iOSApps = [{
@@ -85,7 +86,7 @@ const ProjectsBox = () => {
     return(
       <VStack spacing={5} alignItems="left">
         {/* iOS Box */}
-        <Box borderRadius="md" border="1px grey solid">
+        <Box borderRadius="md" border={colorMode === "light" ? "1px #EDF2F7 solid" : "1px grey solid"} boxShadow={colorMode === "light" ? "lg" : ""}>
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
                 <Text fontSize="25px"><b>iOS Apps</b></Text>
@@ -102,7 +103,7 @@ const ProjectsBox = () => {
         </Box>
   
         {/* React Box */}
-        <Box borderRadius="md" border="1px grey solid">
+        <Box borderRadius="md" border={colorMode === "light" ? "1px #EDF2F7 solid" : "1px grey solid"} boxShadow={colorMode === "light" ? "lg" : ""}>
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
                 <Text fontSize="25px"><b>React (Web) Apps</b></Text>
@@ -119,7 +120,7 @@ const ProjectsBox = () => {
         </Box>
                 
         {/* Personal Proj Box */}
-        <Box borderRadius="md" border="1px grey solid">
+        <Box borderRadius="md" border={colorMode === "light" ? "1px #EDF2F7 solid" : "1px grey solid"} boxShadow={colorMode === "light" ? "lg" : ""}>
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
                 <Text fontSize="25px"><b>Personal Projects</b></Text>
@@ -139,8 +140,10 @@ const ProjectsBox = () => {
 }
 
 const DataBox = ({Project}) => {    
+    const { colorMode } = useColorMode()
+
     return(
-        <Box borderRadius="lg" boxShadow="md" p="1" bg="#252a35">
+        <Box borderRadius="lg" boxShadow="md" p="1" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"}>
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack spacing={4}>
                     <Box>

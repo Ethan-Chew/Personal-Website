@@ -1,4 +1,4 @@
-import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container } from "@chakra-ui/react"
+import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, useColorMode } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import Head from "next/head"
 // import { getEdu, getJob } from "./api/getAPI";
@@ -44,7 +44,7 @@ export default function Home() {
     desc: "As the Chief Admin Officer of SST Inc, I assisted the President and Vice President in managing SST Inc and the ExCo. One project I have worked on during my time as Chief Admin Officer is the SST Inc Recuritment."
   }]
 
-  return (
+  return (    
     <>
       <Box mx={20} ml={3} mr={3}>
         <VStack spacing={10} alignItems="center">
@@ -90,6 +90,8 @@ export default function Home() {
 }
 
 const EducationBox = ({school}) => {
+  const { colorMode } = useColorMode();
+
   return(
     <Box>
       <VStack alignItems="left">
@@ -100,7 +102,7 @@ const EducationBox = ({school}) => {
           {school.endYear > "2021" ? <Badge colorScheme="green">Current</Badge> : null}
         </HStack>
         <AspectRatio ratio={4/1} maxW="110px">
-          <Box p={2} borderRadius="md" bg="grey">
+          <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>
             <Text>{school.startYear} - {school.endYear}</Text>
           </Box>
         </AspectRatio>
@@ -111,13 +113,15 @@ const EducationBox = ({school}) => {
 }
 
 const ExpBox = ({data}) => {
+  const { colorMode } = useColorMode();
+
   return(
     <Box>
       <VStack alignItems="left">
         <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" />
         <Text fontSize="20px"><b>{data.title} - {data.location}</b></Text>
         <AspectRatio ratio={6/1} maxW="190px">
-          <Box p={2} borderRadius="md" bg="grey">
+          <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>
             <Text>{data.startDate} - {data.endDate === "Current" ? <b>Current</b> : data.endDate}</Text>
           </Box>
         </AspectRatio>
