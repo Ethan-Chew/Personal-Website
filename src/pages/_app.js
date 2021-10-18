@@ -6,7 +6,7 @@ import NavBar from '../components/Navbar';
 // All Pages
 const theme = extendTheme({
     config: {
-        useSystemColorMode: false,
+        useSystemColorMode: true,
         initialColorMode: "dark"
     }
 });
