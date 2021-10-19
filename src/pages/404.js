@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const PageNotFound = () => {
     useEffect(() => {
-        document.title = "Web Apps | 404";
+        document.title = "Ethan Chew | 404";
     })
 
     return (
@@ -12,7 +12,7 @@ const PageNotFound = () => {
             <Text>
                 Oops! There is nothing here... Did you type the wrong link?
                 Back to{" "}
-                <Link color="blue.200" href="https://ethanchew.me" target="_blank" rel="noreferrer">Home</Link>{" "}
+                <Link color="blue.200" href="https://www.ethanchew.com" target="_blank" rel="noreferrer">Home</Link>{" "}
             </Text>
         </VStack>
     )
