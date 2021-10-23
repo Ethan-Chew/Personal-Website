@@ -1,9 +1,10 @@
-import { Box ,Tabs , TabList, TabPanels, Tab, TabPanel, Text, VStack, HStack, Divider, Link } from '@chakra-ui/react'
+import { Box ,Tabs , TabList, TabPanels, Tab, TabPanel, Text, VStack, HStack, Container, Link } from '@chakra-ui/react'
 import { MdDateRange } from 'react-icons/md'
+import '../styles/Home.module.css'
 
 const TabBox = () => {
     return(
-        <Box>
+        <Container maxW={'4xl'}>
             <Tabs variant="enclosed" isFitted>
                 <TabList>
                     <Tab>Languages/Frameworks</Tab>
@@ -138,7 +139,7 @@ const TabBox = () => {
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-        </Box>
+        </Container>
     )
 }
 

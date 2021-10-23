@@ -1,6 +1,7 @@
 import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image, useColorMode } from "@chakra-ui/react"
 import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import styles from '../styles/Home.module.css'
 // import { Client } from '@notionhq/client'
 
 const ProjectsBox = () => {
@@ -147,17 +148,17 @@ const DataBox = ({Project}) => {
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack spacing={4}>
                     <Box>
-                        {Project.pic === "Swift" ? <Image src="/Swift.png" alt="Swift" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
-                        {Project.pic === "JS" ? <Image src="/JavaScript.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "Others" ? <Image src="/Random Langs.png" alt="Others" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "HTML" ? <Image src="/HTML.png" boxSize="100" alt="HTML" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Swift" ? <Image className={styles.removeIcn} src="/Swift.png" alt="Swift" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
+                        {Project.pic === "JS" ? <Image className={styles.removeIcn} src="/JavaScript.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Others" ? <Image className={styles.removeIcn} src="/Random Langs.png" alt="Others" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "HTML" ? <Image className={styles.removeIcn} src="/HTML.png" boxSize="100" alt="HTML" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                     </Box>
                     <Box>
                         <VStack alignItems="left" spacing={0}>
                             <Text><b>{Project.year}</b></Text>
                         <HStack>
                             <Text fontSize="22px"><b>{Project.name}</b></Text>
-                            {(Project.currentlyUpdated) ? <Badge colorScheme="green">Updated</Badge> : <Badge colorScheme="red">No longer updated</Badge>}
+                            {(Project.currentlyUpdated) ? <Badge className={styles.removeIcn} colorScheme="green">Updated</Badge> : <Badge className={styles.removeIcn} colorScheme="red">No longer updated</Badge>}
                         </HStack>
                             <Text fontSize="17px">{Project.language}</Text>
                         </VStack>

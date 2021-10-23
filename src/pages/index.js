@@ -1,4 +1,4 @@
-import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, useColorMode } from "@chakra-ui/react"
+import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, useColorMode, Stack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import Head from "next/head"
 // import { getEdu, getJob } from "./api/getAPI";
@@ -45,47 +45,45 @@ export default function Home() {
   }]
 
   return (    
-    <>
-      <Box mx={20} ml={3} mr={3}>
-        <VStack spacing={10} alignItems="center">
-          <Header />
+    <Container maxW={'4xl'}>
+      <Stack as={Box} spacing={10} alignItems="center">
+        <Header />
 
-          <Container maxW="container.lg">
-            <Heading mb={4}>Education</Heading>
-            <VStack alignItems="left" spacing={5}>
-              {Schools.map((school) => (
-                <EducationBox key={school.name} school={school} />
-              ))}
-            </VStack>
-          </Container>
+        <Container maxW="container.lg" py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }}>
+          <Heading mb={4}>Education</Heading>
+          <VStack alignItems="left" spacing={5}>
+            {Schools.map((school) => (
+              <EducationBox key={school.name} school={school} />
+            ))}
+          </VStack>
+        </Container>
 
-          <Divider />
+        <Divider />
 
-          <Container maxW="container.lg">
-            <Heading mb={4}>Work Experience</Heading>
-            <VStack spacing={3} alignItems="left">
-              {Jobs.map((job) => (
-                <ExpBox key={job.title} data={job} />
-              ))}
-            </VStack>
-          </Container>
+        <Container maxW="container.lg">
+          <Heading mb={4}>Work Experience</Heading>
+          <VStack spacing={3} alignItems="left">
+            {Jobs.map((job) => (
+              <ExpBox key={job.title} data={job} />
+            ))}
+          </VStack>
+        </Container>
 
-          <Divider />
+        <Divider />
 
-          <Container maxW="container.lg">
-            <Heading mb={4}>Projects</Heading>
-            <ProjectsBox />
-          </Container>
+        <Container maxW="container.lg">
+          <Heading mb={4}>Projects</Heading>
+          <ProjectsBox />
+        </Container>
 
-          <Divider />
+        <Divider />
 
-          <Container maxW="container.lg">
-            <Heading mb={4}>Knowledge and Skills</Heading>
-            <TabBox />
-          </Container>
-        </VStack>
-      </Box>
-    </>
+        <Container maxW="container.lg">
+          <Heading mb={4}>Knowledge and Skills</Heading>
+          <TabBox />
+        </Container>
+      </Stack>
+    </Container>
   )
 }
 
@@ -93,7 +91,7 @@ const EducationBox = ({school}) => {
   const { colorMode } = useColorMode();
 
   return(
-    <Box>
+    <>
       <VStack alignItems="left">
         {school.name === "School of Science and Technology, Singapore" ? <Image src="/sst.png" alt="School of Science and Technology, Singapore" height="90px" width="340px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
         {school.name === "Swift Accelerator Program" ? <Image src="sap.webp" alt="Swift Accelerator Program" height="90px" width="120px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
@@ -108,7 +106,7 @@ const EducationBox = ({school}) => {
         </AspectRatio>
         <Text>{school.desc}</Text>
       </VStack>
-    </Box>
+    </>
   )
 }
 
@@ -116,7 +114,7 @@ const ExpBox = ({data}) => {
   const { colorMode } = useColorMode();
 
   return(
-    <Box>
+    <>
       <VStack alignItems="left">
         <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" />
         <Text fontSize="20px"><b>{data.title} - {data.location}</b></Text>
@@ -127,6 +125,6 @@ const ExpBox = ({data}) => {
         </AspectRatio>
         <Text>{data.desc}</Text>
       </VStack>
-    </Box>
+    </>
   )
 }
