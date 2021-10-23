@@ -1,20 +1,33 @@
-import { Box ,Tabs , TabList, TabPanels, Tab, TabPanel, Text, VStack, HStack, Container, Link } from '@chakra-ui/react'
+import { Box,
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+    Text, 
+    VStack, 
+    HStack, 
+    Container, 
+    Link, 
+    Stack 
+} from '@chakra-ui/react'
 import { MdDateRange } from 'react-icons/md'
 import styles from '../styles/Home.module.css'
 
-const TabBox = () => {
+const MTabBox = () => {
     return(
-        <Container maxW={'4xl'} className={styles.textBox}>
-            <Tabs variant="enclosed" isFitted>
-                <TabList>
-                    <Tab>Languages/Frameworks</Tab>
-                    <Tab>Tools</Tab>
-                    <Tab>Accomplishments</Tab>
-                    <Tab>School Projects</Tab>
-                </TabList>
-
-                <TabPanels>
-                    <TabPanel>
+        <Container maxW={'4xl'} className={styles.mobileBox}> 
+            <Accordion>
+                <AccordionItem>
+                    <h2>
+                        <AccordionButton>
+                            <Box flex="1" textAlign="left">
+                                <b>Languages/Frameworks</b>
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel>
                         <Box>
                             <VStack spacing={8} alignItems="left">
                                 <VStack spacing={4} alignItems="left">
@@ -43,8 +56,18 @@ const TabBox = () => {
                                 </VStack>
                             </VStack>
                         </Box>
-                    </TabPanel>
-                    <TabPanel>
+                    </AccordionPanel>
+                </AccordionItem>
+                <AccordionItem>
+                    <h2>
+                        <AccordionButton>
+                            <Box flex="1" textAlign="left">
+                                <b>Tools</b>
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel>
                         <Box>
                             <VStack spacing={5} alignItems="left">
                                 <VStack alignItems="left">
@@ -75,8 +98,18 @@ const TabBox = () => {
                                 </VStack>
                             </VStack>
                         </Box>
-                    </TabPanel>
-                    <TabPanel>
+                    </AccordionPanel>
+                </AccordionItem>
+                <AccordionItem>
+                    <h2>
+                        <AccordionButton>
+                            <Box flex="1" textAlign="left">
+                                <b>Accomplishments</b>
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel>
                         <Box>
                             <VStack spacing={5} alignItems="left">
                                 <Text fontSize="22px"><b>Competitions</b></Text>
@@ -98,10 +131,19 @@ const TabBox = () => {
                                 </VStack>
                             </VStack>
                         </Box>
-                    </TabPanel>
-                    <TabPanel>
+                    </AccordionPanel>
+                </AccordionItem>
+                <AccordionItem>
+                    <h2>
+                        <AccordionButton>
+                            <Box flex="1" textAlign="left">
+                                <b>School Projects</b>
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel>
                         <VStack spacing={5} alignItems="left">
-                            <Text fontSize="22px"><b>School Projects</b></Text>
                             <VStack spacing={5} alignItems="left">
                                 <VStack alignItems="left" spacing={2}>
                                     <VStack alignItems="left">
@@ -136,11 +178,11 @@ const TabBox = () => {
                                 </VStack>
                             </VStack>
                         </VStack>
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
+                    </AccordionPanel>
+                </AccordionItem>
+            </Accordion>
         </Container>
     )
 }
 
-export default TabBox
+export default MTabBox

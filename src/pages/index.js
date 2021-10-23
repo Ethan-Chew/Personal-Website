@@ -1,12 +1,14 @@
 import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, useColorMode, Stack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import Head from "next/head"
+import styles from '../styles/Home.module.css'
 // import { getEdu, getJob } from "./api/getAPI";
 
 // Components
 import Header from "../components/Header";
 import ProjectsBox from "../components/ProjectsBox"
 import TabBox from "../components/TabBox";
+import MTabBox from '../components/MobileTabBox'
 
 export default function Home() {
   // Data Variables
@@ -81,6 +83,7 @@ export default function Home() {
         <Container maxW="container.lg">
           <Heading mb={4}>Knowledge and Skills</Heading>
           <TabBox />
+          <MTabBox />
         </Container>
       </Stack>
     </Container>
