@@ -2,7 +2,8 @@ import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image, useColorMode
 import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import styles from '../styles/Home.module.css'
-// import { Client } from '@notionhq/client'
+import { onSnapshot, collection } from "firebase/firestore";
+import db from '../pages/api/firebase'
 
 const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)
@@ -11,77 +12,24 @@ const ProjectsBox = () => {
     const { colorMode } = useColorMode()
 
     // Project Data
-    const iOSApps = [{
-        name: "Pocket Science",
-        language: "Swift",
-        currentlyUpdated: true,
-        year: "2020-2021",
-        ghRepo: "https://github.com/Newspace-Inc/Pocket-Science-iOS",
-        pic: "Swift"
-    }, {
-        name: "Scout Attendance",
-        language: "Swift",
-        currentlyUpdated: false,
-        year: "2021",
-        ghRepo: "https://github.com/Ethan-Chew/ScoutsAttendance",
-        pic: "Swift"
-    }, {
-        name: "Quake",
-        language: "Swift",
-        currentlyUpdated: false,
-        year: "2020",
-        ghRepo: "https://github.com/Ethan-Chew/Quake",
-        pic: "Swift"
-    }, {
-        name: "Random Clicker",
-        language: "Swift",
-        currentlyUpdated: false,
-        year: "2019",
-        ghRepo: "https://github.com/Ethan-Chew/Random-Clicker",
-        pic: "Swift"
-    }]
-
-    const reactApps = [{
-        name: "SST Inc. Management Platform",
-        language: "TypeScript, React",
-        currentlyUpdated: true,
-        year: "2021",
-        ghRepo: "https://github.com/theboi/smp-sstinc-org",
-        pic: "JS"
-    }, {
-        name: "Personal Website",
-        language: "JavaScript, React",
-        currentlyUpdated: true,
-        year: "2021",
-        ghRepo: "https://github.com/Ethan-Chew/Personal-Website/tree/React",
-        pic: "JS"
-    }, {
-        name: "Web Apps",
-        language: "JavaScript, React",
-        currentlyUpdated: true,
-        year: "2021",
-        ghRepo: "https://github.com/Ethan-Chew/Web-Apps",
-        pic: "JS"
-    }]
-
-    const ppApps = [{
-        name: "Small Projects",
-        language: "Python, C++",
-        currentlyUpdated: false,
-        year: "2020",
-        ghRepo: "https://github.com/Ethan-Chew/Small-Projects",
-        pic: "Others"
-    }, {
-        name: "Personal Website (Old)",
-        language: "HTML, JavaScript, CSS",
-        currentlyUpdated: false,
-        year: "2020",
-        ghRepo: "https://github.com/Ethan-Chew/Personal-Website/tree/master",
-        pic: "HTML"
-    }]
+    const [iOSApps, setiOSApps] = useState([])
+    const [reactApps, setReactApps] = useState([])
+    const [ppApps, setppApps] = useState([])
 
     useEffect(() => {
         console.log("Loading Projects...")
+
+        onSnapshot(collection(db, "iOS"), (data) => {
+            setiOSApps(data.docs.map((doc) => doc.data()))
+        })
+
+        onSnapshot(collection(db, "react"), (data) => {
+            setReactApps(data.docs.map((doc) => doc.data()))
+        })
+
+        onSnapshot(collection(db, "pp"), (data) => {
+            setppApps(data.docs.map((doc) => doc.data()))
+        })
     }, [])
   
     return(

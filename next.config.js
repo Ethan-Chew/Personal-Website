@@ -1,11 +1,8 @@
+import("dotenv").then((o)=> o.config({path: __dirname + '/.env.local'}))
+
 module.exports = {
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        source: "/api/getAPI",
-        destination: "https://api.notion.com"
-      }
-    ]
+  env: {
+    FIREBASE_APIKEY: process.env.FIREBASE_APIKEY
   }
 }
