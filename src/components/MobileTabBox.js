@@ -17,7 +17,7 @@ import styles from '../styles/Home.module.css'
 const MTabBox = () => {
     return(
         <Container maxW={'4xl'} className={styles.mobileBox}> 
-            <Accordion>
+            <Accordion allowToggle>
                 <AccordionItem>
                     <h2>
                         <AccordionButton>
