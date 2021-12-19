@@ -1,4 +1,5 @@
 import { Box, HStack, Text, IconButton, Badge, VStack, Link, Image, useColorMode } from "@chakra-ui/react"
+import NextLink from 'next/link'
 import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import styles from '../styles/Home.module.css'
@@ -113,6 +114,13 @@ const DataBox = ({Project}) => {
                         <Link href={Project.ghRepo} isExternal color="teal.500">
                             GitHub Repository
                         </Link>
+                        {Project.pic === "Swift" ? (Project.onAppStore ?
+                            <NextLink href={Project.appStoreLink}>
+                                <a>
+                                    <Image mt={3} src={colorMode === "light" ? "AppStoreWhite.svg" : "AppStoreDark.svg"} alt="Download on App Store" />
+                                </a>
+                            </NextLink>
+                            : <></>) : <></>}
                     </Box>
                 </HStack>
             </VStack>
