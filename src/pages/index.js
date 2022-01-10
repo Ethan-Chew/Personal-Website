@@ -1,8 +1,9 @@
 import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, useColorMode, Stack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import Head from "next/head"
+import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-// import { getEdu, getJob } from "./api/getAPI";
+import { onSnapshot, collection } from "firebase/firestore";
+import db from '../pages/api/firebase'
 
 // Components
 import Header from "../components/Header";
@@ -12,49 +13,56 @@ import MTabBox from '../components/MobileTabBox'
 
 export default function Home() {
   // Data Variables
-  // const [Schools, setSchools] = useState([{}])
-  // const [Jobs, setJobs] = useState([{}])
+  const [schools, setSchools] = useState([])
+  const [roles, setRoles] = useState([])
+  let tempSchools = []
+  let tempRoles = []
 
   useEffect(() => {
     document.title = "Ethan Chew";
+
+    onSnapshot(collection(db, "jobschools"), (data) => {
+      let temp = data.docs.map((doc) => doc.data())
+      
+      for (let i = 0; i < temp.length; i++) {
+        if (temp[i].location == "") {
+          tempSchools.push(temp[i])
+        } else {
+          tempRoles.push(temp[i])
+        }
+      }
+    
+      setSchools(tempSchools)
+      setRoles(tempRoles)
+    })
   }, [])
-
-  // Data
-  const Schools = [{
-    name: "School of Science and Technology, Singapore",
-    startYear: "2019",
-    endYear: "2022",
-    desc: "At the School of Science and Technology, we can learn our normal academic subjects through applied learning. We are also able to choose an O-Level Applied Subject to allow us to further our understanding of a specific field. For myself, I chose Computing+ as my Applied Subject which allowed me to develop my Computational Thinking skills, and further my knowledge in Python."
-  }, {
-    name: "Swift Accelerator Program",
-    startYear: "2021",
-    endYear: "2022",
-    desc: "The Swift Accelerator Program is a 9 months long program, by IMDA and Apple, which teaches students the fundementals of Swift, the language used to create iOS, WatchOS, MacOS and iPadOS apps."
-  }]
-
-  const Jobs = [{
-    title: "Vice President",
-    location: "SST Inc.",
-    startDate: "July 2021",
-    endDate: "Current",
-    desc: "As the Vice President of SST Inc, I assisted the President in managing SST Inc, and took on projects like the SST Inc Management Platform"
-  }, {
-    title: "Chief Admin Officer",
-    location: "SST Inc.",
-    startDate: "June 2020",
-    endDate: "July 2021",
-    desc: "As the Chief Admin Officer of SST Inc, I assisted the President and Vice President in managing SST Inc and the ExCo. One project I have worked on during my time as Chief Admin Officer is the SST Inc Recuritment."
-  }]
 
   return (    
     <Container maxW={'4xl'}>
+      <Head>
+        <title>Ethan Chew</title>
+        <meta name="title" content="Ethan Chew"/>
+        <meta name="description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
+
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.ethanchew.com"/>
+        <meta property="og:title" content="Ethan Chew"/>
+        <meta property="og:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
+        <meta property="og:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png"/>
+
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:url" content="https://www.ethanchew.com"/>
+        <meta property="twitter:title" content="Ethan Chew"/>
+        <meta property="twitter:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
+        <meta property="twitter:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png"/>
+      </Head>
       <Stack as={Box} spacing={10} alignItems="center">
         <Header />
 
         <Container maxW="container.lg" py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }}>
           <Heading mb={4}>Education</Heading>
           <VStack alignItems="left" spacing={5}>
-            {Schools.map((school) => (
+            {schools.map((school) => (
               <EducationBox key={school.name} school={school} />
             ))}
           </VStack>
@@ -65,8 +73,8 @@ export default function Home() {
         <Container maxW="container.lg">
           <Heading mb={4}>Work Experience</Heading>
           <VStack spacing={3} alignItems="left">
-            {Jobs.map((job) => (
-              <ExpBox key={job.title} data={job} />
+            {roles.map((job) => (
+              <ExpBox key={job.name} data={job} />
             ))}
           </VStack>
         </Container>
@@ -104,7 +112,7 @@ const EducationBox = ({school}) => {
         </HStack>
         <AspectRatio ratio={4/1} maxW="110px">
           <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>
-            <Text>{school.startYear} - {school.endYear}</Text>
+            <Text>{school.startDate} - {school.endDate}</Text>
           </Box>
         </AspectRatio>
         <Text>{school.desc}</Text>
@@ -120,7 +128,7 @@ const ExpBox = ({data}) => {
     <>
       <VStack alignItems="left">
         <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" />
-        <Text fontSize="20px"><b>{data.title} - {data.location}</b></Text>
+        <Text fontSize="20px"><b>{data.name} - {data.location}</b></Text>
         <AspectRatio ratio={6/1} maxW="190px">
           <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>
             <Text>{data.startDate} - {data.endDate === "Current" ? <b>Current</b> : data.endDate}</Text>

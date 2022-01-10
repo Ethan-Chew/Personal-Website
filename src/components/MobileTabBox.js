@@ -129,6 +129,23 @@ const MTabBox = () => {
                                         </HStack>
                                     </VStack>
                                 </VStack>
+                                <Text fontSize="22px"><b>Certificates</b></Text>
+                                <VStack spacing={3} alignItems="left">
+                                    <VStack alignItems="left">
+                                        <Text fontSize="18px">App Development in Swift Associate</Text>
+                                        <HStack>
+                                            <MdDateRange />
+                                            <Text>Jan 2022</Text>
+                                        </HStack>
+                                    </VStack>
+                                    <VStack alignItems="left">
+                                        <Text fontSize="18px">Computational and Algorithmic Thinking (Credit)</Text>
+                                        <HStack>
+                                            <MdDateRange />
+                                            <Text>Apr 2021</Text>
+                                        </HStack>
+                                    </VStack>
+                                </VStack>
                             </VStack>
                         </Box>
                     </AccordionPanel>
