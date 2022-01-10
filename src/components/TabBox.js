@@ -106,7 +106,7 @@ const TabBox = () => {
                                         </HStack>
                                     </VStack>
                                     <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>Computational and Algorithmic Thinking (Credit)</b></Text>
+                                        <Text fontSize="18px"><b>Computational and Algorithmic Thinking (Credit)ç</b></Text>
                                         <HStack>
                                             <MdDateRange />
                                             <Text>Apr 2021</Text>
