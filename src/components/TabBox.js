@@ -96,6 +96,23 @@ const TabBox = () => {
                                         </HStack>
                                     </VStack>
                                 </VStack>
+                                <Text fontSize="22px"><b>Certificates</b></Text>
+                                <VStack spacing={3} alignItems="left">
+                                    <VStack alignItems="left">
+                                        <Text fontSize="18px"><b>App Development in Swift Associate</b></Text>
+                                        <HStack>
+                                            <MdDateRange />
+                                            <Text>Jan 2022</Text>
+                                        </HStack>
+                                    </VStack>
+                                    <VStack alignItems="left">
+                                        <Text fontSize="18px"><b>Computational and Algorithmic Thinking (Credit)</b></Text>
+                                        <HStack>
+                                            <MdDateRange />
+                                            <Text>Apr 2021</Text>
+                                        </HStack>
+                                    </VStack>
+                                </VStack>
                             </VStack>
                         </Box>
                     </TabPanel>
