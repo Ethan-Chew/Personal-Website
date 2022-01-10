@@ -27,8 +27,8 @@ const Pages = [{
   id: "Profile",
   href: "https://profile.ethanchew.com"
 }, {
-  id: "Blog",
-  href: "https://blog.ethanchew.com"
+  id: "Rocket Launches",
+  href: "https://launches.ethanchew.com"
 }, {
   id: "Web Apps",
   href: "https://web-apps.ethanchew.com"
