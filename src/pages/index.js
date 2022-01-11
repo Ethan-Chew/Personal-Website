@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import ProjectsBox from "../components/ProjectsBox"
 import TabBox from "../components/TabBox";
 import MTabBox from '../components/MobileTabBox'
+import HobbiesBox from '../components/hobbies'
 
 export default function Home() {
   // Data Variables
@@ -87,6 +88,13 @@ export default function Home() {
         </Container>
 
         <Divider />
+
+        {/* <Container maxW="container.lg">
+          <Heading mb={4}>My Hobbies</Heading>
+          <HobbiesBox />
+        </Container>
+
+        <Divider /> */}
 
         <Container maxW="container.lg">
           <Heading mb={4}>Knowledge and Skills</Heading>

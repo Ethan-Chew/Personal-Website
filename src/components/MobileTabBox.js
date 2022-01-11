@@ -9,12 +9,40 @@ import { Box,
     HStack, 
     Container, 
     Link, 
-    Stack 
+    Stack, 
+    useSafeLayoutEffect
 } from '@chakra-ui/react'
 import { MdDateRange } from 'react-icons/md'
 import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
+import { onSnapshot, collection } from "firebase/firestore";
+import db from '../pages/api/firebase'
 
 const MTabBox = () => {
+    const [certificates, setCertificates] = useState([])
+    const [competitions, setCompetitions] = useState([])
+    let tempCe = []
+    let tempCo = []
+
+    useEffect(() => {
+        console.log("Loading Projects...")
+
+        onSnapshot(collection(db, "knowlegeandskills"), (data) => {
+            let temp = data.docs.map((doc) => doc.data())
+
+            for (let i = 0; i < temp.length; i++) {
+                if (temp[i].type === "competitions") {
+                    tempCo.push(temp[i])
+                } else {
+                    tempCe.push(temp[i])
+                }
+            }
+
+            setCertificates(tempCe)
+            setCompetitions(tempCo)
+        })
+    }, [])
+
     return(
         <Container maxW={'4xl'} className={styles.mobileBox}> 
             <Accordion allowToggle>
@@ -114,37 +142,15 @@ const MTabBox = () => {
                             <VStack spacing={5} alignItems="left">
                                 <Text fontSize="22px"><b>Competitions</b></Text>
                                 <VStack spacing={3} alignItems="left">
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>Youth Cyber Exploration Programme</b></Text>
-                                        <HStack>
-                                            <MdDateRange />
-                                            <Text>May 2020</Text>
-                                        </HStack>
-                                    </VStack>
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>Hackwise</b></Text>
-                                        <HStack>
-                                            <MdDateRange />
-                                            <Text>December 2020</Text>
-                                        </HStack>
-                                    </VStack>
+                                    {competitions.map((competition) => (
+                                        <Boxx key={competition.name} data={competition} />
+                                    ))}
                                 </VStack>
                                 <Text fontSize="22px"><b>Certificates</b></Text>
                                 <VStack spacing={3} alignItems="left">
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>App Development in Swift Associate</b></Text>
-                                        <HStack>
-                                            <MdDateRange />
-                                            <Text>Jan 2022</Text>
-                                        </HStack>
-                                    </VStack>
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>Computational and Algorithmic Thinking (Credit)</b></Text>
-                                        <HStack>
-                                            <MdDateRange />
-                                            <Text>Apr 2021</Text>
-                                        </HStack>
-                                    </VStack>
+                                    {certificates.map((certificate) => (
+                                        <Boxx key={certificate.name} data={certificate} />
+                                    ))}
                                 </VStack>
                             </VStack>
                         </Box>
@@ -199,6 +205,20 @@ const MTabBox = () => {
                 </AccordionItem>
             </Accordion>
         </Container>
+    )
+}
+
+const Boxx = (data) => {
+    console.log(data)
+    return (
+        <VStack alignItems="left">
+            <Text fontSize="18px"><b>{data.data.name}</b></Text>
+            <Text>{data.desc}</Text>
+            <HStack>
+                <MdDateRange />
+                <Text>{data.data.date}</Text>
+            </HStack>
+        </VStack>
     )
 }
 
