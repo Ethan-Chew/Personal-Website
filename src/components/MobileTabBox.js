@@ -212,7 +212,7 @@ const Boxx = (data) => {
     console.log(data)
     return (
         <VStack alignItems="left">
-            <Text fontSize="18px"><b>{data.data.name}</b></Text>
+            <Text fontSize="17px"><b>{data.data.name}</b></Text>
             <Text>{data.data.desc}</Text>
             <HStack>
                 <MdDateRange />
