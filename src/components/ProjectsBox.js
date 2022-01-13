@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import styles from '../styles/Home.module.css'
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, orderBy } from "firebase/firestore";
 import db from '../pages/api/firebase'
 
 const ProjectsBox = () => {
@@ -19,17 +19,35 @@ const ProjectsBox = () => {
 
     useEffect(() => {
         console.log("Loading Projects...")
+        const sortDate = (valA, valB) => {
+            // Just Year
+            console.log(valA, valB)
+            if (valA.year !== valB.year) {
+              if (valA.year > valB.year) {
+                return -1
+              } else {
+                return 1
+              }
+            } else {
+              if (valA.year !== valB.year) {
+                return valA.year - valB.year
+              }
+            }
+          }
 
-        onSnapshot(collection(db, "iOS"), (data) => {
-            setiOSApps(data.docs.map((doc) => doc.data()))
+        onSnapshot(collection(db, "iOS"), orderBy('year'), (data) => {
+            const temp = data.docs.map((doc) => doc.data())
+            setiOSApps(temp.sort(sortDate))
         })
 
-        onSnapshot(collection(db, "react"), (data) => {
-            setReactApps(data.docs.map((doc) => doc.data()))
+        onSnapshot(collection(db, "react"), orderBy('year'), (data) => {
+            const temp = data.docs.map((doc) => doc.data())
+            setReactApps(temp.sort(sortDate))
         })
 
-        onSnapshot(collection(db, "pp"), (data) => {
-            setppApps(data.docs.map((doc) => doc.data()))
+        onSnapshot(collection(db, "pp"), orderBy('year'), (data) => {
+            const temp = data.docs.map((doc) => doc.data())
+            setppApps(temp.sort(sortDate))
         })
     }, [])
   

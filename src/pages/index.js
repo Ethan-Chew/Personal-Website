@@ -18,6 +18,7 @@ export default function Home() {
   const [roles, setRoles] = useState([])
   let tempSchools = []
   let tempRoles = []
+  const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
   useEffect(() => {
     document.title = "Ethan Chew";
@@ -32,9 +33,38 @@ export default function Home() {
           tempRoles.push(temp[i])
         }
       }
-    
-      setSchools(tempSchools)
-      setRoles(tempRoles)
+
+      const sortDate = (valA, valB) => {
+        // Check Date Format
+        if (!isNaN(valA.startDate) || !isNaN(valA.startDate)) {
+          // Just Year
+          if (valA.startDate !== valB.startDate) {
+            if (valA.startDate > valB.startDate) {
+              return -1
+            } else {
+              return 1
+            }
+          } else {
+            if (valA.endDate !== valB.endDate) {
+              return valA.endDate - valB.endDate
+            }
+          }
+        } else {
+          if (valA.endDate === "Current") {
+            return -1
+          } else if (valB.endDate === "Current") {
+            return 1
+          } else {
+            // Month Year
+            const aMonth = valA.startDate.split(" ")[0]
+            const bMonth = valB.startDate.split(" ")[0]
+            return months.indexOf(aMonth) - months.indexOf(bMonth)
+          }
+        }
+      }
+
+      setSchools(tempSchools.sort(sortDate))
+      setRoles(tempRoles.sort(sortDate))
     })
   }, [])
 

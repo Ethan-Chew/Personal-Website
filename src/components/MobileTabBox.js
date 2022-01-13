@@ -15,7 +15,7 @@ import { Box,
 import { MdDateRange } from 'react-icons/md'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, orderBy } from "firebase/firestore";
 import db from '../pages/api/firebase'
 
 const MTabBox = () => {
@@ -23,9 +23,20 @@ const MTabBox = () => {
     const [competitions, setCompetitions] = useState([])
     let tempCe = []
     let tempCo = []
+    const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     useEffect(() => {
         console.log("Loading Projects...")
+
+        const sortDate = (valA, valB) => {
+            const a = valA.date.split(" ")
+            const b = valB.date.split(" ")
+            if (a[1] !== b[1]) {
+                return b[1] - a[1]
+            } else {
+                return months.indexOf(a[0]) - months.indexOf(b[0])
+            }
+        }
 
         onSnapshot(collection(db, "knowlegeandskills"), (data) => {
             let temp = data.docs.map((doc) => doc.data())
@@ -38,8 +49,8 @@ const MTabBox = () => {
                 }
             }
 
-            setCertificates(tempCe)
-            setCompetitions(tempCo)
+            setCertificates(tempCe.sort(sortDate))
+            setCompetitions(tempCo.sort(sortDate))
         })
     }, [])
 
@@ -209,7 +220,6 @@ const MTabBox = () => {
 }
 
 const Boxx = (data) => {
-    console.log(data)
     return (
         <VStack alignItems="left">
             <Text fontSize="17px"><b>{data.data.name}</b></Text>

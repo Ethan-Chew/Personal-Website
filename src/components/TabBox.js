@@ -10,9 +10,20 @@ const TabBox = () => {
     const [competitions, setCompetitions] = useState([])
     let tempCe = []
     let tempCo = []
+    const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     useEffect(() => {
         console.log("Loading Projects...")
+
+        const sortDate = (valA, valB) => {
+            const a = valA.date.split(" ")
+            const b = valB.date.split(" ")
+            if (a[1] !== b[1]) {
+                return b[1] - a[1]
+            } else {
+                return months.indexOf(a[0]) - months.indexOf(b[0])
+            }
+        }
 
         onSnapshot(collection(db, "knowlegeandskills"), (data) => {
             let temp = data.docs.map((doc) => doc.data())
@@ -25,8 +36,8 @@ const TabBox = () => {
                 }
             }
 
-            setCertificates(tempCe)
-            setCompetitions(tempCo)
+            setCertificates(tempCe.sort(sortDate))
+            setCompetitions(tempCo.sort(sortDate))
         })
     }, [])
 
@@ -166,7 +177,6 @@ const TabBox = () => {
 }
 
 const Boxx = (data) => {
-    console.log(data)
     return (
         <VStack alignItems="left">
             <Text fontSize="17px"><b>{data.data.name}</b></Text>
