@@ -102,7 +102,7 @@ export default function Home() {
         <Divider />
 
         <Container maxW="container.lg">
-          <Heading mb={4}>Work Experience</Heading>
+          <Heading mb={4}>Leadership Experience</Heading>
           <VStack spacing={3} alignItems="left">
             {roles.map((job) => (
               <ExpBox key={job.name} data={job} />

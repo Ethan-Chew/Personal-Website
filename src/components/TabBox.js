@@ -57,16 +57,16 @@ const TabBox = () => {
                             <VStack spacing={8} alignItems="left">
                                 <VStack spacing={4} alignItems="left">
                                     <VStack alignItems="left">
-                                        <Text fontSize="20px"><b>JavaScript/TypeScript</b></Text>
+                                        <Text fontSize="20px"><b>JavaScript and React</b></Text>
                                         <Text>
-                                            Currently, most of the projects I have worked on are written in JavaScript, while some are in TypeScript. For example, this website and other projects on my GitHub account.
+                                            As of now, more than half the projects I have worked on are developed with JavaScript. Personally, I feel that JavaScript is a pretty versatile language, allowing you to create many things with it. Some projects I have completed with JavaScript includes this website and my space launch tracker. I also use React, which is a JavaScript library for building User Interfaces. All of my newer websites are created with React as a User Interface Framework as it is easier than using pure HTML, JavaScript and CSS.
                                         </Text>
                                     </VStack>
 
                                     <VStack alignItems="left">
-                                        <Text fontSize="20px"><b>React</b></Text>
+                                        <Text fontSize="20px"><b>Swift</b></Text>
                                         <Text>
-                                            React is a JavaScript library for building user interfaces. It is my preferred framework for Front-End Development.
+                                            Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is the first actual programming language that I learnt. One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any.
                                         </Text>
                                     </VStack>
                                 </VStack>
