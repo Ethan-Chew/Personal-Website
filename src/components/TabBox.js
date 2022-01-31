@@ -74,7 +74,6 @@ const TabBox = () => {
                                 <VStack alignItems="left">
                                     <Text><b>Other Languages</b></Text>
                                     <HStack spacing={4} alignItems='left'>
-                                        <Text>Swift</Text>
                                         <Text>Python</Text>
                                         <Text>C++</Text>
                                     </HStack>
