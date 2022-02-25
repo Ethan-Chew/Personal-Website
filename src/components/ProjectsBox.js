@@ -21,7 +21,6 @@ const ProjectsBox = () => {
         console.log("Loading Projects...")
         const sortDate = (valA, valB) => {
             // Just Year
-            console.log(valA, valB)
             if (valA.year !== valB.year) {
               if (valA.year > valB.year) {
                 return -1
@@ -91,7 +90,7 @@ const ProjectsBox = () => {
         <Box borderRadius="md" border={colorMode === "light" ? "1px #EDF2F7 solid" : "1px grey solid"} boxShadow={colorMode === "light" ? "lg" : ""}>
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
-                <Text fontSize="25px"><b>Personal Projects</b></Text>
+                <Text fontSize="25px"><b>School/Personal Projects</b></Text>
                 <IconButton colorScheme="teal" aria-label={ppStatus ? "Close" : "Open"} size="sm" icon={ppStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {ppStatus ? setppStatus(false) : setppStatus(true)}}/>
             </HStack>
             {ppStatus ?
@@ -117,6 +116,7 @@ const DataBox = ({Project}) => {
                     <Box>
                         {Project.pic === "Swift" ? <Image className={styles.removeIcn} src="/Swift.png" alt="Swift" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
                         {Project.pic === "JS" ? <Image className={styles.removeIcn} src="/JavaScript.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        {Project.pic === "Python" ? <Image className={styles.removeIcn} src="/Python.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                         {Project.pic === "Others" ? <Image className={styles.removeIcn} src="/Random Langs.png" alt="Others" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                         {Project.pic === "HTML" ? <Image className={styles.removeIcn} src="/HTML.png" boxSize="100" alt="HTML" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                     </Box>
