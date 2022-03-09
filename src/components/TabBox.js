@@ -1,9 +1,10 @@
-import { Box ,Tabs , TabList, TabPanels, Tab, TabPanel, Text, VStack, HStack, Container, Link } from '@chakra-ui/react'
+import { Box ,Tabs , TabList, TabPanels, Tab, TabPanel, Text, VStack, HStack, Container, Link, useColorMode, Image } from '@chakra-ui/react'
 import { MdDateRange } from 'react-icons/md'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import { onSnapshot, collection } from "firebase/firestore";
 import db from '../pages/api/firebase'
+import { useRouter } from 'next/router';
 
 const TabBox = () => {
     const [certificates, setCertificates] = useState([])
@@ -11,6 +12,11 @@ const TabBox = () => {
     let tempCe = []
     let tempCo = []
     const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+    // Tools
+    const devTools = [["GitHub", "Version Control", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=github"], ["Xcode", "iOS Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=xcode"], ["Visual Studio Code", "General/Web Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio-code"], ["Visual Studio", "C#", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio"] , ["IntelliJ/PyCharm", "General/Web Development"]]
+    const designTools = [["Figma", "UI/UX Design", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=figma"], ["Adobe XD", "UI/UX Design", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=adobexd"]]
+    const postProductionTools = [["Davinci Resolve", "Video Editing"], ["iMovie", "Video Editing"]]
 
     useEffect(() => {
         console.log("Loading Projects...")
@@ -76,6 +82,8 @@ const TabBox = () => {
                                     <HStack spacing={4} alignItems='left'>
                                         <Text>Python</Text>
                                         <Text>C++</Text>
+                                        <Text>HTML</Text>
+                                        <Text>CSS</Text>
                                     </HStack>
                                 </VStack>
                             </VStack>
@@ -87,27 +95,27 @@ const TabBox = () => {
                                 <VStack alignItems="left">
                                     <Text fontSize="20px"><b>Developer Tools</b></Text>
                                     <VStack alignItems="left" spacing={1}>
-                                        <Text>- GitHub</Text>
-                                        <Text>- Xcode</Text>
-                                        <Text>- Visual Studio Code</Text>
-                                        <Text>- IntelliJ/PyCharm</Text>
+                                        {devTools.map((data) => (
+                                            <ToolBox key={data[0]} data={data} />
+                                        ))}
                                     </VStack>
                                 </VStack>
 
                                 <VStack alignItems="left">
                                     <Text fontSize="20px"><b>Design Tools</b></Text>
                                     <VStack alignItems="left" spacing={1}>
-                                        <Text>- Adobe XD</Text>
-                                        <Text>- Figma</Text>
+                                        {designTools.map((data) => (
+                                            <ToolBox key={data[0]} data={data} />
+                                        ))}
                                     </VStack>
                                 </VStack>
 
                                 <VStack alignItems="left">
                                     <Text fontSize="20px"><b>Post-Production</b></Text>
                                     <VStack alignItems="left" spacing={1}>
-                                        <Text>- Davinci Resolve</Text>
-                                        <Text>- iMovie</Text>
-                                        <Text>- Garageband</Text>
+                                        {postProductionTools.map((data) => (
+                                            <ToolBox key={data[0]} data={data} />
+                                        ))}
                                     </VStack>
                                 </VStack>
                             </VStack>
@@ -116,16 +124,16 @@ const TabBox = () => {
                     <TabPanel>
                         <Box>
                             <VStack spacing={5} alignItems="left">
-                                <Text fontSize="22px"><b>Competitions</b></Text>
-                                <VStack spacing={3} alignItems="left">
-                                    {competitions.map((competition) => (
-                                        <Boxx key={competition.name} data={competition} />
-                                    ))}
-                                </VStack>
                                 <Text fontSize="22px"><b>Certificates</b></Text>
                                 <VStack spacing={3} alignItems="left">
                                     {certificates.map((certificate) => (
                                         <Boxx key={certificate.name} data={certificate} />
+                                    ))}
+                                </VStack>
+                                <Text fontSize="22px"><b>Competitions</b></Text>
+                                <VStack spacing={3} alignItems="left">
+                                    {competitions.map((competition) => (
+                                        <Boxx key={competition.name} data={competition} />
                                     ))}
                                 </VStack>
                             </VStack>
@@ -176,15 +184,47 @@ const TabBox = () => {
 }
 
 const Boxx = (data) => {
+    const { colorMode } = useColorMode()
+    const router = useRouter()
+
     return (
-        <VStack alignItems="left">
-            <Text fontSize="17px"><b>{data.data.name}</b></Text>
-            <Text>{data.data.desc}</Text>
-            <HStack>
-                <MdDateRange />
-                <Text>{data.data.date}</Text>
-            </HStack>
-        </VStack>
+        <>
+            {data.data.link === undefined ? 
+            <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+                <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
+                    <Text fontSize="17px"><b>{data.data.name}</b></Text>
+                    <Text>{data.data.desc}</Text>
+                    <HStack>
+                        <MdDateRange />
+                        <Text>{data.data.date}</Text>
+                    </HStack>
+                </VStack>
+            </Box> :
+            <Box alignItems="left" borderRadius="lg" boxShadow="md" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(data.data.link)}>
+                <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
+                    <Text fontSize="17px"><b>{data.data.name}</b></Text>
+                    <Text>{data.data.desc}</Text>
+                    <HStack>
+                        <MdDateRange />
+                        <Text>{data.data.date}</Text>
+                    </HStack>
+                </VStack>
+            </Box>
+            }
+        </>
+    )
+}
+
+const ToolBox = (data) => {
+    const { colorMode } = useColorMode()
+
+    return (
+        <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+            <VStack alignItems="left" spacing={1} ml={2} mr={2} my={3}>
+                <Text fontSize="18px"><b>{data.data[0]}</b></Text>
+                <Text>{data.data[1]}</Text>
+            </VStack>
+        </Box>
     )
 }
 

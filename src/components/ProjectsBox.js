@@ -5,6 +5,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import styles from '../styles/Home.module.css'
 import { onSnapshot, collection, orderBy } from "firebase/firestore";
 import db from '../pages/api/firebase'
+import { useRouter } from 'next/router'
 
 const ProjectsBox = () => {
     const [iosStatus, setiosStatus] = useState(false)
@@ -107,10 +108,11 @@ const ProjectsBox = () => {
 }
 
 const DataBox = ({Project}) => {    
+    const router = useRouter()
     const { colorMode } = useColorMode()
 
     return(
-        <Box borderRadius="lg" boxShadow="md" p="1" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"}>
+        <Box borderRadius="lg" boxShadow="md" p="1" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} alignItems="left" _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(Project.ghRepo)}>
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack spacing={4}>
                     <Box>
@@ -121,17 +123,14 @@ const DataBox = ({Project}) => {
                         {Project.pic === "HTML" ? <Image className={styles.removeIcn} src="/HTML.png" boxSize="100" alt="HTML" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
                     </Box>
                     <Box>
-                        <VStack alignItems="left" spacing={0}>
+                        <VStack align="left" spacing={0}>
                             <Text><b>{Project.year}</b></Text>
-                        <HStack>
-                            <Text fontSize="22px"><b>{Project.name}</b></Text>
-                            {(Project.currentlyUpdated) ? <Badge className={styles.removeIcn} colorScheme="green">Updated</Badge> : <Badge className={styles.removeIcn} colorScheme="red">No longer updated</Badge>}
-                        </HStack>
+                            <HStack>
+                                <Text fontSize="22px"><b>{Project.name}</b></Text>
+                                {(Project.currentlyUpdated) ? <Badge className={styles.removeIcn} colorScheme="green">Updated</Badge> : <Badge className={styles.removeIcn} colorScheme="red">No longer updated</Badge>}
+                            </HStack>
                             <Text fontSize="17px">{Project.language}</Text>
                         </VStack>
-                        <Link href={Project.ghRepo} isExternal color="teal.500">
-                            GitHub Repository
-                        </Link>
                         {Project.pic === "Swift" ? (Project.onAppStore ?
                             <NextLink href={Project.appStoreLink}>
                                 <a>
