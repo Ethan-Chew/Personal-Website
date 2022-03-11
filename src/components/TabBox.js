@@ -11,7 +11,8 @@ const TabBox = () => {
     const [competitions, setCompetitions] = useState([])
     let tempCe = []
     let tempCo = []
-    const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
+    const { colorMode } = useColorMode()
 
     // Tools
     const devTools = [["GitHub", "Version Control", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=github"], ["Xcode", "iOS Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=xcode"], ["Visual Studio Code", "General/Web Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio-code"], ["Visual Studio", "C#", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio"] , ["IntelliJ/PyCharm", "General/Web Development"]]
@@ -143,37 +144,45 @@ const TabBox = () => {
                         <VStack spacing={5} alignItems="left">
                             <Text fontSize="22px"><b>School Projects</b></Text>
                             <VStack spacing={5} alignItems="left">
-                                <VStack alignItems="left" spacing={2}>
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>2021 Additional Mathematics Performance Task</b></Text>
-                                        <Text>In this Performance Task, we researched and created a online model and report of a proposed shelter that we can build for our school.</Text>
+                                <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+                                    <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                                        <VStack alignItems="left">
+                                            <Text fontSize="18px"><b>2021 Additional Mathematics Performance Task</b></Text>
+                                            <Text>In this Performance Task, we researched and created a online model and report of a proposed shelter that we can build for our school.</Text>
+                                        </VStack>
+                                        <VStack alignItems="left" spacing={0}>
+                                            <Link href="https://drive.google.com/file/d/1LH2iEPa-2XNDk0QW81trw9R8KNDeUD8m/view?usp=sharing" isExternal color="teal.500">Viewing Link (Individual)</Link>
+                                            <Link href="https://drive.google.com/file/d/1Zs2RoHpGhmhWXBafdbUDfbY_sKVZWYdn/view?usp=sharing" isExternal color="teal.500">Viewing Link (Group)</Link>
+                                        </VStack>
                                     </VStack>
-                                    <VStack alignItems="left" spacing={0}>
-                                        <Link href="https://drive.google.com/file/d/1LH2iEPa-2XNDk0QW81trw9R8KNDeUD8m/view?usp=sharing" isExternal color="teal.500">Viewing Link (Individual)</Link>
-                                        <Link href="https://drive.google.com/file/d/1Zs2RoHpGhmhWXBafdbUDfbY_sKVZWYdn/view?usp=sharing" isExternal color="teal.500">Viewing Link (Group)</Link>
+                                </Box>
+                                <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+                                    <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                                        <VStack alignItems="left">
+                                            <Text fontSize="18px"><b>2020 Chinese Performance Task</b></Text>
+                                            <Text>In this Performance Task, we created a video showing the journey that we experienced when going to Gardens by the Bay in Singapore.</Text>
+                                        </VStack>
+                                        <Link href="" isExternal color="teal.500">Viewing Link (Coming Soon)</Link>
                                     </VStack>
-                                </VStack>
-                                <VStack alignItems="left" spacing={2}>
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>2020 Chinese Performance Task</b></Text>
-                                        <Text>In this Performance Task, we created a video showing the journey that we experienced when going to Gardens by the Bay in Singapore.</Text>
+                                </Box>
+                                <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+                                    <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                                        <VStack alignItems="left">
+                                            <Text fontSize="18px"><b>2020 History Performance Task</b></Text>
+                                            <Text>In this Performance Task, we researched and created a documentary about Lee Kong Chian, a Chinese businessman and philanthropist.</Text>
+                                        </VStack>
+                                        <Link href="" isExternal color="teal.500">Viewing Link (Coming Soon)</Link>
                                     </VStack>
-                                    <Link href="" isExternal color="teal.500">Viewing Link (Coming Soon)</Link>
-                                </VStack>
-                                <VStack alignItems="left" spacing={2}>
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>2020 History Performance Task</b></Text>
-                                        <Text>In this Performance Task, we researched and created a documentary about Lee Kong Chian, a Chinese businessman and philanthropist.</Text>
+                                </Box>
+                                <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+                                    <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                                        <VStack alignItems="left">
+                                            <Text fontSize="18px"><b>2020 Physics Performance Task</b></Text>
+                                            <Text>In this Performance Task, I researched and made an online prototype of a simple burglar alarm with the Arduino Uno.</Text>
+                                        </VStack>
+                                        <Link href="" isExternal color="teal.500">Viewing Link (Coming Soon)</Link>
                                     </VStack>
-                                    <Link href="" isExternal color="teal.500">Viewing Link (Coming Soon)</Link>
-                                </VStack>
-                                <VStack alignItems="left" spacing={2}>
-                                    <VStack alignItems="left">
-                                        <Text fontSize="18px"><b>2020 Physics Performance Task</b></Text>
-                                        <Text>In this Performance Task, I researched and made an online prototype of a simple burglar alarm with the Arduino Uno.</Text>
-                                    </VStack>
-                                    <Link href="" isExternal color="teal.500">Viewing Link (Coming Soon)</Link>
-                                </VStack>
+                                </Box>
                             </VStack>
                         </VStack>
                     </TabPanel>
@@ -191,8 +200,8 @@ const Boxx = (data) => {
         <>
             {data.data.link === undefined ? 
             <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
-                <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
-                    <Text fontSize="17px"><b>{data.data.name}</b></Text>
+                <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                    <Text fontSize="18px"><b>{data.data.name}</b></Text>
                     <Text>{data.data.desc}</Text>
                     <HStack>
                         <MdDateRange />
@@ -201,8 +210,8 @@ const Boxx = (data) => {
                 </VStack>
             </Box> :
             <Box alignItems="left" borderRadius="lg" boxShadow="md" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(data.data.link)}>
-                <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
-                    <Text fontSize="17px"><b>{data.data.name}</b></Text>
+                <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                    <Text fontSize="18px"><b>{data.data.name}</b></Text>
                     <Text>{data.data.desc}</Text>
                     <HStack>
                         <MdDateRange />
@@ -220,7 +229,7 @@ const ToolBox = (data) => {
 
     return (
         <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
-            <VStack alignItems="left" spacing={1} ml={2} mr={2} my={3}>
+            <VStack alignItems="left" spacing={1} ml={4} mr={2} my={3}>
                 <Text fontSize="18px"><b>{data.data[0]}</b></Text>
                 <Text>{data.data[1]}</Text>
             </VStack>

@@ -18,7 +18,7 @@ export default function Home() {
   const [roles, setRoles] = useState([])
   let tempSchools = []
   let tempRoles = []
-  const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
 
   useEffect(() => {
     document.title = "Ethan Chew";
@@ -165,7 +165,7 @@ const ExpBox = ({data}) => {
   return(
     <>
       <VStack alignItems="left">
-        {(data.location === "SST Inc.") ? <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" /> : colorMode === "light" ? <Image src="/ScoutLogo.png" alt="Singapore Scouts Association" height="85px" width="330px" /> : <Image src="/ScoutLogoWhite.png" alt="Singapore Scouts Association" height="85px" width="330px" />}
+        {(data.location === "SST Inc.") ? <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" /> : colorMode === "light" ? <Image src="/ScoutLogo.png" alt="Singapore Scouts Association" height="85px" width="340px" /> : <Image src="/ScoutLogoWhite.png" alt="Singapore Scouts Association" height="85px" width="330px" />}
         <Text fontSize="20px"><b>{data.name} - {data.location}</b></Text>
         <AspectRatio ratio={6/1} maxW="190px">
           <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>

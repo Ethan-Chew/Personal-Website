@@ -25,7 +25,7 @@ const MTabBox = () => {
     const [competitions, setCompetitions] = useState([])
     let tempCe = []
     let tempCo = []
-    const months = ["Jan", "Feb", 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
     
     // Tools
     const devTools = [["GitHub", "Version Control", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=github"], ["Xcode", "iOS Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=xcode"], ["Visual Studio Code", "General/Web Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio-code"], ["Visual Studio", "C#", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio"] , ["IntelliJ/PyCharm", "General/Web Development"]]
@@ -235,8 +235,8 @@ const Boxx = (data) => {
         <>
             {data.data.link === undefined ? 
             <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
-                <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
-                    <Text fontSize="17px"><b>{data.data.name}</b></Text>
+                <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                    <Text fontSize="18px"><b>{data.data.name}</b></Text>
                     <Text>{data.data.desc}</Text>
                     <HStack>
                         <MdDateRange />
@@ -245,8 +245,8 @@ const Boxx = (data) => {
                 </VStack>
             </Box> :
             <Box alignItems="left" borderRadius="lg" boxShadow="md" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(data.data.link)}>
-                <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
-                    <Text fontSize="17px"><b>{data.data.name}</b></Text>
+                <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
+                    <Text fontSize="18px"><b>{data.data.name}</b></Text>
                     <Text>{data.data.desc}</Text>
                     <HStack>
                         <MdDateRange />
@@ -264,7 +264,7 @@ const ToolBox = (data) => {
 
     return (
         <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
-            <VStack alignItems="left" spacing={1} ml={2} mr={2} my={3}>
+            <VStack alignItems="left" spacing={1} ml={4} mr={2} my={3}>
                 <Text fontSize="18px"><b>{data.data[0]}</b></Text>
                 <Text>{data.data[1]}</Text>
             </VStack>
