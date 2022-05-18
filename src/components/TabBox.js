@@ -7,11 +7,6 @@ import db from '../pages/api/firebase'
 import { useRouter } from 'next/router';
 
 const TabBox = () => {
-    const [certificates, setCertificates] = useState([])
-    const [competitions, setCompetitions] = useState([])
-    let tempCe = []
-    let tempCo = []
-    const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
     const { colorMode } = useColorMode()
 
     // Tools
@@ -19,42 +14,12 @@ const TabBox = () => {
     const designTools = [["Figma", "UI/UX Design", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=figma"], ["Adobe XD", "UI/UX Design", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=adobexd"]]
     const postProductionTools = [["Davinci Resolve", "Video Editing"], ["iMovie", "Video Editing"]]
 
-    useEffect(() => {
-        console.log("Loading Projects...")
-
-        const sortDate = (valA, valB) => {
-            const a = valA.date.split(" ")
-            const b = valB.date.split(" ")
-            if (a[1] !== b[1]) {
-                return b[1] - a[1]
-            } else {
-                return months.indexOf(a[0]) - months.indexOf(b[0])
-            }
-        }
-
-        onSnapshot(collection(db, "knowlegeandskills"), (data) => {
-            let temp = data.docs.map((doc) => doc.data())
-
-            for (let i = 0; i < temp.length; i++) {
-                if (temp[i].type === "competitions") {
-                    tempCo.push(temp[i])
-                } else {
-                    tempCe.push(temp[i])
-                }
-            }
-
-            setCertificates(tempCe.sort(sortDate))
-            setCompetitions(tempCo.sort(sortDate))
-        })
-    }, [])
-
     return(
         <Container maxW={'4xl'} className={styles.textBox}>
             <Tabs variant="enclosed" isFitted>
                 <TabList>
                     <Tab>Languages/Frameworks</Tab>
                     <Tab>Tools</Tab>
-                    <Tab>Accomplishments</Tab>
                     <Tab>School Projects</Tab>
                 </TabList>
 
@@ -118,24 +83,6 @@ const TabBox = () => {
                                             <ToolBox key={data[0]} data={data} />
                                         ))}
                                     </VStack>
-                                </VStack>
-                            </VStack>
-                        </Box>
-                    </TabPanel>
-                    <TabPanel>
-                        <Box>
-                            <VStack spacing={5} alignItems="left">
-                                <Text fontSize="22px"><b>Certificates</b></Text>
-                                <VStack spacing={3} alignItems="left">
-                                    {certificates.map((certificate) => (
-                                        <Boxx key={certificate.name} data={certificate} />
-                                    ))}
-                                </VStack>
-                                <Text fontSize="22px"><b>Competitions</b></Text>
-                                <VStack spacing={3} alignItems="left">
-                                    {competitions.map((competition) => (
-                                        <Boxx key={competition.name} data={competition} />
-                                    ))}
                                 </VStack>
                             </VStack>
                         </Box>
