@@ -18,6 +18,8 @@ import {
     SunIcon,
 } from '@chakra-ui/icons';
 
+import { useState } from 'react';
+import styles from '../styles/Home.module.css'
 import Link from 'next/link';
 
 const Pages = [{
@@ -50,15 +52,21 @@ const NavLink = ({ children }) => (
 );
 
 export default function NavBar() {
+    const { buttonClick, setButtonClick } = useState(0);
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
+    const colourButtonClick = () => {
+        toggleColorMode
+        setButtonClick(buttonClick + 1)
+    }
+
     return(
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} className={styles.navBar}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            icon={isOpen ? <CloseIcon width="16px" height="16px" /> : <HamburgerIcon width="18px" height="18px" />}
             aria-label={'Open Menu'}
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
@@ -75,7 +83,7 @@ export default function NavBar() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <Button onClick={toggleColorMode}>
+            <Button onClick={colourButtonClick}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
           </Flex>

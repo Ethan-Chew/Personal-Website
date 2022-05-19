@@ -70,7 +70,7 @@ export default function Home() {
   }, [])
 
   return (    
-    <Container maxW={'4xl'}>
+    <Container maxW={'50rem'}>
       <Head>
         <title>Ethan Chew</title>
         <meta name="title" content="Ethan Chew"/>
