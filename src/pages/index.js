@@ -1,9 +1,10 @@
-import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, useColorMode, Stack } from "@chakra-ui/react"
+import { Box, HStack, VStack, Text, Heading, AspectRatio, Badge, Divider, Image, Container, Stack, Button, useColorMode } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { onSnapshot, collection } from "firebase/firestore";
 import db from '../pages/api/firebase'
+import { CloseIcon } from '@chakra-ui/icons';
 
 // Components
 import Header from "../components/Header";
@@ -20,6 +21,8 @@ export default function Home() {
   let tempSchools = []
   let tempRoles = []
   const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
+  const { colorMode } = useColorMode()
+  const [showMobileAlert, editAlert] = useState(true)
 
   useEffect(() => {
     document.title = "Ethan Chew";
@@ -66,6 +69,7 @@ export default function Home() {
 
       setSchools(tempSchools.sort(sortDate))
       setRoles(tempRoles.sort(sortDate))
+      console.log(showMobileAlert)
     })
   }, [])
 
@@ -132,6 +136,18 @@ export default function Home() {
           <Heading mb={4}>Achievements</Heading>
           <Achievements />
         </Container>
+        
+        {/* Mobile Alert Box */}
+        {showMobileAlert ? 
+          <Box className={styles.alertBox} style={{backgroundColor: (colorMode === "light") ? "rgb(255,255,255)" : "rgb(26, 29, 39)"}}>
+          <HStack spacing={5}>
+            <Button onClick={() => editAlert(false)}>
+              <CloseIcon />
+            </Button>
+            <Text>If there are any issues in formatting, please report it to my email. Thanks!</Text>
+          </HStack>
+        </Box>
+      : <></>}
 
       </Stack>
     </Container>

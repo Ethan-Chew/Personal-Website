@@ -56,11 +56,6 @@ export default function NavBar() {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const colourButtonClick = () => {
-        toggleColorMode
-        setButtonClick(buttonClick + 1)
-    }
-
     return(
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} className={styles.navBar}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
@@ -83,7 +78,7 @@ export default function NavBar() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <Button onClick={colourButtonClick}>
+            <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
           </Flex>
