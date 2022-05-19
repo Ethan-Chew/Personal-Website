@@ -113,30 +113,53 @@
   margin-left: 0.5rem;
 }
 
+.navBar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.mainContainer {
+  width: 90% !important;
+  max-width: 100%;
+}
+
 @media (max-width: 600px) {
   .grid {
-    width: 100%;
-    flex-direction: column;
+      width: 100%;
+      flex-direction: column;
   }
 }
 
 @media (max-width: 600px) {
   .removeIcn {
-    display: none !important;
+      display: none !important;
   }
   .mobileBox {
-    display: block;
+      display: block;
   }
   .textBox {
-    display: none;
+      display: none;
+  }
+  .alertBox {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      border: 2px solid lightcoral;
+      width: 100%;
+      padding: 1rem;
   }
 }
 
 @media (min-width: 601px) {
   .mobileBox {
-    display: none;
+      display: none;
   }
   .textBox {
-    display: block;
+      display: block;
+  }
+  .alertBox {
+      display: none;
   }
 }
