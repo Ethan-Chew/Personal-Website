@@ -6,13 +6,15 @@ import {
     HStack,
     IconButton,
     Divider,
-    Container
+    Container,
+    useColorMode
   } from '@chakra-ui/react';
 import { useRouter } from 'next/router'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 
 export default function Header() {
+  const { colorMode } = useColorMode()
   const router = useRouter()
   const links = {
     "Github": "https://go.ethanchew.com/github",
@@ -21,11 +23,11 @@ export default function Header() {
   }
 
   return (
-    <Container maxW="container.lg" mt={5} mb={3}>
+    <Container maxW={'54rem'} mt={5} mb={3}>
       <VStack alignItems="left" spacing={4}>
         <VStack alignItems="left">
           <Heading fontSize="50px">Ethan Chew</Heading>
-          <Text fontSize="20px">Developer, Designer, Student</Text>
+          <Text fontSize="20px" color={(colorMode === "light") ? "" : "gray.300"}>Developer, Designer, Student</Text>
         </VStack>
         <Divider />
         <Text>A <b>{new Date().getFullYear() - 2006} year old</b> student studying <b>Computing+</b> at the <b>School of Science and Technology, Singapore</b>, who also has a passion in photography and aviation.</Text>

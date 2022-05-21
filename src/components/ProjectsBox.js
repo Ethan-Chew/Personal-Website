@@ -58,7 +58,7 @@ const ProjectsBox = () => {
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
                 <Text fontSize="25px"><b>iOS Apps</b></Text>
-                <IconButton colorScheme="teal" aria-label={iosStatus ? "Close" : "Open"} size="sm" icon={iosStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {iosStatus ? setiosStatus(false) : setiosStatus(true)}}/>
+                <IconButton backgroundColor={colorMode === "light" ? "teal" : "teal.300"} textColor={colorMode === "light" ? "#FFFFFF" : "blue.900"} _hover={colorMode === "light" ? { bg: '#285E61' } : { bg: '#319795' }} _active={colorMode === "light" ? { bg: '#285E61', transform: 'scale(0.98)' } : { bg: '#319795', transform: 'scale(0.98)' }} aria-label={iosStatus ? "Close" : "Open"} size="sm" icon={iosStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {iosStatus ? setiosStatus(false) : setiosStatus(true)}}/>
             </HStack>
             {iosStatus ?
                 <VStack spacing={3} alignItems="left">
@@ -75,7 +75,7 @@ const ProjectsBox = () => {
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
                 <Text fontSize="25px"><b>React (Web) Apps</b></Text>
-                <IconButton colorScheme="teal" aria-label={reactStatus ? "Close" : "Open"} size="sm" icon={reactStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {reactStatus ? setreactStatus(false) : setreactStatus(true)}}/>
+                <IconButton backgroundColor={colorMode === "light" ? "teal" : "teal.300"} textColor={colorMode === "light" ? "#FFFFFF" : "blue.900"} _hover={colorMode === "light" ? { bg: '#285E61' } : { bg: '#319795' }} _active={colorMode === "light" ? { bg: '#285E61', transform: 'scale(0.98)' } : { bg: '#319795', transform: 'scale(0.98)' }} aria-label={reactStatus ? "Close" : "Open"} size="sm" icon={reactStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {reactStatus ? setreactStatus(false) : setreactStatus(true)}}/>
             </HStack>
             {reactStatus ?
                 <VStack spacing={3} alignItems="left">
@@ -92,7 +92,7 @@ const ProjectsBox = () => {
           <Box ml={3} mr={3} my={4}>
             <HStack mb={2} spacing={5}>
                 <Text fontSize="25px"><b>School/Personal Projects</b></Text>
-                <IconButton colorScheme="teal" aria-label={ppStatus ? "Close" : "Open"} size="sm" icon={ppStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {ppStatus ? setppStatus(false) : setppStatus(true)}}/>
+                <IconButton backgroundColor={colorMode === "light" ? "teal" : "teal.300"} textColor={colorMode === "light" ? "#FFFFFF" : "blue.900"} _hover={colorMode === "light" ? { bg: '#285E61' } : { bg: '#319795' }} _active={colorMode === "light" ? { bg: '#285E61', transform: 'scale(0.98)' } : { bg: '#319795', transform: 'scale(0.98)' }} aria-label={ppStatus ? "Close" : "Open"} size="sm" icon={ppStatus ? <FaArrowUp /> : <FaArrowDown />} onClick={() => {ppStatus ? setppStatus(false) : setppStatus(true)}}/>
             </HStack>
             {ppStatus ?
                 <VStack spacing={3} alignItems="left">

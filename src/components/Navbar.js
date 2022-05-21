@@ -78,7 +78,11 @@ export default function NavBar() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <Button onClick={toggleColorMode}>
+            <Button 
+              onClick={toggleColorMode}
+              backgroundColor={colorMode === "light" ? "gray.200" : "#1D2431"}
+              _hover={colorMode === "light" ? { bg: 'gray.300' } : {bg: 'gray.700'}}
+            >
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
           </Flex>

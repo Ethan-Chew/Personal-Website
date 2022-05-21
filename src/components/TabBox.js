@@ -15,7 +15,7 @@ const TabBox = () => {
     const postProductionTools = [["Davinci Resolve", "Video Editing"], ["iMovie", "Video Editing"]]
 
     return(
-        <Container maxW={'4xl'} className={styles.textBox}>
+        <Container maxW={'54rem'} className={styles.textBox}>
             <Tabs variant="enclosed" isFitted>
                 <TabList>
                     <Tab>Languages/Frameworks</Tab>

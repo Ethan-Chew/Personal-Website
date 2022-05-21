@@ -27,7 +27,7 @@ const MTabBox = () => {
     const postProductionTools = [["Davinci Resolve", "Video Editing"], ["iMovie", "Video Editing"]]
 
     return(
-        <Container maxW={'4xl'} className={styles.mobileBox}> 
+        <Container maxW={'54rem'} className={styles.mobileBox}> 
             <Accordion allowToggle>
                 <AccordionItem>
                     <h2>

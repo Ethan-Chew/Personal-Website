@@ -74,7 +74,7 @@ export default function Home() {
   }, [])
 
   return (    
-    <Container maxW={'50rem'}>
+    <Container maxW={'54rem'}>
       <Head>
         <title>Ethan Chew</title>
         <meta name="title" content="Ethan Chew"/>
@@ -109,8 +109,8 @@ export default function Home() {
         <Container maxW="container.lg">
           <Heading mb={4}>Leadership Experience</Heading>
           <VStack spacing={3} alignItems="left">
-            {roles.map((job) => (
-              <ExpBox key={job.name} data={job} />
+            {roles.map((role) => (
+              <ExpBox key={role.name} data={role} />
             ))}
           </VStack>
         </Container>
