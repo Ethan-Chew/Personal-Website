@@ -75,6 +75,22 @@ export default function Home() {
 
   return (    
     <Container maxW={'56rem'}>
+      <Head>
+        <meta name="title" content="Ethan Chew" />
+        <meta name="description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore." />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ethanchew.com/" />
+        <meta property="og:title" content="Ethan Chew" />
+        <meta property="og:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore." />
+        <meta property="og:image" content="/Social%20Media%20Img.png" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.ethanchew.com/" />
+        <meta property="twitter:title" content="Ethan Chew" />
+        <meta property="twitter:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore." />
+        <meta property="twitter:image" content="/Social%20Media%20Img.png" />
+      </Head>
       <Stack as={Box} spacing={10} alignItems="center">
         <Header />
 
