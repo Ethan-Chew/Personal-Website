@@ -11,7 +11,7 @@ import Header from "../components/Header";
 import ProjectsBox from "../components/ProjectsBox"
 import TabBox from "../components/TabBox";
 import MTabBox from '../components/MobileTabBox'
-import HobbiesBox from '../components/hobbies'
+// import HobbiesBox from '../components/Hobbies'
 import Achievements from '../components/Achievements'
 
 export default function Home() {
@@ -74,28 +74,11 @@ export default function Home() {
   }, [])
 
   return (    
-    <Container maxW={'54rem'}>
-      <Head>
-        <title>Ethan Chew</title>
-        <meta name="title" content="Ethan Chew"/>
-        <meta name="description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
-
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://www.ethanchew.com"/>
-        <meta property="og:title" content="Ethan Chew"/>
-        <meta property="og:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
-        <meta property="og:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png"/>
-
-        <meta property="twitter:card" content="summary_large_image"/>
-        <meta property="twitter:url" content="https://www.ethanchew.com"/>
-        <meta property="twitter:title" content="Ethan Chew"/>
-        <meta property="twitter:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
-        <meta property="twitter:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png"/>
-      </Head>
+    <Container maxW={'56rem'}>
       <Stack as={Box} spacing={10} alignItems="center">
         <Header />
 
-        <Container maxW="container.lg" py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }}>
+        <Container maxW={'53rem'} py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }}>
           <Heading mb={4}>Education</Heading>
           <VStack alignItems="left" spacing={5}>
             {schools.map((school) => (
@@ -106,7 +89,7 @@ export default function Home() {
 
         <Divider />
 
-        <Container maxW="container.lg">
+        <Container maxW={'53rem'}>
           <Heading mb={4}>Leadership Experience</Heading>
           <VStack spacing={3} alignItems="left">
             {roles.map((role) => (
@@ -117,14 +100,14 @@ export default function Home() {
 
         <Divider />
 
-        <Container maxW="container.lg">
+        <Container maxW={'53rem'}>
           <Heading mb={4}>Projects</Heading>
           <ProjectsBox />
         </Container>
 
         <Divider />
 
-        <Container maxW="container.lg">
+        <Container maxW={'53rem'}>
           <Heading mb={4}>Knowledge and Skills</Heading>
           <TabBox />
           <MTabBox />
@@ -132,10 +115,17 @@ export default function Home() {
 
         <Divider />
 
-        <Container maxW="container.lg">
+        <Container maxW={'53rem'}>
           <Heading mb={4}>Achievements</Heading>
           <Achievements />
         </Container>
+{/* 
+        <Divider />
+
+        <Container maxW={'53rem'}>
+          <Heading mb={4}>Hobbies</Heading>
+          <HobbiesBox />
+        </Container> */}
         
         {/* Mobile Alert Box */}
         {showMobileAlert ? 

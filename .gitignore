@@ -38,3 +38,6 @@ yarn-error.log*
 
 # IntelliJ
 .idea
+
+# Unreleased
+./src/components/Hobbies.js

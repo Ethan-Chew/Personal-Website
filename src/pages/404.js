@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const PageNotFound = () => {
     useEffect(() => {
         document.title = "Ethan Chew | 404";
-    })
+    }, [])
 
     return (
         <VStack alignItems="center" my={10}>
