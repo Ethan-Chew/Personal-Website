@@ -19,39 +19,25 @@ import {
     SunIcon,
 } from '@chakra-ui/icons';
 
-import { useState } from 'react';
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import ScrollIntoView from 'react-scroll-into-view'
 
 const Pages = [{
   id: "Education",
-  clickFunc: function(e) {
-    window.location.replace('/#education');
-  }
+  scrollId: "#education"
 }, {
   id: "Leadership",
-  clickFunc: function(e) {
-    e.preventDefault(); 
-    window.location.replace('/#leadershipExp');
-  }
+  scrollId: "#leadershipExp"
 }, {
   id: "Projects",
-  clickFunc: function(e) {
-    e.preventDefault(); 
-    window.location.replace('/#projects');
-  }
+  scrollId: "#projects"
 }, {
   id: "Knowledge",
-  clickFunc: function(e) {
-    e.preventDefault(); 
-    window.location.replace('/#knowledgeandskills');
-  }
+  scrollId: "#knowledgeandskills"
 }, {
   id: "Achievements",
-  clickFunc: function(e) {
-    e.preventDefault(); 
-    window.location.replace('/#achievements');
-  }
+  scrollId: "#achievements"
 }]
 
 const NavLink = ({ children }) => (
@@ -91,9 +77,11 @@ export default function NavBar() {
               display={{ base: 'none', md: 'flex' }}>
               {Pages.map((page) => (
                 // <NavLink key={page.id}>{page}</NavLink>
-                <Text as='button' key={page.id} onClick={page.clickFunc}>
-                  {page.id}
-                </Text>
+                <ScrollIntoView key={page.id} selector={page.scrollId} smooth={true}>
+                  <Text as='button' onClick={page.clickFunc}>
+                    {page.id}
+                  </Text>
+                </ScrollIntoView>
               ))}
             </HStack>
           </HStack>
