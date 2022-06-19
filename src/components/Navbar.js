@@ -8,7 +8,8 @@ import {
     useColorModeValue,
     useColorMode,
     useDisclosure,
-    IconButton
+    IconButton,
+    Text
 } from '@chakra-ui/react';
 
 import {
@@ -23,17 +24,34 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link';
 
 const Pages = [{
-  id: "Home",
-  href: "/"
+  id: "Education",
+  clickFunc: function(e) {
+    window.location.replace('/#education');
+  }
 }, {
-  id: "Profile",
-  href: "https://profile.ethanchew.com"
+  id: "Leadership",
+  clickFunc: function(e) {
+    e.preventDefault(); 
+    window.location.replace('/#leadershipExp');
+  }
 }, {
-  id: "Launch Tracker",
-  href: "https://launches.ethanchew.com"
+  id: "Projects",
+  clickFunc: function(e) {
+    e.preventDefault(); 
+    window.location.replace('/#projects');
+  }
 }, {
-  id: "Web Apps",
-  href: "https://web-apps.ethanchew.com"
+  id: "Knowledge",
+  clickFunc: function(e) {
+    e.preventDefault(); 
+    window.location.replace('/#knowledgeandskills');
+  }
+}, {
+  id: "Achievements",
+  clickFunc: function(e) {
+    e.preventDefault(); 
+    window.location.replace('/#achievements');
+  }
 }]
 
 const NavLink = ({ children }) => (
@@ -52,7 +70,6 @@ const NavLink = ({ children }) => (
 );
 
 export default function NavBar() {
-    const { buttonClick, setButtonClick } = useState(0);
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -67,13 +84,16 @@ export default function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            {colorMode === 'light' ? <Image src="/Name Logo.png" alt="Ethan Chew" width={200} borderRadius="md" /> : <Image src="/Name Logo L.png" alt="Ethan Chew" width={200} borderRadius="md" />}
+             {colorMode === 'light' ? <Image src="/Name Logo.png" alt="Ethan Chew" width={200} borderRadius="md" onClick={(e) => {e.preventDefault; window.scroll({top: 0, left: 0,behavior: 'smooth'});}} /> : <Image src="/Name Logo L.png" alt="Ethan Chew" width={200} borderRadius="md" onClick={(e) => {e.preventDefault; window.scroll({top: 0, left: 0,behavior: 'smooth'});}} />}
             <HStack
               as={'nav'}
               spacing={6}
               display={{ base: 'none', md: 'flex' }}>
               {Pages.map((page) => (
-                <NavLink key={page.id}>{page}</NavLink>
+                // <NavLink key={page.id}>{page}</NavLink>
+                <Text as='button' key={page.id} onClick={page.clickFunc}>
+                  {page.id}
+                </Text>
               ))}
             </HStack>
           </HStack>
@@ -88,7 +108,9 @@ export default function NavBar() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Pages.map((page) => (
-                <NavLink key={page.id}>{page}</NavLink>
+                <Text as='button' key={page.id} onClick={page.clickFunc}>
+                  {page.id}
+                </Text>
               ))}
             </Stack>
           </Box>

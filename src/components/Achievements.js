@@ -15,7 +15,7 @@ const Achievements = () => {
     const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
 
     // Variables
-    const tags = [{"Colour": "green", "Field": "Programming"}, {"Colour": "yellow.500", "Field": "Science"}]
+    const tags = [{"Colour": "green", "Field": "Programming"}, {"Colour": "yellow.500", "Field": "Science"}, {"Colour": "purple.500", "Field": "Taekwondo"}, {"Colour": "cyan.500", "Field": "Others"}]
 
     useEffect(() => {
         console.log("Loading Projects...")
@@ -55,43 +55,47 @@ const Achievements = () => {
                         <Tabs variant='soft-rounded'>
                             <TabList>
                                 {tags.map((tag) => (
+                                    certificates.some(el => el.field === tag.Field) ? 
                                     <Tab key={tag.Field} _selected={{ color: 'white', bg: `${tag.Colour}` }}>{tag.Field}</Tab>
+                                    : <></>
                                 ))}
                             </TabList>
                             <TabPanels>
                                 {tags.map((tag) => (
+                                    certificates.some(el => el.field === tag.Field) ? 
                                     <TabPanel key={tag.Field}>
-                                        {certificates.some(el => el.field === tag.Field) ? 
                                         <VStack spacing={3}>
                                             {certificates.map((certificate) => (
                                                 (certificate.field == tag.Field) ? <Boxx key={certificate.name} data={certificate} /> : <></>
                                             ))}
                                         </VStack>
-                                        : <Text fontSize="15px">There is no data for {tag.Field}!</Text>}
                                     </TabPanel>
+                                    : <></>
                                 ))}
                             </TabPanels>
                         </Tabs>
                     </VStack>
-                    <Text fontSize="25px"><b>Competitions</b></Text>
+                    <Text fontSize="25px"><b>Competitions and Events</b></Text>
                     <VStack spacing={3} alignItems="left">
-                        <Tabs variant='soft-rounded'>
+                    <Tabs variant='soft-rounded'>
                             <TabList>
                                 {tags.map((tag) => (
+                                    competitions.some(el => el.field === tag.Field) ? 
                                     <Tab key={tag.Field} _selected={{ color: 'white', bg: `${tag.Colour}` }}>{tag.Field}</Tab>
+                                    : <></>
                                 ))}
                             </TabList>
                             <TabPanels>
                                 {tags.map((tag) => (
+                                    competitions.some(el => el.field === tag.Field) ? 
                                     <TabPanel key={tag.Field}>
-                                        {competitions.some(el => el.field === tag.Field) ? 
-                                            <VStack spacing={3}>
+                                        <VStack spacing={3}>
                                             {competitions.map((competition) => (
                                                 (competition.field == tag.Field) ? <Boxx key={competition.name} data={competition} /> : <></>
                                             ))}
                                         </VStack>
-                                        : <Text fontSize="15px">There is no data for {tag.Field}!</Text>}
                                     </TabPanel>
+                                    : <></>
                                 ))}
                             </TabPanels>
                         </Tabs>
