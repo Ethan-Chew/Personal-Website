@@ -94,54 +94,57 @@ export default function Home() {
       <Stack as={Box} spacing={10} alignItems="center">
         <Header />
 
-        <Container maxW={'53rem'} py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }}>
-          <Heading mb={4}>Education</Heading>
-          <VStack alignItems="left" spacing={5}>
-            {schools.map((school) => (
-              <EducationBox key={school.name} school={school} />
-            ))}
-          </VStack>
+        <Container maxW={'53rem'} py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }} id="education">
+          <Box>
+            <Heading mb={4}>Education</Heading>
+            <VStack alignItems="left" spacing={5}>
+              {schools.map((school) => (
+                <EducationBox key={school.name} school={school} />
+              ))}
+            </VStack>
+          </Box>
         </Container>
 
         <Divider />
 
-        <Container maxW={'53rem'}>
-          <Heading mb={4}>Leadership Experience</Heading>
-          <VStack spacing={3} alignItems="left">
-            {roles.map((role) => (
-              <ExpBox key={role.name} data={role} />
-            ))}
-          </VStack>
+        <Container maxW={'53rem'} id="leadershipExp">
+          <Box>
+            <Heading mb={4}>Leadership Experience</Heading>
+            <VStack spacing={3} alignItems="left">
+              {roles.map((job) => (
+                <ExpBox key={job.name} data={job} />
+              ))}
+            </VStack>
+          </Box>
         </Container>
 
         <Divider />
 
-        <Container maxW={'53rem'}>
-          <Heading mb={4}>Projects</Heading>
-          <ProjectsBox />
+        <Container maxW={'53rem'} id="projects">
+          <Box>
+            <Heading mb={4}>Projects</Heading>
+            <ProjectsBox />
+          </Box>
         </Container>
 
         <Divider />
 
-        <Container maxW={'53rem'}>
-          <Heading mb={4}>Knowledge and Skills</Heading>
-          <TabBox />
-          <MTabBox />
+        <Container maxW={'53rem'} id="knowledgeandskills">
+          <Box>
+            <Heading mb={4}>Knowledge and Skills</Heading>
+            <TabBox />
+            <MTabBox />
+          </Box>
         </Container>
 
         <Divider />
-
-        <Container maxW={'53rem'}>
-          <Heading mb={4}>Achievements</Heading>
-          <Achievements />
+              
+        <Container maxW={'53rem'} id="achievements">
+          <Box>
+            <Heading mb={4}>Achievements</Heading>
+            <Achievements /> 
+          </Box>
         </Container>
-{/* 
-        <Divider />
-
-        <Container maxW={'53rem'}>
-          <Heading mb={4}>Hobbies</Heading>
-          <HobbiesBox />
-        </Container> */}
         
         {/* Mobile Alert Box */}
         {showMobileAlert ? 
