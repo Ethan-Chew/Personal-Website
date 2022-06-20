@@ -95,9 +95,12 @@ export default function NavBar() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Pages.map((page) => (
-                <Text as='button' key={page.id} onClick={page.clickFunc}>
-                  {page.id}
-                </Text>
+                <ScrollIntoView key={page.id} selector={page.scrollId} smooth={true}>
+                  <Text as='button' key={page.id} onClick={page.clickFunc}>
+                    {page.id}
+                  </Text>
+                </ScrollIntoView>
+                
               ))}
             </Stack>
           </Box>
