@@ -70,13 +70,12 @@ export default function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-             {colorMode === 'light' ? <Image src="/Name Logo.png" alt="Ethan Chew" width={200} borderRadius="md" onClick={(e) => {e.preventDefault; window.scroll({top: 0, left: 0,behavior: 'smooth'});}} /> : <Image src="/Name Logo L.png" alt="Ethan Chew" width={200} borderRadius="md" onClick={(e) => {e.preventDefault; window.scroll({top: 0, left: 0,behavior: 'smooth'});}} />}
+            {colorMode === 'light' ? <Image src="/Name Logo.png" alt="Ethan Chew" width={200} borderRadius="md" onClick={(e) => {e.preventDefault; window.scroll({top: 0, left: 0,behavior: 'smooth'});}} style={{cursor:"pointer"}} /> : <Image src="/Name Logo L.png" alt="Ethan Chew" width={200} borderRadius="md" onClick={(e) => {e.preventDefault; window.scroll({top: 0, left: 0,behavior: 'smooth'});}} style={{cursor:"pointer"}} />}
             <HStack
               as={'nav'}
               spacing={6}
               display={{ base: 'none', md: 'flex' }}>
               {Pages.map((page) => (
-                // <NavLink key={page.id}>{page}</NavLink>
                 <ScrollIntoView key={page.id} selector={page.scrollId} smooth={true}>
                   <Text as='button' onClick={page.clickFunc}>
                     {page.id}

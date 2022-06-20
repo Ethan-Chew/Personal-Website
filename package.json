@@ -33,9 +33,9 @@
     "eslint-config-next": "11.0.1"
   },
   "files": [
-    "./src/assets/img"
+    "./public"
   ],
   "directories": {
-    "assets:": "./src/assets/img"
+    "assets:": "./public"
   }
 }
