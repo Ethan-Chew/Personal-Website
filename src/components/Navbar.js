@@ -74,7 +74,8 @@ export default function NavBar() {
             <HStack
               as={'nav'}
               spacing={6}
-              display={{ base: 'none', md: 'flex' }}>
+              display={{ base: 'none', md: 'flex' }}
+              overflowX="scroll">
               {Pages.map((page) => (
                 <ScrollIntoView key={page.id} selector={page.scrollId} smooth={true}>
                   <Text as='button' onClick={page.clickFunc}>

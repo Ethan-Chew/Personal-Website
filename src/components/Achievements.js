@@ -47,13 +47,13 @@ const Achievements = () => {
     }, [])
 
     return (
-        <VStack spacing={5} alignItems="left">
+        <VStack spacing={5} alignItems="left" maxW={'50rem'}>
             <Box>
                 <VStack spacing={5} alignItems="left">
                     <Text fontSize="25px"><b>Certificates</b></Text>
                     <VStack spacing={3} alignItems="left">
                         <Tabs variant='soft-rounded'>
-                            <TabList>
+                            <TabList overflowY="hidden" sx={{scrollbarWidth: 'none', '::-webkit-scrollbar': {display: 'none'}}}>
                                 {tags.map((tag) => (
                                     certificates.some(el => el.field === tag.Field) ? 
                                     <Tab key={tag.Field} _selected={{ color: 'white', bg: `${tag.Colour}` }}>{tag.Field}</Tab>
@@ -78,7 +78,7 @@ const Achievements = () => {
                     <Text fontSize="25px"><b>Competitions and Events</b></Text>
                     <VStack spacing={3} alignItems="left">
                     <Tabs variant='soft-rounded'>
-                            <TabList>
+                            <TabList overflowY="hidden" sx={{scrollbarWidth: 'none', '::-webkit-scrollbar': {display: 'none'}}}>
                                 {tags.map((tag) => (
                                     competitions.some(el => el.field === tag.Field) ? 
                                     <Tab key={tag.Field} _selected={{ color: 'white', bg: `${tag.Colour}` }}>{tag.Field}</Tab>
