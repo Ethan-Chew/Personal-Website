@@ -123,7 +123,8 @@ export default function Home() {
 
         <Container maxW="container.lg" id="projects">
           <Box>
-            <Heading mb={4}>Projects</Heading>
+            <Heading mb={1}>Projects</Heading>
+            <Text mb={4}>Click on any box to go to the GitHub Repository!</Text>
             <ProjectsBox />
           </Box>
         </Container>
@@ -142,7 +143,8 @@ export default function Home() {
 
         <Container maxW="container.lg" id="achievements">
           <Box>
-            <Heading mb={4}>Achievements</Heading>
+            <Heading mb={1}>Achievements</Heading>
+            <Text mb={4}>Click on any box to view the relevant information (if available) for it!</Text>
             <Achievements /> 
           </Box>
         </Container>
