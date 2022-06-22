@@ -75,7 +75,7 @@ export default function NavBar() {
               as={'nav'}
               spacing={6}
               display={{ base: 'none', md: 'flex' }}
-              overflowX="scroll">
+              overflowY="hidden" sx={{scrollbarWidth: 'none', '::-webkit-scrollbar': {display: 'none'}}}>
               {Pages.map((page) => (
                 <ScrollIntoView key={page.id} selector={page.scrollId} smooth={true}>
                   <Text as='button' onClick={page.clickFunc}>
