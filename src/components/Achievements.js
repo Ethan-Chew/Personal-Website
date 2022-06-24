@@ -1,7 +1,7 @@
 import { Box ,Tabs , TabList, TabPanels, Tab, TabPanel, Text, VStack, HStack, Container, Link, useColorMode, Image } from '@chakra-ui/react'
 import { MdDateRange } from 'react-icons/md'
 import styles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { onSnapshot, collection } from "firebase/firestore";
 import db from '../pages/api/firebase'
 import { useRouter } from 'next/router';
@@ -113,7 +113,7 @@ const Boxx = (data) => {
     return (
         <>
             {data.data.link === undefined ? 
-            <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
+            <Box className={styles.box} alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
                 <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
                     <Text fontSize="18px"><b>{data.data.name}</b></Text>
                     <Text>{data.data.desc}</Text>
@@ -123,7 +123,7 @@ const Boxx = (data) => {
                     </HStack>
                 </VStack>
             </Box> :
-            <Box style={{cursor:"pointer"}} alignItems="left" borderRadius="lg" boxShadow="md" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(data.data.link)}>
+            <Box className={styles.box} style={{cursor:"pointer"}} alignItems="left" borderRadius="lg" boxShadow="md" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(data.data.link)}>
                 <VStack alignItems="left" spacing={2} ml={4} mr={3} my={4}>
                     <Text fontSize="18px"><b>{data.data.name}</b></Text>
                     <Text>{data.data.desc}</Text>
