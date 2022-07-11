@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import Script from 'next/script';
 import { ChakraProvider, extendTheme, VStack } from "@chakra-ui/react"
 import Footer from '../components/Footer';
 import NavBar from '../components/Navbar';
@@ -31,6 +32,12 @@ function App({ Component, pageProps }) {
           <meta property="twitter:description" content="I'm Ethan Chew, a 15 year old, studying Computing in the School of Science and Technology, Singapore." />
           <meta property="twitter:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png" />
         </Head>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-XBF3B75BTV" />
+        <Script strategy="afterInteractive" dangerouslySetInnerHTML={{__html : `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XBF3B75BTV');`}} />
         <NavBar />
         <VStack spacing={50}>
             <Component {...pageProps} />
