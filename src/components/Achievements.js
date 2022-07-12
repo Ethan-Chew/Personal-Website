@@ -15,7 +15,7 @@ const Achievements = () => {
     const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
 
     // Variables
-    const tags = [{"Colour": "green", "Field": "Programming"}, {"Colour": "yellow.500", "Field": "Science"}, {"Colour": "purple.500", "Field": "Taekwondo"}, {"Colour": "cyan.500", "Field": "Others"}]
+    const tags = [{"Colour": "green", "Field": "Programming"}, {"Colour": "purple.500", "Field": "Taekwondo"}, {"Colour": "yellow.500", "Field": "Science"}, {"Colour": "cyan.500", "Field": "Others"}]
 
     useEffect(() => {
         console.log("Loading Projects...")
