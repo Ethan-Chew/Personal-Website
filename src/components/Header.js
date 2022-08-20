@@ -17,7 +17,7 @@ export default function Header() {
   const links = {
     "Github": "https://go.ethanchew.com/github",
     "LinkedIn": "https://go.ethanchew.com/linkedin",
-    "Email": "mailto:personal@ethanchew.com"
+    "Email": "mailto:ethan@ethanchew.com"
   }
 
   return (
