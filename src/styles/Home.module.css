@@ -134,6 +134,10 @@
   transition: all .4s ease-in-out;
 }
 
+.clickableBox {
+  cursor: pointer;
+}
+
 .box:hover {
   width: 100.6%;
   z-index: 10 !important;

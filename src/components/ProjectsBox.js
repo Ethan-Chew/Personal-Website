@@ -112,7 +112,7 @@ const DataBox = ({Project}) => {
     const { colorMode } = useColorMode()
 
     return(
-        <Box borderRadius="lg" boxShadow="md" p="1" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} alignItems="left" _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(Project.ghRepo)}>
+        <Box className={styles.clickableBox} borderRadius="lg" boxShadow="md" p="1" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} alignItems="left" _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(Project.ghRepo)}>
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack spacing={4}>
                     <Box>
