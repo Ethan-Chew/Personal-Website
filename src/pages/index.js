@@ -84,13 +84,13 @@ export default function Home() {
         <meta property="og:url" content="https://www.ethanchew.com"/>
         <meta property="og:title" content="Ethan Chew"/>
         <meta property="og:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
-        <meta property="og:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png"/>
+        <meta property="og:image" content="https://assets.ethanchew.com/Social%20Media%20Img.png"/>
 
         <meta property="twitter:card" content="summary_large_image"/>
         <meta property="twitter:url" content="https://www.ethanchew.com"/>
         <meta property="twitter:title" content="Ethan Chew"/>
         <meta property="twitter:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
-        <meta property="twitter:image" content="https://www.ethanchew.com/assets/img/Social%20Media%20Img.png"/>
+        <meta property="twitter:image" content="https://assets.ethanchew.com/Social%20Media%20Img.png"/>
       </Head>
       <Stack as={Box} spacing={10} alignItems="center">
         <Header />
