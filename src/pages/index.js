@@ -23,6 +23,7 @@ export default function Home() {
   const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
   const { colorMode } = useColorMode()
   const [showMobileAlert, editAlert] = useState(true)
+  const descText = `Hi! I'm Ethan Chew, a ${new Date().getFullYear() - 2006}-year-old student from Singapore who will be studying Information Technology at Ngee Ann Polytechnic. In addition, I am an Intern at Tinkertanker, developing Swift and SwiftUI-related curriculum.`
 
   useEffect(() => {
     document.title = "Ethan Chew";
@@ -78,18 +79,18 @@ export default function Home() {
       <Head>
         <title>Ethan Chew</title>
         <meta name="title" content="Ethan Chew"/>
-        <meta name="description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
+        <meta name="description" content={descText} />
 
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://www.ethanchew.com"/>
         <meta property="og:title" content="Ethan Chew"/>
-        <meta property="og:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
+        <meta property="og:description" content={descText} />
         <meta property="og:image" content="https://assets.ethanchew.com/Social%20Media%20Img.png"/>
 
         <meta property="twitter:card" content="summary_large_image"/>
         <meta property="twitter:url" content="https://www.ethanchew.com"/>
         <meta property="twitter:title" content="Ethan Chew"/>
-        <meta property="twitter:description" content="I'm Ethan Chew, a 16 year old, studying Computing in the School of Science and Technology, Singapore."/>
+        <meta property="twitter:description" content={descText} />
         <meta property="twitter:image" content="https://assets.ethanchew.com/Social%20Media%20Img.png"/>
       </Head>
       <Stack as={Box} spacing={10} alignItems="center">
