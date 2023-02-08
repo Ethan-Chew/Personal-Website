@@ -14,11 +14,7 @@ import { MdEmail } from 'react-icons/md'
 
 export default function Header() {
   const router = useRouter()
-  const links = {
-    "Github": "https://go.ethanchew.com/github",
-    "LinkedIn": "https://go.ethanchew.com/linkedin",
-    "Email": "mailto:ethan@ethanchew.com"
-  }
+  const links = require("../data/contactlinks")
 
   return (
     <Container maxW="container.lg" mt={5} mb={3}>

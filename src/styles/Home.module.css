@@ -143,6 +143,12 @@
   z-index: 10 !important;
 }
 
+
+.expImg {
+  height: 50px;
+  position: relative;
+}
+
 @media (max-width: 810px) {
   .grid {
     width: 100%;

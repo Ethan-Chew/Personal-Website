@@ -11,8 +11,8 @@ import Header from "../components/Header";
 import ProjectsBox from "../components/ProjectsBox"
 import TabBox from "../components/TabBox";
 import MTabBox from '../components/MobileTabBox'
-import HobbiesBox from '../components/hobbies'
 import Achievements from '../components/Achievements'
+import Experience from '../components/Experience'
 
 export default function Home() {
   // Data Variables
@@ -98,24 +98,16 @@ export default function Home() {
         <Container maxW="container.lg" py={4} spacing={4} justify={{ base: 'center', md: 'space-between' }} align={{ base: 'center', md: 'center' }} id="education">
           <Box>
             <Heading mb={4}>Education</Heading>
-            <VStack alignItems="left" spacing={5}>
-              {schools.map((school) => (
-                <EducationBox key={school.name} school={school} />
-              ))}
-            </VStack>
+            <Experience allData={schools} />
           </Box>
         </Container>
 
         <Divider />
 
-        <Container maxW="container.lg" id="leadershipExp">
+        <Container maxW="container.lg" id="experience">
           <Box>
-            <Heading mb={4}>Leadership Experience</Heading>
-            <VStack spacing={3} alignItems="left">
-              {roles.map((job) => (
-                <ExpBox key={job.name} data={job} />
-              ))}
-            </VStack>
+            <Heading mb={4}>Experience</Heading>
+            <Experience allData={roles} />
           </Box>
         </Container>
 
@@ -176,7 +168,6 @@ const EducationBox = ({school}) => {
         {school.name === "Swift Accelerator Program" ? <Image src="sap.webp" alt="Swift Accelerator Program" height="90px" width="120px" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
         <HStack>
           <Text fontSize="20px"><b>{school.name}</b></Text>
-          {school.endYear > "2021" ? <Badge colorScheme="green">Current</Badge> : null}
         </HStack>
         <AspectRatio ratio={4/1} maxW="110px">
           <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>
@@ -184,25 +175,6 @@ const EducationBox = ({school}) => {
           </Box>
         </AspectRatio>
         <Text>{school.desc}</Text>
-      </VStack>
-    </>
-  )
-}
-
-const ExpBox = ({data}) => {
-  const { colorMode } = useColorMode();
-
-  return(
-    <>
-      <VStack alignItems="left">
-        {(data.location === "SST Inc.") ? <Image src="/sstinc.webp" alt="SST Inc." height="70px" width="130px" /> : colorMode === "light" ? <Image src="/ScoutLogo.png" alt="Singapore Scouts Association" height="85px" width="340px" /> : <Image src="/ScoutLogoWhite.png" alt="Singapore Scouts Association" height="85px" width="330px" />}
-        <Text fontSize="20px"><b>{data.name} - {data.location}</b></Text>
-        <AspectRatio ratio={6/1} maxW="190px">
-          <Box p={2} borderRadius="md" bg={colorMode === "light" ? "#EDF2F7" : "grey"}>
-            <Text>{data.startDate} - {data.endDate === "Current" ? <b>Current</b> : data.endDate}</Text>
-          </Box>
-        </AspectRatio>
-        <Text>{data.desc}</Text>
       </VStack>
     </>
   )

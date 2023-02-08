@@ -112,7 +112,7 @@ const MTabBox = () => {
                         </Box>
                     </AccordionPanel>
                 </AccordionItem>
-                <AccordionItem>
+                {/* <AccordionItem>
                     <h2>
                         <AccordionButton>
                             <Box flex="1" textAlign="left">
@@ -158,7 +158,7 @@ const MTabBox = () => {
                             </VStack>
                         </VStack>
                     </AccordionPanel>
-                </AccordionItem>
+                </AccordionItem> */}
             </Accordion>
         </Container>
     )

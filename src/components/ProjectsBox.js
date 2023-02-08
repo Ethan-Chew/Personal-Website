@@ -111,16 +111,15 @@ const DataBox = ({Project}) => {
     const router = useRouter()
     const { colorMode } = useColorMode()
 
+    // Image Data
+    const images = require("../data/images")
+
     return(
         <Box className={styles.clickableBox} borderRadius="lg" boxShadow="md" p="1" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} alignItems="left" _hover={colorMode === "light" ? { bg: '#ebedf0' } : { bg: '#1f2533' }} onClick={() => router.push(Project.ghRepo)}>
             <VStack alignItems="left" spacing={2} ml={2} mr={2} my={3}>
                 <HStack spacing={4}>
                     <Box>
-                        {Project.pic === "Swift" ? <Image className={styles.removeIcn} src="/Swift.png" alt="Swift" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/> : null}
-                        {Project.pic === "JS" ? <Image className={styles.removeIcn} src="/JavaScript.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "Python" ? <Image className={styles.removeIcn} src="/Python.png" alt="JavaScript" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "Others" ? <Image className={styles.removeIcn} src="/Random Langs.png" alt="Others" boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
-                        {Project.pic === "HTML" ? <Image className={styles.removeIcn} src="/HTML.png" boxSize="100" alt="HTML" borderRadius="md" fallbackSrc="https://via.placeholder.com/100" /> : null}
+                        <Image src={images[Project.pic]} className={styles.removeIcn} alt={Project.pic} boxSize="100" borderRadius="md" fallbackSrc="https://via.placeholder.com/100"/>
                     </Box>
                     <Box>
                         <VStack align="left" spacing={0}>

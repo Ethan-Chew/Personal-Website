@@ -20,7 +20,7 @@ const TabBox = () => {
                 <TabList>
                     <Tab>Languages/Frameworks</Tab>
                     <Tab>Tools</Tab>
-                    <Tab>School Projects</Tab>
+                    {/* <Tab>School Projects</Tab> */}
                 </TabList>
 
                 <TabPanels>
@@ -87,7 +87,7 @@ const TabBox = () => {
                             </VStack>
                         </Box>
                     </TabPanel>
-                    <TabPanel>
+                    {/* <TabPanel>
                         <VStack spacing={5} alignItems="left">
                             <Text fontSize="22px"><b>School Projects</b></Text>
                             <VStack spacing={5} alignItems="left">
@@ -132,7 +132,7 @@ const TabBox = () => {
                                 </Box>
                             </VStack>
                         </VStack>
-                    </TabPanel>
+                    </TabPanel> */}
                 </TabPanels>
             </Tabs>
         </Container>
