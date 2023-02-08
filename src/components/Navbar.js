@@ -27,8 +27,8 @@ const Pages = [{
   id: "Education",
   scrollId: "#education"
 }, {
-  id: "Leadership",
-  scrollId: "#leadershipExp"
+  id: "Experience",
+  scrollId: "#experience"
 }, {
   id: "Projects",
   scrollId: "#projects"

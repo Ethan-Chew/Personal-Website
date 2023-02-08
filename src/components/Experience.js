@@ -16,7 +16,7 @@ const DataBox = ({data}) => {
     return(
         <VStack alignItems="left">
             <Box h="83px" overflow="hidden">
-                {colorMode === "light" ? <Image width="100%" fill style={{objectFit: 'contain'}} src={data.lightImg} /> : <Image height="100%" fill style={{objectFit: 'contain'}} src={data.darkImg} />}
+                {colorMode === "light" ? <Image height="100%" fill style={{objectFit: 'contain'}} src={data.lightImg} /> : <Image height="100%" fill style={{objectFit: 'contain'}} src={data.darkImg} />}
             </Box>
             <Text fontSize="20px"><b>{data.name} - {data.location}</b></Text>
             <AspectRatio ratio={6/1} maxW="190px">
