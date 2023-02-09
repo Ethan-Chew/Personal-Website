@@ -46,7 +46,7 @@ const MTabBox = () => {
                                         <HStack spacing={4}>
                                             <Text fontSize="20px"><b>Swift</b></Text>
                                             <HStack>
-                                                <i fontSize="20px" class="devicon-swift-plain"></i>
+                                                <i fontSize="20px" className="devicon-swift-plain"></i>
                                             </HStack>
                                         </HStack>
                                         <Text>
@@ -57,9 +57,9 @@ const MTabBox = () => {
                                         <HStack spacing={4}>
                                             <Text fontSize="20px"><b>JavaScript and React</b></Text>
                                             <HStack>
-                                                <i fontSize="20px" class="devicon-javascript-plain"></i>
-                                                <i fontSize="20px" class="devicon-react-original"></i>
-                                                <i fontSize="20px" class="devicon-nextjs-original"></i>
+                                                <i fontSize="20px" className="devicon-javascript-plain"></i>
+                                                <i fontSize="20px" className="devicon-react-original"></i>
+                                                <i fontSize="20px" className="devicon-nextjs-original"></i>
                                             </HStack>
                                         </HStack>
                                         <Text>
@@ -215,7 +215,7 @@ const ToolBox = (data) => {
     return (
         <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
             <HStack spacing={4} ml={4} mr={2} my={3}> 
-                {data.data[2] !== "" ? <i fontSize="100px" class={`${data.data[2]} ${styles.toolIcon}`}></i> : <></>}
+                {data.data[2] !== "" ? <i fontSize="100px" className={`${data.data[2]} ${styles.toolIcon}`}></i> : <></>}
                 <VStack spacing={0} alignItems="left">
                     <Text fontSize="18px"><b>{data.data[0]}</b></Text>
                     <Text>{data.data[1]}</Text>
