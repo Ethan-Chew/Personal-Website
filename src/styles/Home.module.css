@@ -149,6 +149,14 @@
   position: relative;
 }
 
+.toolIcon {
+  font-size: 2rem;
+}
+
+.cursorGrab {
+  cursor: grab;
+}
+
 @media (max-width: 810px) {
   .grid {
     width: 100%;

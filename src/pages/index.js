@@ -149,7 +149,7 @@ export default function Home() {
             <Button onClick={() => editAlert(false)}>
               <CloseIcon />
             </Button>
-            <Text>If there are any issues in formatting, please report it to my email. Thanks!</Text>
+            <Text>If there are any issues in formatting, let me know through my email. Thanks!</Text>
           </HStack>
         </Box>
       : <></>}

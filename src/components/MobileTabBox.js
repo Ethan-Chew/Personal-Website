@@ -8,23 +8,23 @@ import { Box,
     VStack, 
     HStack, 
     Container, 
-    Link, 
-    Stack, 
-    useSafeLayoutEffect,
     useColorMode
 } from '@chakra-ui/react'
 import { MdDateRange } from 'react-icons/md'
 import styles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
-import { onSnapshot, collection, orderBy } from "firebase/firestore";
-import db from '../pages/api/firebase'
 import { useRouter } from 'next/router';
 
 const MTabBox = () => {
     // Tools
-    const devTools = [["GitHub", "Version Control", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=github"], ["Xcode", "iOS Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=xcode"], ["Visual Studio Code", "General/Web Development", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio-code"], ["Visual Studio", "C#", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=visual-studio"] , ["IntelliJ/PyCharm", "General/Web Development"]]
-    const designTools = [["Figma", "UI/UX Design", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=figma"], ["Adobe XD", "UI/UX Design", "https://img.shields.io/badge/--2a2a3a?style=flat-square&logo=adobexd"]]
+    const devTools = [["GitHub", "Version Control", "devicon-github-plain"], ["Xcode", "iOS Development", "devicon-xcode-plain"], ["Visual Studio Code", "General/Web Development", "devicon-vscode-plain"], ["IntelliJ/PyCharm", "General/Web Development", "devicon-jetbrains-plain"]]
+    const designTools = [["Figma", "UI/UX Design", "devicon-figma-plain"], ["Adobe XD", "UI/UX Design", "devicon-xd-plain"]]
     const postProductionTools = [["Davinci Resolve", "Video Editing"], ["iMovie", "Video Editing"]]
+
+    // Icon Style
+    const iconStyle = {
+        fill: "thistle",
+        height: "100%"
+    }
 
     return(
         <Container maxW={'4xl'} className={styles.mobileBox}> 
@@ -43,16 +43,30 @@ const MTabBox = () => {
                             <VStack spacing={8} alignItems="left">
                                 <VStack spacing={4} alignItems="left">
                                     <VStack alignItems="left">
-                                        <Text fontSize="20px"><b>JavaScript and React</b></Text>
+                                        <HStack spacing={4}>
+                                            <Text fontSize="20px"><b>Swift</b></Text>
+                                            <HStack>
+                                                <i fontSize="20px" class="devicon-swift-plain"></i>
+                                            </HStack>
+                                        </HStack>
                                         <Text>
-                                            As of now, more than half the projects I have worked on are developed with JavaScript. Personally, I feel that JavaScript is a pretty versatile language, allowing you to create many things with it. Some projects I have completed with JavaScript includes this website and my space launch tracker. I also use React, which is a JavaScript library for building User Interfaces. All of my newer websites are created with React as a User Interface Framework as it is easier than using pure HTML, JavaScript and CSS.
+                                            Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is one of the first language I&apos;ve actually learnt! One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any. Of course, I have also created other apps! You can check it out!
                                         </Text>
                                     </VStack>
-
                                     <VStack alignItems="left">
-                                        <Text fontSize="20px"><b>Swift</b></Text>
+                                        <HStack spacing={4}>
+                                            <Text fontSize="20px"><b>JavaScript and React</b></Text>
+                                            <HStack>
+                                                <i fontSize="20px" class="devicon-javascript-plain"></i>
+                                                <i fontSize="20px" class="devicon-react-original"></i>
+                                                <i fontSize="20px" class="devicon-nextjs-original"></i>
+                                            </HStack>
+                                        </HStack>
                                         <Text>
-                                            Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is the first actual programming language that I learnt. One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any.
+                                            All of my newer websites are created with React and Next.js as a User Interface Framework as it is easier than using pure HTML, JavaScript and CSS.
+                                        </Text>
+                                        <Text>
+                                            Personally, I feel that JavaScript is a pretty versatile language, allowing you to create many things with it. Some notable projects are this website and my <i className={styles.cursorGrab} onClick={() => {router.push("https://launches.ethanchew.com")}}>space launch tracker</i>!
                                         </Text>
                                     </VStack>
                                 </VStack>
@@ -61,7 +75,6 @@ const MTabBox = () => {
                                     <Text><b>Other Languages</b></Text>
                                     <HStack spacing={4} alignItems='left'>
                                         <Text>Python</Text>
-                                        <Text>C++</Text>
                                         <Text>HTML</Text>
                                         <Text>CSS</Text>
                                     </HStack>
@@ -201,10 +214,13 @@ const ToolBox = (data) => {
 
     return (
         <Box alignItems="left" bg={colorMode === "light" ? "#F6F8FF" :"#252a35"} borderRadius="lg" boxShadow="md">
-            <VStack alignItems="left" spacing={1} ml={4} mr={2} my={3}>
-                <Text fontSize="18px"><b>{data.data[0]}</b></Text>
-                <Text>{data.data[1]}</Text>
-            </VStack>
+            <HStack spacing={4} ml={4} mr={2} my={3}> 
+                {data.data[2] !== "" ? <i fontSize="100px" class={`${data.data[2]} ${styles.toolIcon}`}></i> : <></>}
+                <VStack spacing={0} alignItems="left">
+                    <Text fontSize="18px"><b>{data.data[0]}</b></Text>
+                    <Text>{data.data[1]}</Text>
+                </VStack>
+            </HStack>
         </Box>
     )
 }
