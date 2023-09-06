@@ -29,7 +29,7 @@ export default function NavBar() {
 
                     <div className="ml-auto space-x-3 flex flex-row pr-6">
                         {Pages.map((page) => (
-                            <Link href="/">
+                            <Link key={`${page}`} href="/">
                                 <p className={`p-3 ${styles.linkText}`}>{ page.id }</p>
                             </Link>
                         ))}

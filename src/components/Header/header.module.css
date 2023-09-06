@@ -2,25 +2,15 @@
     border: 0.6px solid #444444;
 }
 
-.container {
+.iconButton {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 2.7rem;
+    height: 2.7rem;
+    transition: opacity 0.2s;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.content {
-    padding-left: 14%;
-    padding-right: 14%;
-    text-align: left;
-}
-
-.iconButton {
-    background-color: #FFFFFF;
-    opacity: 0.1;
-    width: 2.9rem;
-    height: 2.9rem;
-    transition: opacity 0.2s;
-    border-radius: 10px;
 }
 
 .iconButton:hover {

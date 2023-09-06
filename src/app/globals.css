@@ -25,3 +25,38 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding-left: 15%;
+  padding-right: 15%;
+  text-align: left;
+}
+
+@media only screen and (min-width: 1200px) {
+  .content {
+      padding-left: 20%;
+      padding-right: 20%;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spinner 4s linear infinite;
+} */
