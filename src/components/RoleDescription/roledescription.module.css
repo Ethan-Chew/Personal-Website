@@ -1,0 +1,15 @@
+.featuredImg {
+    height: 4.7rem;
+    width: auto;
+}
+
+.dateContainer {
+    padding: 4px 20px;
+    background-color: #777777;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.lightContainer {
+    background-color: #EEF2F8;
+}

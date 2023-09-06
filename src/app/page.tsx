@@ -32,10 +32,22 @@ export default async function Home() {
 
           {/* Education Section */}
           <div className='pt-10'>
-            <h2 className='font-semibold text-4xl'>Education</h2>
+            <h2 className='font-semibold text-4xl pb-6'>Education</h2>
             {education.map((edu) => (
-              <RoleDescription content={edu} />
+              <RoleDescription key={`${edu.name}`} content={edu} />
             ))}
+
+            <div className='divider'></div>
+          </div>
+
+          {/* Experience Section */}
+          <div className='pt-10'>
+            <h2 className='font-semibold text-4xl pb-6'>Experience</h2>
+            {experience.map((exp) => (
+              <RoleDescription key={`${exp.name}`} content={exp} />
+            ))}
+
+            <div className='divider'></div>
           </div>
 
         </div>

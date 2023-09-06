@@ -25,7 +25,7 @@ try {
     console.log(error)
 }
 
-let getFire = undefined
+let getFire: any = undefined
 
 try {
     getFire = getFirestore()

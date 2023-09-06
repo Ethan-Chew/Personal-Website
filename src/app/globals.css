@@ -60,3 +60,7 @@ body {
   height: 40px;
   animation: spinner 4s linear infinite;
 } */
+
+.divider {
+  border: 0.6px solid #444444;
+}
