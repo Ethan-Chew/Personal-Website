@@ -1,0 +1,28 @@
+.divider {
+    border: 0.6px solid #444444;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    padding-left: 14%;
+    padding-right: 14%;
+    text-align: left;
+}
+
+.iconButton {
+    background-color: #FFFFFF;
+    opacity: 0.1;
+    width: 2.9rem;
+    height: 2.9rem;
+    transition: opacity 0.2s;
+    border-radius: 10px;
+}
+
+.iconButton:hover {
+    opacity: 0.25;
+}
