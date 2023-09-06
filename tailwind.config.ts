@@ -16,7 +16,8 @@ const config: Config = {
     },
     colors: {
       "darkmode-nav": "#171922",
-      "darkmode-page": "#1b202b"
+      "darkmode-page": "#1b202b",
+      "darkmode-text": "#EAEAEA"
     }
   },
   plugins: [],

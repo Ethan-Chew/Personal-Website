@@ -1,12 +1,17 @@
 
 // React Imports
-import { useEffect, useState, Suspense } from 'react'
+import { Suspense } from 'react'
+
+// Font
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
 
 // Database
 import getFirestore from "@/components/DatabaseCall/getFirestore"
 
 // Components
 import Header from '@/components/Header/header'
+import Footer from '@/components/Footer/footer'
 import NavBar from '@/components/NavBar/navbar'
 import RoleDescription from '@/components/RoleDescription/RoleDescription'
 
@@ -22,7 +27,7 @@ export default async function Home() {
   // }, [])
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-darkmode-page">
+    <main className={`flex min-h-screen flex-col items-center justify-between bg-darkmode-page ${inter.className} text-darkmode-text`}>
       <NavBar />
 
       {/* Main Content */}
@@ -31,7 +36,7 @@ export default async function Home() {
           <Header />
 
           {/* Education Section */}
-          <div className='pt-10'>
+          <div className='pt-10' id="education">
             <h2 className='font-semibold text-4xl pb-6'>Education</h2>
             {education.map((edu) => (
               <RoleDescription key={`${edu.name}`} content={edu} />
@@ -41,7 +46,7 @@ export default async function Home() {
           </div>
 
           {/* Experience Section */}
-          <div className='pt-10'>
+          <div className='pt-10' id="experience">
             <h2 className='font-semibold text-4xl pb-6'>Experience</h2>
             {experience.map((exp) => (
               <RoleDescription key={`${exp.name}`} content={exp} />
@@ -50,6 +55,14 @@ export default async function Home() {
             <div className='divider'></div>
           </div>
 
+          {/* Projects Section */}
+          <div className='pt-10' id="projects">
+            <h2 className='font-semibold text-4xl pb-6'>Projects</h2>
+            <p>Click on any project to visit their GitHub repository!</p>
+
+          </div>
+
+          <Footer />
         </div>
       </div>
     </main>

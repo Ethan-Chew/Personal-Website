@@ -6,7 +6,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     width: 2.7rem;
     height: 2.7rem;
-    transition: opacity 0.2s;
+    transition: background-color 0.2s;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -14,5 +14,5 @@
 }
 
 .iconButton:hover {
-    opacity: 0.25;
+    background-color: rgba(255, 255, 255, 0.22);
 }

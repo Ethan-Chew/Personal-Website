@@ -1,24 +1,39 @@
+"use client"
+
 import Link from "next/link"
 import styles from "./navbar.module.css"
 
+interface Page {
+    id: string,
+    scrollId: string
+}
+
 const Pages = [{
     id: "Education",
-    scrollId: "#education"
+    scrollId: "education"
 }, {
     id: "Experience",
-    scrollId: "#experience"
+    scrollId: "experience"
 }, {
     id: "Projects",
-    scrollId: "#projects"
+    scrollId: "projects"
 }, {
     id: "Knowledge",
-    scrollId: "#knowledgeandskills"
+    scrollId: "knowledgeandskills"
 }, {
     id: "Achievements",
-    scrollId: "#achievements"
+    scrollId: "achievements"
 }]
 
 export default function NavBar() {
+
+    const handleNavClick = (page: Page) => {
+        const element = document.getElementById(page.scrollId)
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+        }
+    }
+
     return (
         <>
             <div className={`w-full py-3 bg-darkmode-nav shadow-md ${styles.navbar}`}>
@@ -29,9 +44,7 @@ export default function NavBar() {
 
                     <div className="ml-auto space-x-3 flex flex-row pr-6">
                         {Pages.map((page) => (
-                            <Link key={`${page}`} href="/">
-                                <p className={`p-3 ${styles.linkText}`}>{ page.id }</p>
-                            </Link>
+                            <p onClick={() => handleNavClick(page)} className={`p-3 ${styles.linkText}`}>{ page.id }</p>
                         ))}
                     </div>
                 </div>
