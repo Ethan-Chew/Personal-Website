@@ -130,7 +130,7 @@ const DataBox = ({Project}) => {
                             </HStack>
                             <Text fontSize="17px">{Project.language}</Text>
                         </VStack>
-                        {Project.pic === "Swift" ? (Project.onAppStore ?
+                        {Project.pic === "Swift"  ? (Project.onAppStore && Project.appStoreLink ?
                             <NextLink href={Project.appStoreLink}>
                                 <a>
                                     <Image mt={3} src={colorMode === "light" ? "AppStoreWhite.svg" : "AppStoreDark.svg"} alt="Download on App Store" />
