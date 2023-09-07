@@ -14,6 +14,7 @@ import Header from '@/components/Header/header'
 import Footer from '@/components/Footer/footer'
 import NavBar from '@/components/NavBar/navbar'
 import RoleDescription from '@/components/RoleDescription/RoleDescription'
+import ProjectContainer from '@/components/ProjectContainer/ProjectContainer'
 
 export default async function Home() {
   const education = await getFirestore.getCollection("education")
@@ -56,9 +57,13 @@ export default async function Home() {
 
           {/* Projects Section */}
           <div className='pt-10' id="projects">
-            <h2 className='font-semibold text-4xl pb-6'>Projects</h2>
-            <p>Click on any project to visit their GitHub repository!</p>
-
+            <h2 className='font-semibold text-4xl pb-1'>Projects</h2>
+            <p className='pb-6 font-light'>Click on any project to visit their GitHub repository!</p>
+            <div className='space-y-3'>
+              {Object.keys(projects).reverse().map((projName) => (
+                <ProjectContainer project={projects[projName]} title={projName} key={`${projName}`} />
+              ))}
+            </div>
           </div>
 
           <Footer />

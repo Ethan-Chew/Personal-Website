@@ -19,7 +19,7 @@ export default function Header() {
                 <br />
 
                 {/* Description */}
-                <div>
+                <div className="break-words">
                     <p className="break-words">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare faucibus sapien vitae sagittis. Cras condimentum fringilla massa. Morbi suscipit commodo varius. Nunc nec lorem a sapien rutrum auctor at quis quam. Sed commodo lorem sit amet ante vulputate, eu convallis ex auctor. Morbi vitae consequat leo. Sed eget condimentum velit. Donec a enim nunc. Nam maximus consequat egestas. Sed et sapien mi.</p>
                 </div>
 
