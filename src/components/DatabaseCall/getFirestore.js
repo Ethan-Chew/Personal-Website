@@ -22,12 +22,12 @@ export default class getFirestore {
                 data.push(doc.data())
             }
         });
-        if (name !== "projects") { data = this.sortCollection(data) }
+        data = this.sortCollection(data, name)
 
         return data
     }
 
-    static async sortCollection(data) {
+    static async sortCollection(data, name) {
         // This function sorts the data according to the start and end dates of the event
         const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
 
@@ -49,7 +49,46 @@ export default class getFirestore {
             }
         }
 
+        const sortProjects = (a, b) => {
+            // Check for date range
+            if (a.year.includes("-") || b.year.includes("-")) {
+                if (a.year.includes("Current" || b.year.includes("Current"))) {
+                    if (b.year.includes("Current")) {
+                        const aDate = Number(a.year.split("-")[0])
+                        const bDate = Number(b.year.split("-")[0])
+
+                        if (aDate > bDate) { return -1 }
+                        else { return 1 }
+                    }
+
+                    return -1
+                }
+                let aDate
+                if (a.year.includes("-")) { aDate = Number(a.year.split("-")[1]) }
+                else { aDate = Number(a) }
+
+                let bDate
+                if (b.year.includes("-")) { bDate = Number(b.year.split("-")[1]) }
+                else { bDate = Number(b) }
+
+                if (aDate > bDate) { return - 1}
+
+                return 1
+            }
+
+            // No date range
+            if (Number(a.year) > Number(b.year)) { return -1 }
+            return 1
+        }
+
         // Sort by the dates
-        return data.sort(sortByDate)
+        if (name === "projects") {
+            let sortedData = {}
+            for (const key in data) {
+                sortedData[key] = data[key].sort(sortProjects)
+            }
+            return sortedData
+        }
+        else { return data.sort(sortByDate) }
     }
 }

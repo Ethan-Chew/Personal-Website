@@ -1,7 +1,3 @@
-
-// Imports
-import { Suspense } from 'react'
-
 // Font
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
@@ -20,11 +16,6 @@ export default async function Home() {
   const education = await getFirestore.getCollection("education")
   const experience = await getFirestore.getCollection("experience")
   const projects = await getFirestore.getCollection("projects")
-
-  // Set default colour mode to dark
-  // useEffect(() => {
-  //   sessionStorage.setItem("colour-mode", "dark")
-  // }, [])
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between bg-lightmode-page dark:bg-darkmode-page ${inter.className} text-lightmode-text dark:text-darkmode-text duration-200`}>
@@ -57,8 +48,8 @@ export default async function Home() {
 
           {/* Projects Section */}
           <div className='pt-10' id="projects">
-            <h2 className='font-semibold text-4xl pb-1'>Projects</h2>
-            <p className='pb-6 font-light'>Click on any project to visit their GitHub repository!</p>
+            <h2 className='font-semibold text-4xl pb-1.5'>Projects</h2>
+            <p className='pb-6 font-light'>I love working on various projects because I always learn something new while working on them. I believe that hands-on learning is the best way to learn. Checkout some of the projects I have worked on, they're all open-sourced on GitHub too!</p>
             <div className='space-y-3'>
               {Object.keys(projects).reverse().map((projName) => (
                 <ProjectContainer project={projects[projName]} title={projName} key={`${projName}`} />

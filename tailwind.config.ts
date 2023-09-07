@@ -21,7 +21,8 @@ const config: Config = {
       "darkmode-text": "#EAEAEA",
       "darkmode-btnbg-hover": "#E2E8F0",
       "darkmode-btnbg": "#333740",
-      
+      "darkmode-bg": "#262A34",
+      "darkmode-projbtn": "#1B1E23",
 
       "lightmode-nav": "#EEF2F6",
       "lightmode-page": "#FFFFFF",

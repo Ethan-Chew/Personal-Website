@@ -7,16 +7,25 @@
     cursor: pointer;
 }
 
-.linkText:hover [data-theme="dark"] {
-    background-color: #0F1016;
-    border-radius: 12px;
-}
-
-.linkText:hover [data-theme="light"] {
-    background-color: #E2E8F0;
-    border-radius: 12px;
-}
-
 .navbar {
     position: fixed;
+}
+
+.mobileNavbar {
+    position: fixed;
+    display: none;
+    z-index: 10;
+}
+
+.navbarDivider {
+    border: 0.3px solid #333333;
+}
+
+@media only screen and (max-width: 900px) {
+    .navbar {
+        display: none;
+    }
+    .mobileNavbar {
+        display: block;
+    }
 }
