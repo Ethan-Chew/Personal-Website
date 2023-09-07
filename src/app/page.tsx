@@ -1,5 +1,5 @@
 
-// React Imports
+// Imports
 import { Suspense } from 'react'
 
 // Font
@@ -16,7 +16,6 @@ import NavBar from '@/components/NavBar/navbar'
 import RoleDescription from '@/components/RoleDescription/RoleDescription'
 
 export default async function Home() {
-
   const education = await getFirestore.getCollection("education")
   const experience = await getFirestore.getCollection("experience")
   const projects = await getFirestore.getCollection("projects")
@@ -27,7 +26,7 @@ export default async function Home() {
   // }, [])
 
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between bg-darkmode-page ${inter.className} text-darkmode-text`}>
+    <main className={`flex min-h-screen flex-col items-center justify-between bg-lightmode-page dark:bg-darkmode-page ${inter.className} text-lightmode-text dark:text-darkmode-text duration-200`}>
       <NavBar />
 
       {/* Main Content */}

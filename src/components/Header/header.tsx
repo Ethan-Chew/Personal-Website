@@ -25,15 +25,15 @@ export default function Header() {
 
                 {/* Social Media Icons */}
                 <div className="flex flex-row pt-3 gap-2">
-                    <div className={styles.iconButton}>
+                    <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
                         <FaLinkedin size={23} />
                     </div>
 
-                    <div className={styles.iconButton}>
+                    <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
                         <FaGithub size={23} />
                     </div>
 
-                    <div className={styles.iconButton}>
+                    <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
                         <MdEmail size={23} />
                     </div>
                 </div>
