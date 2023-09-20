@@ -57,7 +57,7 @@ export default function NavBar() {
             <div className={`w-full py-3 bg-lightmode-nav dark:bg-darkmode-nav duration-200 shadow-md ${styles.navbar}`}>
                 <div className="pl-6 flex flex-row items-center">
                     <Link href="/" className="">
-                        <img src={theme === "dark" ? "/Name Logo L.png" : "/Name Logo.png"} alt="Name Logo" className={styles.logoImage} />
+                        <img src={theme === "light" ? "/Name Logo.png" : "/Name Logo L.png"} alt="Name Logo" className={styles.logoImage} />
                     </Link>
 
                     <div className="ml-auto space-x-3 flex flex-row pr-6">
@@ -76,7 +76,7 @@ export default function NavBar() {
                         </button>
 
                         <Link href="/" className="mx-auto space-x-3">
-                            <img src={theme === "dark" ? "/Name Logo L.png" : "/Name Logo.png"} alt="Name Logo" className={styles.logoImage} />
+                            <img src={theme === "light" ? "/Name Logo.png" : "/Name Logo L.png"} alt="Name Logo" className={styles.logoImage} />
                         </Link>
 
                         <ThemeButton />
@@ -100,15 +100,6 @@ export default function NavBar() {
                         ))}
                     </div>
                 </Transition>
-                {/* {!mobileNavExpanded ? <></> :
-                    <div className={`bg-lightmode-nav dark:bg-darkmode-nav duration-200 shadow-md px-6 space-y-1 pb-2`}>
-                        {Pages.map((page) => (
-                            <div onClick={() => handleNavClick(page)} key={page.id} className="cursor-pointer py-2 duration-200 hover:font-semibold">
-                                {page.id}
-                            </div>
-                        ))}
-                    </div>
-                } */}
             </div>
         </>
     )

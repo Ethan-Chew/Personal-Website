@@ -2,8 +2,10 @@
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
-// Database
+// Database and Data Handling
 import getFirestore from "@/components/DatabaseCall/getFirestore"
+import { cache } from 'react'
+export const revalidate = 3600 // revalidate the data at most every hour
 
 // Components
 import Header from '@/components/Header/header'
@@ -15,14 +17,18 @@ import KnowledgeSkills from '@/components/KnowledgeSkills/KnowledgeSkills'
 
 export default async function Home() {
   // Load Data from Firebase
-  let education = []
-  let experience = []
-  let projects = []
+  let education:any[] = []
+  let experience:any[] = []
+  let projects:any[] = []
+
+  const getFromDB = cache(async (db: string) => {
+    return await getFirestore.getCollection(db)
+  })
 
   if (process.env.ENVIRONMENT !== "dev") {
-    education = await getFirestore.getCollection("education")
-    experience = await getFirestore.getCollection("experience")
-    projects = await getFirestore.getCollection("projects")
+    education = await getFromDB("education")
+    experience = await getFromDB("experience")
+    projects = await getFromDB("projects")
   }
 
   return (
@@ -68,9 +74,9 @@ export default async function Home() {
           </div>
 
           {/* Knowledge/Skills Section */}
-          <div className='pt-10' id="projects">
+          <div className='pt-10' id="knowledgeandskills">
             <h2 className='font-semibold text-4xl pb-1.5'>Knowledge and Skills 🎓</h2>
-            <p className='pb-6 font-light'></p>
+            <p className='pb-6 font-light'>I&apos;m always learning and honing my skills. These are some of the technologies, tools and frameworks that I currently know!</p>
             <div className='space-y-3 mb-6'>
               <KnowledgeSkills />
             </div>
@@ -79,7 +85,7 @@ export default async function Home() {
           </div>
 
           {/* Achievements */}
-          <div className='pt-10' id="projects">
+          <div className='pt-10' id="achievements">
             <h2 className='font-semibold text-4xl pb-1.5'>Achievements 📚</h2>
             <p className='pb-6 font-light'></p>
             <div className='space-y-3'>

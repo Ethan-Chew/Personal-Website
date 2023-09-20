@@ -8,18 +8,11 @@ const config: Config = {
   ],
   darkMode: ["class"],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
     colors: {
       "darkmode-nav": "#171922",
       "darkmode-page": "#1b202b",
       "darkmode-text": "#EAEAEA",
-      "darkmode-btnbg-hover": "#E2E8F0",
+      "darkmode-btnbg-hover": "#4A5568",
       "darkmode-btnbg": "#333740",
       "darkmode-bg": "#262A34",
       "darkmode-projbtn": "#1B1E23",

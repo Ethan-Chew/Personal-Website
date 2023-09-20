@@ -55,7 +55,7 @@ const IndivProjContainer = ({ proj, theme }) => {
             <div className='flex flex-row space-x-3'>
                 <Link href={proj.ghRepo}>
                     <div className='rounded-md dark:bg-darkmode-projbtn flex flex-row space-x-3 items-center px-6 py-3'>
-                        <img src={theme === "dark" ? "/github-mark-white.png" : "/github-mark.png"} alt="GitHub Icon" className={styles.icon} />
+                        <img src={theme === "light" ? "/github-mark.png" : "/github-mark-white.png"} alt="GitHub Icon" className={styles.icon} />
                         <p className='font-semibold'>GitHub</p>
                     </div>
                 </Link>
