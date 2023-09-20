@@ -1,8 +1,5 @@
 "use client"
 import { Tab } from "@headlessui/react"
-import { Fragment } from "react"
-import Head from "next/head"
-import { Metadata } from "next"
 
 export default function KnowledgeSkills() {
     const dataObj = {
@@ -55,12 +52,12 @@ export default function KnowledgeSkills() {
                 {
                     name: "MongoDB",
                     desc: "Video Editing",
-                    icon: ""
+                    icon: "devicon-mongodb-plain"
                 },
                 {
                     name: "Google Cloud Run",
                     desc: "Video Editing",
-                    icon: ""
+                    icon: "devicon-googlecloud-plain"
                 }
             ],
             "Design Tools": [
@@ -73,7 +70,12 @@ export default function KnowledgeSkills() {
                     name: "Adobe XD",
                     desc: "UI/UX Design",
                     icon: "devicon-xd-plain"
-                }
+                },
+                {
+                    name: "Adobe Photoshop",
+                    desc: "Image Editing and Creation",
+                    icon: "devicon-photoshop-plain"
+                },
             ],
             "Post Production": [
                 {
@@ -97,7 +99,7 @@ export default function KnowledgeSkills() {
                     <Tab.List className="flex space-x-1 rounded-xl p-1 bg-lightmode-nav dark:bg-darkmode-nav">
                         {Object.keys(dataObj).map((val) => (
                             <Tab key={val} className={({ selected }) =>  
-                                selected ? "w-full py-2.5 rounded-lg bg-[#D8DDE3] dark:bg-darkmode-btnbg font-medium" : "w-full py-2.5 rounded-lg hover:dark:bg-[#1D1F28] hover:bg-[#E6EBF2]"
+                                selected ? "w-full py-2 rounded-lg bg-[#D8DDE3] dark:bg-darkmode-btnbg font-medium" : "w-full py-2.5 rounded-lg hover:dark:bg-[#1D1F28] hover:bg-[#E6EBF2]"
                             }>{ val }</Tab>
                         ))}
                     </Tab.List>
@@ -105,18 +107,18 @@ export default function KnowledgeSkills() {
                     <Tab.Panels className="mt-3">
                         <Tab.Panel>
                             <div>
-                                hi
+                                
                             </div>
                         </Tab.Panel>
                         <Tab.Panel>
-                            <div className="grid grid-cols-2 gap-2 gap-y-3">
+                            <div className="grid md:grid-cols-2 gap-2 gap-y-4">
                                 {Object.keys(dataObj["Skills"]).map((sectionName) => (
-                                    <div>
+                                    <div key={sectionName}>
                                         <h3 className="text-xl font-semibold">{sectionName}</h3>
                                         {dataObj["Skills"][sectionName].map((section) => (
-                                            <div key={section.name} className="rounded-xl dark:bg-[#262A34] p-2 flex flex-row gap-2 mt-2">
-                                                <i className="devicon-xcode-plain"></i>
-                                                <div>
+                                            <div key={section.name} className="rounded-xl dark:bg-[#262A34] p-2 flex flex-row gap-2 mt-2 items-center space-x-2">
+                                                {section.icon !== "" ? <i className={`${section.icon} text-4xl pl-3`}></i> : <></>}
+                                                <div className={section.icon === "" ? "px-2" : ""}>
                                                     <p className="text-lg font-medium">{section.name}</p>
                                                     <p>{section.desc}</p>
                                                 </div>

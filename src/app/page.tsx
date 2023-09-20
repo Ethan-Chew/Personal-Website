@@ -14,12 +14,16 @@ import ProjectContainer from '@/components/ProjectContainer/ProjectContainer'
 import KnowledgeSkills from '@/components/KnowledgeSkills/KnowledgeSkills'
 
 export default async function Home() {
-  const education = []
-  const experience = []
-  const projects = []
-  // const education = await getFirestore.getCollection("education")
-  // const experience = await getFirestore.getCollection("experience")
-  // const projects = await getFirestore.getCollection("projects")
+  // Load Data from Firebase
+  let education = []
+  let experience = []
+  let projects = []
+
+  if (process.env.ENVIRONMENT !== "dev") {
+    education = await getFirestore.getCollection("education")
+    experience = await getFirestore.getCollection("experience")
+    projects = await getFirestore.getCollection("projects")
+  }
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between bg-lightmode-page dark:bg-darkmode-page ${inter.className} text-lightmode-text dark:text-darkmode-text duration-200`}>
@@ -32,7 +36,7 @@ export default async function Home() {
 
           {/* Education Section */}
           <div className='pt-10' id="education">
-            <h2 className='font-semibold text-4xl pb-6'>Education 📚</h2>
+            <h2 className='font-semibold text-4xl pb-6'>Education 🏫</h2>
             {education.map((edu) => (
               <RoleDescription key={`${edu.name}`} content={edu} />
             ))}
@@ -65,7 +69,7 @@ export default async function Home() {
 
           {/* Knowledge/Skills Section */}
           <div className='pt-10' id="projects">
-            <h2 className='font-semibold text-4xl pb-1.5'>Knowledge and Skills</h2>
+            <h2 className='font-semibold text-4xl pb-1.5'>Knowledge and Skills 🎓</h2>
             <p className='pb-6 font-light'></p>
             <div className='space-y-3 mb-6'>
               <KnowledgeSkills />
@@ -76,7 +80,7 @@ export default async function Home() {
 
           {/* Achievements */}
           <div className='pt-10' id="projects">
-            <h2 className='font-semibold text-4xl pb-1.5'>Achievements</h2>
+            <h2 className='font-semibold text-4xl pb-1.5'>Achievements 📚</h2>
             <p className='pb-6 font-light'></p>
             <div className='space-y-3'>
               

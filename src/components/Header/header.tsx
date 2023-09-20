@@ -19,9 +19,10 @@ export default function Header() {
                 <br />
 
                 {/* Description */}
-                <div className="break-words">
-                    <p className="break-words">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare faucibus sapien vitae sagittis. Cras condimentum fringilla massa. Morbi suscipit commodo varius. Nunc nec lorem a sapien rutrum auctor at quis quam. Sed commodo lorem sit amet ante vulputate, eu convallis ex auctor. Morbi vitae consequat leo. Sed eget condimentum velit. Donec a enim nunc. Nam maximus consequat egestas. Sed et sapien mi.</p>
-                    <p>Hi! I&apos;m Ethan Chew, a <b>{new Date().getFullYear() - 2006}-year-old student</b> from Singapore, currently <b>studying Information Technology at Ngee Ann Polytechnic.</b> In addition, I am also a <b>Student Pilot</b>, studying to obtain my Private Pilot's Licence on the Diamond DA-40 XLS.</p>
+                <div className="break-words space-y-2">
+                    <p>Hi! I&apos;m Ethan Chew, a <b>{ Math.floor((new Date() - new Date(2006, 10, 19)) / (1000 * 60 * 60 * 24 * 365.25)) }-year-old student</b> from Singapore, currently <b>studying Information Technology at Ngee Ann Polytechnic.</b> In addition, I am also a <b>Student Pilot</b>, studying to obtain my Private Pilot's Licence on the Diamond DA-40.</p>
+                    <p>I have a bunch of interests like aviation, science and photography to name a few. I only really started programming in 2020 <i>(Thats... {new Date().getFullYear() - 2019} years ago)</i> when I entered secondary school, so I am constantly learning, and have a looong way to go!</p>
+                    <p>I&apos;m always happy to meet new people, feel free to reach out to me! :)</p>
                 </div>
 
                 {/* Social Media Icons */}
