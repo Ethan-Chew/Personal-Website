@@ -19,7 +19,7 @@ export default function ThemeButton() {
     return (
         <>
             <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className='duration-200 p-2 rounded-lg active:scale-100 bg-[#E2E8F0] dark:bg-[#292B33]'>
-                {theme === "dark" ? <BsFillSunFill size={25} /> : <BsFillMoonFill size={25} />}
+                {theme === "dark" ? <BsFillSunFill size={23} /> : <BsFillMoonFill size={23} />}
             </button>
         </>
     )
