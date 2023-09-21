@@ -137,7 +137,7 @@ export default function KnowledgeSkills() {
                                     <div key={sectionName}>
                                         <h3 className="text-xl font-semibold">{sectionName}</h3>
                                         {dataObj["Skills"][sectionName].map((section) => (
-                                            <div key={section.name} className="rounded-xl dark:bg-[#262A34] p-2 flex flex-row gap-2 mt-2 items-center space-x-2">
+                                            <div key={section.name} className="bg-[#F8F9FB] rounded-xl dark:bg-[#262A34] p-2 flex flex-row gap-2 mt-2 items-center space-x-2">
                                                 {section.icon !== "" ? <i className={`${section.icon} text-4xl pl-3`}></i> : <></>}
                                                 <div className={section.icon === "" ? "px-2" : ""}>
                                                     <p className="text-lg font-medium">{section.name}</p>

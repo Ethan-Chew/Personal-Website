@@ -30,6 +30,8 @@ export default async function Home() {
     experience = await getFromDB("experience")
     projects = await getFromDB("projects")
   }
+  projects = await getFromDB("projects")
+
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between bg-lightmode-page dark:bg-darkmode-page ${inter.className} text-lightmode-text dark:text-darkmode-text duration-200`}>
@@ -64,7 +66,7 @@ export default async function Home() {
           <div className='pt-10' id="projects">
             <h2 className='font-semibold text-4xl pb-1.5'>Projects 🛠</h2>
             <p className='pb-6 font-light'>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they're all open-sourced on GitHub too!</p>
-            <div className='space-y-3'>
+            <div className='space-y-3 mb-6'>
               {Object.keys(projects).reverse().map((projName) => (
                 <ProjectContainer project={projects[projName]} title={projName} key={`${projName}`} />
               ))}

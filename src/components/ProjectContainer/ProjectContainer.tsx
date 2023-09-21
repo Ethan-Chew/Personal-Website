@@ -22,7 +22,7 @@ export default function ProjectContainer({ project, title }) {
 
     return (
         <>
-            <div className="w-full border border-darkmode-text rounded-lg p-4 duration-200">
+            <div className="w-full border border-darkmode-text rounded-lg shadow-md p-4 duration-200">
                 <div className={`flex flex-row ${boxExpanded ? "pb-2" : ""}`}>
                     <div>
                         <h2 className="text-3xl font-semibold mb-1">{ title }</h2>
@@ -46,19 +46,29 @@ export default function ProjectContainer({ project, title }) {
 
 const IndivProjContainer = ({ proj, theme }) => {
     return (
-        <div className='bg-lightmode-btnbg dark:bg-darkmode-bg rounded-lg px-4 py-5'>
+        <div className='bg-[#F8F9FB] dark:bg-darkmode-bg rounded-lg px-4 py-5'>
             <div className='pb-2'>
                 <h3 className='text-2xl font-semibold'>{ proj.name }</h3>
                 <p className='text-base font-light'>{ proj.language } | { proj.year }</p>
             </div>
-            <p className='pb-2.5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare faucibus sapien vitae sagittis. Cras condimentum fringilla massa. Morbi suscipit commodo varius. Nunc nec lorem a sapien rutrum auctor at quis quam.</p>
+            <p className='pb-2.5'>
+                { proj.desc ? proj.desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare faucibus sapien vitae sagittis. Cras condimentum fringilla massa. Morbi suscipit commodo varius. Nunc nec lorem a sapien rutrum auctor at quis quam."}
+            </p>
             <div className='flex flex-row space-x-3'>
                 <Link href={proj.ghRepo}>
-                    <div className='rounded-md dark:bg-darkmode-projbtn flex flex-row space-x-3 items-center px-6 py-3'>
+                    <div className='rounded-md bg-lightmode-btnbg-hover dark:bg-darkmode-projbtn flex flex-row space-x-3 items-center px-6 py-3'>
                         <img src={theme === "light" ? "/github-mark.png" : "/github-mark-white.png"} alt="GitHub Icon" className={styles.icon} />
                         <p className='font-semibold'>GitHub</p>
                     </div>
                 </Link>
+                { proj.website ? 
+                <Link href={proj.ghRepo}>
+                    <div className='rounded-md bg-lightmode-btnbg-hover dark:bg-darkmode-projbtn flex flex-row space-x-3 items-center px-6 py-3'>
+                        <img src={theme === "light" ? "/webBlack.png" : "/webWhite.png"} alt="Website Icon" className={styles.icon} />
+                        <p className='font-semibold'>Website</p>
+                    </div>
+                </Link>
+                : <></> }
             </div>
         </div>
     )

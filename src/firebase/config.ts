@@ -11,28 +11,13 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
 
-if (firebaseConfig.apiKey === undefined) {
-    console.error("API Key Missing/Corrupted")
-} else {
-    console.log("API Key Loaded")
-}
+let db: any = null
 
 try {
-    const app = initializeApp(firebaseConfig)
-    console.log("Initalized Firebase")
-} catch (error) {
-    console.error("Error in Initalizing Firebase")
-    console.log(error)
+    initializeApp(firebaseConfig)
+    db = getFirestore()
+} catch (err) {
+    console.log(err)
 }
 
-let getFire: any = undefined
-
-try {
-    getFire = getFirestore()
-    console.log("Initalized Cloud Firestore")
-} catch (error) {
-    console.error("Error in Getting Firestore")
-    console.error(error)
-}
-
-export default getFire
+export default db

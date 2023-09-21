@@ -11,7 +11,7 @@ export default function Header() {
                 {/* Top Information */}
                 <div className="">
                     <h1 className="text-5xl font-semibold pb-2">Ethan Chew</h1>
-                    <h2 className="text-xl font-light">Developer, Designer, Student</h2>
+                    <h2 className="text-xl">Developer, Designer, Student</h2>
                 </div>
 
                 <br />
