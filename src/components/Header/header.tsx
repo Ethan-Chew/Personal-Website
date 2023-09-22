@@ -1,4 +1,5 @@
 import styles from "./header.module.css"
+import Link from "next/link"
 
 // Icons
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
@@ -27,17 +28,23 @@ export default function Header() {
 
                 {/* Social Media Icons */}
                 <div className="flex flex-row pt-4 gap-2">
-                    <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
-                        <FaLinkedin size={23} />
-                    </div>
+                    <Link href="https://go.ethanchew.com/linkedin" rel="noreferrer" target="_blank">
+                        <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
+                            <FaLinkedin size={23} />
+                        </div>
+                    </Link>
 
-                    <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
-                        <FaGithub size={23} />
-                    </div>
+                    <Link href="https://go.ethanchew.com/github" rel="noreferrer" target="_blank">
+                        <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
+                            <FaGithub size={23} />
+                        </div>
+                    </Link>
 
-                    <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
-                        <MdEmail size={23} />
-                    </div>
+                    <Link href="mailto:ethan@ethanchew.com" rel="noreferrer" target="_blank">
+                        <div className={`duration-200 dark:bg-darkmode-btnbg dark:hover:bg-darkmode-btnbg-hover bg-lightmode-btnbg hover:bg-lightmode-btnbg-hover ${styles.iconButton}`}>
+                            <MdEmail size={23} />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </>

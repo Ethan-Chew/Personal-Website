@@ -4,6 +4,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 // Database and Data Handling
 import getFirestore from "@/components/DatabaseCall/getFirestore"
+import { Project, Projects, Experience, Education } from "@/firebase/schema"
 import { cache } from 'react'
 export const revalidate = 3600 // revalidate the data at most every hour
 
@@ -17,11 +18,15 @@ import KnowledgeSkills from '@/components/KnowledgeSkills/KnowledgeSkills'
 
 export default async function Home() {
   // Load Data from Firebase
-  let education:any[] = []
-  let experience:any[] = []
-  let projects:any[] = []
-
-  const getFromDB = cache(async (db: string) => {
+  let education: Education[] = []
+  let experience: Experience[] = []
+  let projects: Projects = {
+    "Others": [],
+    "Web Applications": [],
+    "iOS": []
+  }
+  
+  const getFromDB: any = cache(async (db: string) => {
     return await getFirestore.getCollection(db)
   })
 
@@ -30,8 +35,6 @@ export default async function Home() {
     experience = await getFromDB("experience")
     projects = await getFromDB("projects")
   }
-  projects = await getFromDB("projects")
-
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between bg-lightmode-page dark:bg-darkmode-page ${inter.className} text-lightmode-text dark:text-darkmode-text duration-200`}>

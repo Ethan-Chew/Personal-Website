@@ -2,3 +2,9 @@
     width: 1.5em;
     height: 1.5em;
 }
+
+.appStoreIcn {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}

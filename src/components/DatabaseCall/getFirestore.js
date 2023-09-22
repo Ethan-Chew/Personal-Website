@@ -27,68 +27,75 @@ export default class getFirestore {
         return data
     }
 
-    static async sortCollection(data, name) {
+    static sortCollection(items, name) {
         // This function sorts the data according to the start and end dates of the event
         const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
-
-        const sortByDate = (a, b) => {
-            if (isNaN(a.startDate)) {
-                // Sort by both Year and Month
-                if (a.endDate === "Current") { return -1 }
-                if (b.endDate === "Current") { return 1 }
-
-                const aMonth = a.endDate.split(" ")[0]
-                const bMonth = b.endDate.split(" ")[0]
-                return months.indexOf(bMonth) - months.indexOf(aMonth)
-
-            } else {
-                // Sort by Year Only
-                if (a.startDate === b.startDate) { return a.endDate = b.endDate }
-                if (a.startDate > b.startDate) { return -1 }
-                else { return 1 }
-            }
-        }
-
-        const sortProjects = (a, b) => {
-            // Check for date range
-            if (a.year.includes("-") || b.year.includes("-")) {
-                if (a.year.includes("Current" || b.year.includes("Current"))) {
-                    if (b.year.includes("Current")) {
-                        const aDate = Number(a.year.split("-")[0])
-                        const bDate = Number(b.year.split("-")[0])
-
-                        if (aDate > bDate) { return -1 }
-                        else { return 1 }
-                    }
-
-                    return -1
-                }
-                let aDate
-                if (a.year.includes("-")) { aDate = Number(a.year.split("-")[1]) }
-                else { aDate = Number(a) }
-
-                let bDate
-                if (b.year.includes("-")) { bDate = Number(b.year.split("-")[1]) }
-                else { bDate = Number(b) }
-
-                if (aDate > bDate) { return - 1}
-
-                return 1
-            }
-
-            // No date range
-            if (Number(a.year) > Number(b.year)) { return -1 }
-            return 1
-        }
-
-        // Sort by the dates
+    
         if (name === "projects") {
             let sortedData = {}
-            for (const key in data) {
-                sortedData[key] = data[key].sort(sortProjects)
+            // Check for Current
+            for (const type in items) {
+                const item = items[type]
+                let temp = []
+                for (const val in item) {
+                    if (item[val].endYear === "Current") {
+                        temp.unshift(item[val])
+                        item.splice(val, 1)
+                    }
+                }
+        
+                // Sort by end year
+                item.sort((a, b) => {
+                    if (Number(a.endYear) > Number(b.endYear)) { return -1 } // First one's year is larger
+                    if (Number(a.endYear) < Number(b.endYear)) { return 1 } // First one's year is smaller
+        
+                    if (Number(a.endYear) === Number(b.endYear)) { // Share the same end year, sort by start year
+                        if (Number(a.startYear) > Number(b.startYear)) { return -1 } // First one's year is larger
+                        if (Number(a.startYear) < Number(b.startYear)) { return 1 } // First one's year is smaller
+                        
+                        return 0
+                    }
+                })
+    
+                sortedData[type] = [...temp, ...item]
             }
             return sortedData
+        } else {
+            let sortedData = []
+    
+            // Check for Current
+            for (const val in items) {
+                if (items[val].endDate === "Current") {
+                    sortedData.unshift(items[val])
+                    items.splice(val, 1)
+                    break
+                }
+            }
+        
+            // Sort by end date
+            items.sort((a, b) => {
+                if (Number(a.endDate.slice(-4)) > Number(b.endDate.slice(-4))) { return -1 } // First one's year is larger
+                if (Number(a.endDate.slice(-4)) < Number(b.endDate.slice(-4))) { return 1 } // First one's year is smaller
+        
+                if (Number(a.endDate.slice(-4)) === Number(b.endDate.slice(-4))) { // Share the same year, so sort by endDate month
+                    let aMonth = a.endDate.split(" ")[0]
+                    let bMonth = b.endDate.split(" ")[0]
+        
+                    if (months.indexOf(aMonth) < months.indexOf(bMonth)) { return -1 }  // First Month is more current
+                    if (months.indexOf(aMonth) > months.indexOf(bMonth)) { return 1 }  // First Month is less current
+        
+                    if (months.indexOf(aMonth) === months.indexOf(bMonth)) { // Same ending month, sort by startDate month
+                        let aMonth = a.startDate.split(" ")[0]
+                        let bMonth = b.startDate.split(" ")[0]
+        
+                        if (months.indexOf(aMonth) < months.indexOf(bMonth)) { return -1 }  // First Month is more current
+                        if (months.indexOf(aMonth) > months.indexOf(bMonth)) { return 1 }  // First Month is less current
+                    } else { return 0 }
+                }
+            })
+        
+            sortedData = [...sortedData, ...items]
+            return sortedData
         }
-        else { return data.sort(sortByDate) }
     }
 }

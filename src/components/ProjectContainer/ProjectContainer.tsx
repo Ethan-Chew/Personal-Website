@@ -49,7 +49,7 @@ const IndivProjContainer = ({ proj, theme }) => {
         <div className='bg-[#F8F9FB] dark:bg-darkmode-bg rounded-lg px-4 py-5'>
             <div className='pb-2'>
                 <h3 className='text-2xl font-semibold'>{ proj.name }</h3>
-                <p className='text-base font-light'>{ proj.language } | { proj.year }</p>
+                <p className='text-base font-light'>{ proj.language } | { proj.startYear ? `${proj.startYear} - ${proj.endYear}` : proj.endYear }</p>
             </div>
             <p className='pb-2.5'>
                 { proj.desc ? proj.desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare faucibus sapien vitae sagittis. Cras condimentum fringilla massa. Morbi suscipit commodo varius. Nunc nec lorem a sapien rutrum auctor at quis quam."}
@@ -67,6 +67,11 @@ const IndivProjContainer = ({ proj, theme }) => {
                         <img src={theme === "light" ? "/webBlack.png" : "/webWhite.png"} alt="Website Icon" className={styles.icon} />
                         <p className='font-semibold'>Website</p>
                     </div>
+                </Link>
+                : <></> }
+                { proj.appStoreLink ?
+                <Link href={proj.appStoreLink}>
+                    <img src={theme === "light" ? "AppStoreWhite.svg" : "AppStoreDark.svg"} className={styles.appStoreIcn}></img>
                 </Link>
                 : <></> }
             </div>
