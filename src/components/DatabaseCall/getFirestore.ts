@@ -1,46 +1,49 @@
 // Database
 import db from "@/firebase/config"
-import { collection, getDocs } from "firebase/firestore";
+import { DocumentData, collection, getDocs } from "firebase/firestore";
+import { Project, Projects, Experience, Education, typeIsProjects } from "@/firebase/schema"
 
 export default class getFirestore {
-    static async getCollection(name) {
+    static async getCollection<T extends Projects | Experience[] | Education[]>(name: string): Promise<T> {
         const querySnapshot = await getDocs(collection(db, name));
+        
+        if (name === "projects") {
+            let data: Projects = { "Others": [], "Web Applications": [], "iOS": [] }
 
-        let data
-
-        if (name === "projects") { data = {} }
-        else { data = [] }
-
-        querySnapshot.forEach((doc) => {
-            if (name === "projects") {
+            querySnapshot.forEach((doc) => {
                 let temp = []
                 for (const key in doc.data()) {
                     temp.push(doc.data()[key])
                 }
-                data[doc.id] = temp
-            } else {
-                data.push(doc.data())
-            }
-        });
-        data = this.sortCollection(data, name)
+                data[doc.id as keyof Projects] = temp
+            })
 
-        return data
+            return this.sortCollection(data as T)
+        } else {
+            let data: Experience[] | Education[] | DocumentData = []
+            
+            querySnapshot.forEach((doc) => {
+                data.push(doc.data())
+            })
+
+            return this.sortCollection(data as T)
+        }
     }
 
-    static sortCollection(items, name) {
+    static sortCollection<T extends Projects | Experience[] | Education[]>(items: T):  T {
         // This function sorts the data according to the start and end dates of the event
         const months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'July', 'June', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
     
-        if (name === "projects") {
-            let sortedData = {}
+        if (typeIsProjects(items)) {
+            let sortedData: Projects = { "Others": [], "Web Applications": [], "iOS": [] }
             // Check for Current
             for (const type in items) {
-                const item = items[type]
+                const item = items[type as keyof Projects]
                 let temp = []
-                for (const val in item) {
-                    if (item[val].endYear === "Current") {
-                        temp.unshift(item[val])
-                        item.splice(val, 1)
+                for (let i = 0; i < item.length; i++) {
+                    if (item[i].endYear === "Current") {
+                        temp.unshift(item[i])
+                        item.splice(i, 1)
                     }
                 }
         
@@ -52,22 +55,21 @@ export default class getFirestore {
                     if (Number(a.endYear) === Number(b.endYear)) { // Share the same end year, sort by start year
                         if (Number(a.startYear) > Number(b.startYear)) { return -1 } // First one's year is larger
                         if (Number(a.startYear) < Number(b.startYear)) { return 1 } // First one's year is smaller
-                        
-                        return 0
                     }
+                    return 0
                 })
     
-                sortedData[type] = [...temp, ...item]
+                sortedData[type as keyof Projects] = [...temp, ...item]
             }
-            return sortedData
+            return sortedData as T
         } else {
             let sortedData = []
     
             // Check for Current
-            for (const val in items) {
-                if (items[val].endDate === "Current") {
-                    sortedData.unshift(items[val])
-                    items.splice(val, 1)
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].endDate === "Current") {
+                    sortedData.unshift(items[i])
+                    items.splice(i, 1)
                     break
                 }
             }
@@ -90,12 +92,14 @@ export default class getFirestore {
         
                         if (months.indexOf(aMonth) < months.indexOf(bMonth)) { return -1 }  // First Month is more current
                         if (months.indexOf(aMonth) > months.indexOf(bMonth)) { return 1 }  // First Month is less current
-                    } else { return 0 }
+                    }
                 }
+
+                return 0
             })
         
-            sortedData = [...sortedData, ...items]
-            return sortedData
+            sortedData = [...sortedData, ...items as Experience[] | Education[]]
+            return sortedData as T
         }
     }
 }

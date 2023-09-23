@@ -1,9 +1,10 @@
 "use client"
+import { Experience } from "@/firebase/schema";
 import styles from "./roledescription.module.css"
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 
-export default function RoleDescription({ content }) {
+export default function RoleDescription({ content }: { content: Experience }) {
     const [ isMounted, setIsMounted ] = useState(false)
     const { theme, setTheme } = useTheme()
 

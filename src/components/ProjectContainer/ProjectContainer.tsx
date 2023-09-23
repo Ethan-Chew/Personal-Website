@@ -5,8 +5,14 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from 'react'
 import styles from "./projectcontainer.module.css"
 import Link from 'next/link';
+import { Project, Projects } from '@/firebase/schema';
 
-export default function ProjectContainer({ project, title }) {
+interface ProjectsContainerProps {
+    projects: Project[],
+    title: string
+}
+
+export default function ProjectContainer({ projects, title }: ProjectsContainerProps) {
     const [ boxExpanded, setBoxExpanded ] = useState(false)
     const [ isMounted, setIsMounted ] = useState(false)
     const { theme, setTheme } = useTheme()
@@ -34,7 +40,7 @@ export default function ProjectContainer({ project, title }) {
                 </div>
                 <div className='space-y-3'>
                     { !boxExpanded ? <></> :
-                        project.map((proj) => (
+                        projects.map((proj: Project) => (
                             <IndivProjContainer proj={proj} theme={theme} key={proj.name} />
                         ))
                     }
@@ -44,7 +50,12 @@ export default function ProjectContainer({ project, title }) {
     )
 }
 
-const IndivProjContainer = ({ proj, theme }) => {
+interface IndivProjContainerProps {
+    proj: Project,
+    theme: string | undefined
+}
+
+const IndivProjContainer = ({ proj, theme }: IndivProjContainerProps) => {
     return (
         <div className='bg-[#F8F9FB] dark:bg-darkmode-bg rounded-lg px-4 py-5'>
             <div className='pb-2'>

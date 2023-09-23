@@ -1,98 +1,8 @@
 "use client"
 import { Tab } from "@headlessui/react"
-import { data } from "autoprefixer"
+import { dataObj, KSDataSkills } from "./data"
 
 export default function KnowledgeSkills() {
-    const dataObj = {
-        "Languages": [
-            {
-                "name": "Web Development",
-                "desc": ["For web development, I frequently use Next.js and React.js. The framework and library allows me to create websites with ease. While developing these websites, Tailwind CSS and various databases such as Firebase and MongoDB are also used.", "Recently, for web development, I have been working on a revamp of my personal website with Next.js 13 (this website!) and creating a Full-Stack Web Application, ProjMatch, with a bunch of my friends.", "These websites are then deployed either on Vercel or on Google Cloud Run."],
-                "icon": ["devicon-javascript-plain", "devicon-react-original", "devicon-nextjs-original"]
-            },
-            {
-                "name": "Swift",
-                "desc": ["Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is one of the first language I've actually learnt! One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any."],
-                "icon": ["devicon-swift-plain"]
-            },
-            {
-                "name": "Python",
-                "desc": [],
-                "icon": []
-            },
-            {
-                "name": "HTML",
-                "desc": [],
-                "icon": []
-            },
-            {
-                "name": "CSS",
-                "desc": [],
-                "icon": []
-            },
-        ],
-        "Skills": {
-            "Developer Tools": [
-                {
-                    name: "GitHub",
-                    desc: "Version Control",
-                    icon: "devicon-github-plain"
-                },
-                {
-                    name: "Xcode",
-                    desc: "iOS Development",
-                    icon: "devicon-xcode-plain"
-                },
-                {
-                    name: "Visual Studio Code",
-                    desc: "General/Web Development",
-                    icon: "devicon-vscode-plain"
-                }
-            ],
-            "Technologies": [
-                {
-                    name: "MongoDB",
-                    desc: "Video Editing",
-                    icon: "devicon-mongodb-plain"
-                },
-                {
-                    name: "Google Cloud Run",
-                    desc: "Video Editing",
-                    icon: "devicon-googlecloud-plain"
-                }
-            ],
-            "Design Tools": [
-                {
-                    name: "Figma",
-                    desc: "UI/UX Design",
-                    icon: "devicon-figma-plain"
-                },
-                {
-                    name: "Adobe XD",
-                    desc: "UI/UX Design",
-                    icon: "devicon-xd-plain"
-                },
-                {
-                    name: "Adobe Photoshop",
-                    desc: "Image Editing and Creation",
-                    icon: "devicon-photoshop-plain"
-                },
-            ],
-            "Post Production": [
-                {
-                    name: "Davinci Resolve",
-                    desc: "Video Editing",
-                    icon: ""
-                },
-                {
-                    name: "iMovie",
-                    desc: "Video Editing",
-                    icon: ""
-                }
-            ]
-        }
-    }
-
     return (
         <>
             <div>
@@ -113,11 +23,11 @@ export default function KnowledgeSkills() {
                                         <div className="flex flex-row items-center space-x-3 mb-1.5">
                                             <h3 className="font-semibold text-xl">{ lang.name }</h3>
                                             <div className="space-x-2">
-                                                {lang.icon.map((icon) => <i className={`${icon} text-lg`}></i>)}
+                                                {lang.icon.map((icon) => <i key={icon} className={`${icon} text-lg`}></i>)}
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            {lang.desc.map((desc) => <p className="font-light">{desc}</p>)}
+                                            {lang.desc.map((desc) => <p key={desc} className="font-light">{desc}</p>)}
                                         </div>
                                     </div>
                                 ))}
@@ -136,7 +46,7 @@ export default function KnowledgeSkills() {
                                 {Object.keys(dataObj["Skills"]).map((sectionName) => (
                                     <div key={sectionName}>
                                         <h3 className="text-xl font-semibold">{sectionName}</h3>
-                                        {dataObj["Skills"][sectionName].map((section) => (
+                                        {dataObj["Skills"][sectionName as keyof KSDataSkills].map((section) => (
                                             <div key={section.name} className="bg-[#F8F9FB] rounded-xl dark:bg-[#262A34] p-2 flex flex-row gap-2 mt-2 items-center space-x-2">
                                                 {section.icon !== "" ? <i className={`${section.icon} text-4xl pl-3`}></i> : <></>}
                                                 <div className={section.icon === "" ? "px-2" : ""}>

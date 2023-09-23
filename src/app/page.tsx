@@ -20,11 +20,7 @@ export default async function Home() {
   // Load Data from Firebase
   let education: Education[] = []
   let experience: Experience[] = []
-  let projects: Projects = {
-    "Others": [],
-    "Web Applications": [],
-    "iOS": []
-  }
+  let projects: Projects = { } as Projects
   
   const getFromDB: any = cache(async (db: string) => {
     return await getFirestore.getCollection(db)
@@ -71,7 +67,7 @@ export default async function Home() {
             <p className='pb-6 font-light'>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they're all open-sourced on GitHub too!</p>
             <div className='space-y-3 mb-6'>
               {Object.keys(projects).reverse().map((projName) => (
-                <ProjectContainer project={projects[projName]} title={projName} key={`${projName}`} />
+                <ProjectContainer projects={projects[projName as keyof Projects]} title={projName} key={`${projName}`} />
               ))}
             </div>
 

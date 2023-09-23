@@ -4,6 +4,10 @@ export interface Projects {
     "iOS": Project[]
 }
 
+export function typeIsProjects(obj: any): obj is Projects {
+    return "Others" in obj && "Web Applications" in obj && "iOS" in obj
+}
+
 export interface Project {
     name: string,
     pic: string,
