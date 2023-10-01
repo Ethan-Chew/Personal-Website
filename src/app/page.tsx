@@ -82,17 +82,17 @@ export default async function Home() {
               <KnowledgeSkills />
             </div>
 
-            <div className='divider'></div>
+            {/* <div className='divider'></div> */}
           </div>
-
-          {/* Achievements */}
+          
+          {/* 
           <div className='pt-10' id="achievements">
             <h2 className='font-semibold text-4xl pb-1.5'>Achievements 📚</h2>
             <p className='pb-6 font-light'></p>
             <div className='space-y-3'>
               
             </div>
-          </div>
+          </div> */}
 
           <Footer />
         </div>
