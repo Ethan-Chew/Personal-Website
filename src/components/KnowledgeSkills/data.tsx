@@ -31,11 +31,16 @@ export const dataObj: KSData = {
         },
         {
             name: "Swift",
-            desc: ["Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is one of the first language I've actually learnt! One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any."],
+            desc: ["Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is one of the first language I've actually learnt! One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any. Additionally, I have attained both the App Development in Swift Certified User and Associate Certifications."],
             icon: ["devicon-swift-plain"]
         },
         {
             name: "Python",
+            desc: [],
+            icon: []
+        },
+        {
+            name: "C#",
             desc: [],
             icon: []
         },
@@ -71,12 +76,22 @@ export const dataObj: KSData = {
         "Technologies": [
             {
                 name: "MongoDB",
-                desc: "Video Editing",
+                desc: "NoSQL Database",
                 icon: "devicon-mongodb-plain"
             },
             {
+                name: "Firebase",
+                desc: "NoSQL Database",
+                icon: "devicon-firebase-plain"
+            },
+            {
+                name: "Microsoft SQL Server",
+                desc: "SQL Database",
+                icon: "devicon-microsoftsqlserver-plain"
+            },
+            {
                 name: "Google Cloud Run",
-                desc: "Video Editing",
+                desc: "Deployment",
                 icon: "devicon-googlecloud-plain"
             }
         ],

@@ -26,9 +26,6 @@ const Pages = [{
 }, {
     id: "Knowledge",
     scrollId: "knowledgeandskills"
-}, {
-    id: "Achievements",
-    scrollId: "achievements"
 }]
 
 export default function NavBar() {
