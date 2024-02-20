@@ -31,7 +31,7 @@ export const dataObj: KSData = {
         },
         {
             name: "Swift",
-            desc: ["Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is one of the first language I've actually learnt! One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any. Additionally, I have attained both the App Development in Swift Certified User and Associate Certifications."],
+            desc: ["Swift is a language used to develop iOS, iPadOS, tvOS, MacOS and tvOS. Swift is one of the first language I've actually learnt! One of the most notable apps I have created with Swift is ArrivalSG, a transport app that allows users to view the bus arrival times, the MRT Map and Train Disruptions if any.", "Additionally, I have attained both the App Development in Swift Certified User and Associate Certifications."],
             icon: ["devicon-swift-plain"]
         },
         {
@@ -121,6 +121,11 @@ export const dataObj: KSData = {
             {
                 name: "iMovie",
                 desc: "Video Editing",
+                icon: ""
+            },
+            {
+                name: "Adobe Lightroom",
+                desc: "Photo Editing",
                 icon: ""
             }
         ]

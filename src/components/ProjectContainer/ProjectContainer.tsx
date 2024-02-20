@@ -32,7 +32,7 @@ export default function ProjectContainer({ projects, title }: ProjectsContainerP
                 <div className={`flex flex-row ${boxExpanded ? "pb-2" : ""}`}>
                     <div>
                         <h2 className="text-3xl font-semibold mb-1">{ title }</h2>
-                        { !boxExpanded ? <p className='font-light'>Press the button to view projects</p> : <></> }
+                        { !boxExpanded ? <p className='font-light'>Expand to view projects</p> : <></> }
                     </div>
                     <button className="ml-auto space-x-3" onClick={() => setBoxExpanded(!boxExpanded)}>
                         { boxExpanded ? <MdOutlineExpandLess size={30} /> : <MdOutlineExpandMore size={30} /> }
@@ -67,14 +67,14 @@ const IndivProjContainer = ({ proj, theme }: IndivProjContainerProps) => {
             </p>
             <div className='flex flex-row space-x-3'>
                 <Link href={proj.ghRepo}>
-                    <div className='rounded-md bg-lightmode-btnbg-hover dark:bg-darkmode-projbtn flex flex-row space-x-3 items-center px-6 py-3'>
+                    <div className='rounded-md bg-lightmode-btnbg-hover dark:bg-darkmode-projbtn flex flex-row space-x-3 justify-center px-6 py-3'>
                         <img src={theme === "light" ? "/github-mark.png" : "/github-mark-white.png"} alt="GitHub Icon" className={styles.icon} />
                         <p className='font-semibold'>GitHub</p>
                     </div>
                 </Link>
                 { proj.website ? 
-                <Link href={proj.ghRepo}>
-                    <div className='rounded-md bg-lightmode-btnbg-hover dark:bg-darkmode-projbtn flex flex-row space-x-3 items-center px-6 py-3'>
+                <Link href={proj.website}>
+                    <div className='rounded-md bg-lightmode-btnbg-hover dark:bg-darkmode-projbtn flex flex-row space-x-3 justify-center px-6 py-3'>
                         <img src={theme === "light" ? "/webBlack.png" : "/webWhite.png"} alt="Website Icon" className={styles.icon} />
                         <p className='font-semibold'>Website</p>
                     </div>

@@ -28,7 +28,7 @@ export default function Footer() {
                     Open sourced on{" "}
                     <Link style={theme === "dark" ? { color: "#90CDF4" } : { color: "#2B6CB0" }} href="https://github.com/Ethan-Chew/Personal-Website" target="_blank" rel="noreferrer">GitHub</Link>
                     .{" "}
-                    Last Updated: Sept 2023
+                    Last Updated: Feb 2024
                 </p>
             </div>
         </>
