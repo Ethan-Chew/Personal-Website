@@ -21,8 +21,9 @@ export default function Header() {
 
                 {/* Description */}
                 <div className="break-words space-y-2">
-                    <p>Hi! I&apos;m Ethan Chew, a <b>{ Math.floor((new Date().getTime() - new Date(2006, 10, 19).getTime()) / (1000 * 60 * 60 * 24 * 365.25)) }-year-old student</b> from Singapore, currently studying <b>Information Technology at Ngee Ann Polytechnic.</b> In addition, I am also a <b>Student Pilot</b>, studying to obtain my Private Pilot's Licence on the Diamond DA-40 and Cessna 172.</p>
-                    <p>I have a bunch of hobbies, with Aviation and Photography being a few. I only really started programming in 2020 <i>(Thats... {new Date().getFullYear() - 2019} years ago)</i> when I entered secondary school, so I am constantly learning, and have a looong way to go!</p>
+                    <p>Hi! I&apos;m Ethan Chew, a <b>{ Math.floor((new Date().getTime() - new Date(2006, 10, 19).getTime()) / (1000 * 60 * 60 * 24 * 365.25)) }-year-old student</b> from Singapore, currently studying <b>Information Technology at Ngee Ann Polytechnic.</b> I am also a passionate <b>Private Pilot</b>, with a total of 70.7hrs (as of 12/6/2024) flight time on Single-Engine Land Aircraft.</p>
+                    <p>I have many hobbies, but <i>Aviation, Programming and Photography</i> are my greatest passions. I began programming in 2020 when I entered secondary school, and I am still contantly learning and have a loooong journey ahead.</p>
+                    {/* <p>I have a bunch of hobbies, with Aviation and Photography being a few. I only really started programming in 2020 <i>(Thats... {new Date().getFullYear() - 2019} years ago)</i> when I entered secondary school, so I am constantly learning, and have a looong way to go!</p> */}
                     <p>I&apos;m always happy to meet new people! Feel free to reach out to me and say hi :)</p>
                 </div>
 
