@@ -14,7 +14,7 @@ import Footer from '@/components/Footer/footer'
 import NavBar from '@/components/NavBar/navbar'
 import RoleDescription from '@/components/RoleDescription/RoleDescription'
 import ProjectContainer from '@/components/ProjectContainer/ProjectContainer'
-import KnowledgeSkills from '@/components/KnowledgeSkills/KnowledgeSkills'
+import KnowledgeAchievements from '@/components/KnowledgeAchievements/KnowledgeAchievements'
 
 export default async function Home() {
   // Load Data from Firebase
@@ -74,12 +74,12 @@ export default async function Home() {
             <div className='divider'></div>
           </div>
 
-          {/* Knowledge/Skills Section */}
+          {/* Knowledge and Achievements Section */}
           <div className='pt-10' id="knowledgeandskills">
-            <h2 className='font-semibold text-4xl pb-1.5'>Knowledge and Skills 🎓</h2>
-            <p className='pb-6 font-light'>I&apos;m always learning and honing my skills. These are some of the technologies, tools and frameworks that I currently know!</p>
+            <h2 className='font-semibold text-4xl pb-1.5'>Knowledge and Achievements 🎓</h2>
+            <p className='pb-6 font-light'>I&apos;m always learning and honing my skills. These are some of the technologies, tools and frameworks that I currently know, while earning various accolades and certifications along the way!</p>
             <div className='space-y-3 mb-6'>
-              <KnowledgeSkills />
+              <KnowledgeAchievements />
             </div>
 
             {/* <div className='divider'></div> */}
