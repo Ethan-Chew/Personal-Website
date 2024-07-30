@@ -1,11 +1,10 @@
 'use client'
 import { MdOutlineExpandMore, MdOutlineExpandLess } from 'react-icons/md'
-import { BsGlobe } from 'react-icons/bs'
 import { useTheme } from "next-themes";
 import { useState, useEffect } from 'react'
 import styles from "./projectcontainer.module.css"
 import Link from 'next/link';
-import { Project, Projects } from '@/firebase/schema';
+import { Project } from '@/firebase/schema';
 
 interface ProjectsContainerProps {
     projects: Project[],

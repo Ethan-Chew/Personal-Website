@@ -63,8 +63,8 @@ export default function KnowledgeAchievements() {
                         <Tab.Panel>
                             <div className="space-y-5">
                                 {dataObj["Achievements"].map((achievement) => (
-                                    <Link className={`${achievement.url === null ? 'pointer-events-none' : 'cursor-pointer'}`} href={`${achievement.url === null ? '' : achievement.url}`}>
-                                        <div key={achievement.name} className={`bg-[#F8F9FB] rounded-xl dark:bg-[#262A34] p-4 mb-3 flex items-center justify-between ${achievement.url === null ? '' : 'dark:hover:bg-darkmode-btnbg hover:bg-lightmode-btnbg duration-200'}`}>
+                                    <Link key={achievement.name} className={`${achievement.url === null ? 'pointer-events-none' : 'cursor-pointer'}`} href={`${achievement.url === null ? '' : achievement.url}`}>
+                                        <div className={`bg-[#F8F9FB] rounded-xl dark:bg-[#262A34] p-4 mb-3 flex flex-col md:flex-row items-start md:items-center justify-between ${achievement.url === null ? '' : 'dark:hover:bg-darkmode-btnbg hover:bg-lightmode-btnbg duration-200'}`}>
                                             <h3 className="text-xl font-semibold">{achievement.name}</h3>
                                             <p>{achievement.year}</p>
                                         </div>
