@@ -7,6 +7,8 @@ export const revalidate = 3600 // revalidate the data at most every hour
 import Container from "@/components/Container";
 import Header from "@/components/Header/Header";
 import NavigationBar from "@/components/NavigationBar";
+import TldrButton from "@/components/TldrButton";
+import ProjectContainer from "@/components/ProjectContainer";
 
 export default async function Home() {
   const getFromDB: any = cache(async (db: string) => {
@@ -22,7 +24,9 @@ export default async function Home() {
       <NavigationBar />
 
       <div className="p-10">
-        <Header />
+        <div className="min-h-screen">
+          <Header />
+        </div>
 
         <div className="flex flex-col space-y-7">
           {/* Education Section */}
@@ -80,6 +84,19 @@ export default async function Home() {
         <br />
 
         {/* Projects */}
+        <div id="projects" className="text-lg">
+          <div id="proj-header" className="mb-4">
+            <h3 className="text-4xl font-bold">Projects 🛠</h3>
+            <p>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they're all open-sourced on GitHub too!</p>
+          </div>
+
+           <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <ProjectContainer />
+            <ProjectContainer />
+            <ProjectContainer />
+            <ProjectContainer />
+          </div>
+        </div>
 
         <br />
         <div className="flex items-center justify-center min-w-screen my-4">
@@ -89,7 +106,9 @@ export default async function Home() {
 
         {/* Knowledge and Achievements */}
         
-
+        
+        {/* Tldr */}
+        <TldrButton />
       </div>
     </main>
   );
