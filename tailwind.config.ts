@@ -12,6 +12,7 @@ const config: Config = {
         background: "var(--background)",
         accent: "var(--accent)",
         lightgrey: "var(--lightgrey)",
+        divider: "#2C2C2C",
         darkbtngrey: "#2C2C2C",
         darkbtnhover: "#1E1E1E",
       },

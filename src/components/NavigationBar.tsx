@@ -41,11 +41,11 @@ export default function NavigationBar() {
     }
 
     const handleNavClick = (page: Page) => {
-
+        return page;
     }
 
     return (
-        <nav className="w-full bg-background fixed px-10 py-8">
+        <nav className="w-full bg-background fixed px-10 py-8 z-30">
             <div className="flex flex-row justify-between">
                 <Image src="/EcLogoNew.svg" alt="Logo" width={30} height={30} />
 

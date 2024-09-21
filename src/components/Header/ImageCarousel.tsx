@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 export default function ImageCarousel() {
@@ -67,7 +68,7 @@ export default function ImageCarousel() {
         {/* Duplicating the images to achieve the infinite scroll */}
         {images.concat(images).map((image, index) => (
           <div key={index} className="min-w-[200px] sm:min-w-[250px] md:min-w-[300px] lg:min-w-[350px] flex-shrink-0">
-            <img
+            <Image
               src={image}
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover"
