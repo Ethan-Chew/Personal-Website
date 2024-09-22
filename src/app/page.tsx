@@ -1,6 +1,6 @@
 // Database and Data Handling
 import getFirestore from "@/db/retrieveData"
-import { Projects, Experience, Education } from "@/db/schema"
+import { Project, Experience, Education } from "@/db/schema"
 import { cache } from 'react'
 export const revalidate = 3600 // revalidate the data at most every hour
 
@@ -9,6 +9,8 @@ import Header from "@/components/Header/Header";
 import NavigationBar from "@/components/NavigationBar";
 import TldrButton from "@/components/TldrButton";
 import ProjectContainer from "@/components/ProjectContainer";
+import { achievements, certificates } from "@/data/certs";
+import ACContainer from "@/components/ACContainer";
 
 export default async function Home() {
   const getFromDB: any = cache(async (db: string) => {
@@ -17,7 +19,7 @@ export default async function Home() {
 
   // let education: Education[] = await getFromDB("education");
   // let experience: Experience[] = await getFromDB("experience");
-  // let projects: Projects = await getFromDB("projects");
+  // let projects: Project[] = await getFromDB("projects");
 
   return (
     <main>
@@ -90,22 +92,41 @@ export default async function Home() {
             <p>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they're all open-sourced on GitHub too!</p>
           </div>
 
-           <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            <ProjectContainer />
-            <ProjectContainer />
-            <ProjectContainer />
-            <ProjectContainer />
+          <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          
           </div>
         </div>
 
         <br />
         <div className="flex items-center justify-center min-w-screen my-4">
-          <div className="border border-divider w-1/2"></div>
+            <div className="border border-divider w-1/2"></div>
         </div>
         <br />
 
-        {/* Knowledge and Achievements */}
-        
+        {/* Achievements and Certifications */}
+        <div id="achievementscerts" className="text-lg flex flex-row gap-14">
+            {/* Achievements */}
+            <div id="achievements" className="w-full flex flex-col items-start">
+              <h3 className="text-4xl font-bold mb-4">Achievements 🏅</h3>
+              {achievements.map((ach, i) => (
+                <div className="w-full">
+                  <ACContainer key={ach.name} data={ach} />
+                  <div className={`border border-divider my-4 ${i == achievements.length - 1 && "hidden"}`}></div>
+                </div>
+              ))}
+            </div>
+
+            {/* Certifications */}
+            <div id="certifications" className="w-full flex flex-col items-start">
+              <h3 className="text-4xl font-bold mb-4">Certifications 📜</h3>
+              {certificates.map((cert, i) => (
+                <div className="w-full">
+                  <ACContainer key={cert.name} data={cert} />
+                  <div className={`border border-divider my-4 ${i == certificates.length - 1 && "hidden"}`}></div>
+                </div>
+              ))}
+            </div>
+        </div>
         
         {/* Tldr */}
         <TldrButton />
