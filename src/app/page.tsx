@@ -2,7 +2,7 @@
 import getFirestore from "@/db/retrieveData"
 import { Project, Experience, Education } from "@/db/schema"
 import { cache } from 'react'
-export const revalidate = 3600 // revalidate the data at most every hour
+export const revalidate = 7200 // revalidate the data at most every hour
 
 import Container from "@/components/Container";
 import Header from "@/components/Header/Header";
@@ -17,8 +17,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
     return await getFirestore.getCollection(db);
   });
 
-  // const education: Education[] = await getFromDB("education");
-  // const experience: Experience[] = await getFromDB("experience");
+  const education: Education[] = await getFromDB("education") as Education[];
+  const experience: Experience[] = await getFromDB("experience") as Experience[];
   const projects: Project[] = await getFromDB("topProjects") as Project[];
 
   return (
@@ -34,14 +34,14 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           {/* Education Section */}
           <div id="education" className="text-lg">
             <div id="edu-header" className="mb-4">
-              <h3 className="text-4xl font-bold">My Education 🏫</h3>
+              <h3 className="text-4xl font-bold mb-2">My Education 🏫</h3>
               <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p>
             </div>
 
             <div id="edu-content" className="flex flex-col gap-3">
-              {/* {education.map(data => (
-                <Container tldr={searchParams.tldr === "true" ? true: false} data={data} />
-              ))} */}
+              {education.map(data => (
+                <Container key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
+              ))}
             </div>
           </div>
 
@@ -56,24 +56,24 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
             <div id="experience" className="text-lg">
               <div id="workexp-header" className="mb-4">
                 <h3 className="text-4xl font-bold">Work Experience 💼</h3>
-                {/* <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p> */}
               </div>
 
-              <div id="workexp-content">
-                {/* {experience.map(data => (
-                  <Container tldr={searchParams.tldr === "true" ? true: false} data={data} />
-                ))} */}
+              <div id="workexp-content" className="flex flex-col gap-3">
+                {experience.filter(data => data.type === "work").map(data => (
+                  <Container key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
+                ))}
               </div>
             </div>
 
             <div id="leadership-exp" className="mt-7 text-lg">
               <div id="leadershipexp-header" className="mb-4">
                 <h3 className="text-4xl font-bold">Leadership Experience 👥</h3>
-                {/* <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p> */}
               </div>
 
-              <div id="leadershipexp-content">
-                
+              <div id="leadershipexp-content" className="flex flex-col gap-3">
+                {experience.filter(data => data.type === "leadership").map(data => (
+                  <Container key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
+                ))}
               </div>
             </div>
           </div>
@@ -88,8 +88,9 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {/* Projects */}
         <div id="projects" className="text-lg">
           <div id="proj-header" className="mb-4">
-            <h3 className="text-4xl font-bold">Projects 🛠</h3>
-            <p>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they&apos;re all open-sourced on GitHub too!</p>
+            <h3 className="text-4xl font-bold mb-2">Projects 🛠</h3>
+            <p>A showcase of my works, which are all open-sourced on GitHub.</p>
+            <p>I love on working on diverse projects that teach me something new. Checkout some of my open-source projects below!</p>
           </div>
 
           <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">

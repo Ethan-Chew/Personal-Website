@@ -20,6 +20,9 @@ export interface Experience {
     type: string
 }
 
+export function typeIsEducation(data: Education | Experience): data is Education {
+    return (data as Education).edulevel !== undefined
+}
 export interface Education {
     name: string,
     edulevel: string,
