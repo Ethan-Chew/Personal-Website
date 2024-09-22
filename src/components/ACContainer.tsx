@@ -9,7 +9,7 @@ export default function ACContainer({ data }: { data: CertsAchievements}) {
             <div className="flex flex-row gap-3 items-center">
                 { data.icon ? 
                     <div className="p-2 rounded-lg bg-white">
-                        {  data.icon === "swift" ? <FaSwift size={30} className="fill-background" /> : <DiScrum size={30} className="fill-background" /> }
+                        {  data.icon === "swift" ? <FaSwift size={30} className="fill-darkbackground" /> : <DiScrum size={30} className="fill-darkbackground" /> }
                     </div>
                 : <></> }
                 <div>

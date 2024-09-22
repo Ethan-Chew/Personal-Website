@@ -9,12 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        accent: "var(--accent)",
-        lightgrey: "var(--lightgrey)",
-        divider: "#2C2C2C",
+        darkbackground: "#212121",
+        background: "#f9f9f9",
+        darkaccent: "#2DC8C5",
+        accent: "#12918F",
+        lightgrey: "#474747",
+        darkdivider: "#2C2C2C",
+        lightdivider: "#EAEAEA",
         darkbtngrey: "#2C2C2C",
         darkbtnhover: "#1E1E1E",
+        lightbtngrey: "#EAEAEA",
+        lightbtnhover: "#D0D0D0",
       },
       fontSize: {
         "6.5xl": "4rem",
@@ -22,5 +27,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  darkMode: 'class',
 };
 export default config;

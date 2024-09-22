@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className="antialiased bg-background dark:bg-darkbackground duration-150"
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

@@ -5,12 +5,17 @@ import { Project, Experience, Education } from "@/db/schema"
 
 export default class getFirestore {
     static async getCollection<T extends Project[] | Experience[] | Education[]>(collectionName: string): Promise<T> {
+        if (db === null) throw new Error("Database not initialized");
         const querySnapshot = await getDocs(collection(db, collectionName));
-        let data: Experience[] | Education[] | Project[] | DocumentData = []
+        const data: Experience[] | Education[] | Project[] | DocumentData = []
         
         querySnapshot.forEach((doc) => {
             data.push(doc.data())
         })
+
+        if ((data as Project[])[0].order !== undefined) { // Perform Type Guard to check for Project Data Type
+            return data.sort((a: Project, b: Project) => a.order - b.order) as T
+        }
 
         return this.sortCollection(data as T)
     }
@@ -43,8 +48,8 @@ export default class getFirestore {
                 if (months.indexOf(aMonth) > months.indexOf(bMonth)) { return 1 }  // First Month is less current
     
                 if (months.indexOf(aMonth) === months.indexOf(bMonth)) { // Same ending month, sort by startDate month
-                    let aMonth = a.startDate.split(" ")[0]
-                    let bMonth = b.startDate.split(" ")[0]
+                    aMonth = a.startDate.split(" ")[0]
+                    bMonth = b.startDate.split(" ")[0]
     
                     if (months.indexOf(aMonth) < months.indexOf(bMonth)) { return -1 }  // First Month is more current
                     if (months.indexOf(aMonth) > months.indexOf(bMonth)) { return 1 }  // First Month is less current

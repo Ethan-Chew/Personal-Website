@@ -8,18 +8,18 @@ import Container from "@/components/Container";
 import Header from "@/components/Header/Header";
 import NavigationBar from "@/components/NavigationBar";
 import TldrButton from "@/components/TldrButton";
-import ProjectContainer from "@/components/ProjectContainer";
+import ProjectContainer from "@/components/ProjectContainer/ProjectContainer";
 import { achievements, certificates } from "@/data/certs";
 import ACContainer from "@/components/ACContainer";
 
-export default async function Home() {
-  const getFromDB: any = cache(async (db: string) => {
+export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const getFromDB: (db: string) => Promise<Project[] | Experience[] | Education[]> = cache(async (db: string) => {
     return await getFirestore.getCollection(db);
   });
 
-  // let education: Education[] = await getFromDB("education");
-  // let experience: Experience[] = await getFromDB("experience");
-  // let projects: Project[] = await getFromDB("projects");
+  // const education: Education[] = await getFromDB("education");
+  // const experience: Experience[] = await getFromDB("experience");
+  const projects: Project[] = await getFromDB("topProjects") as Project[];
 
   return (
     <main>
@@ -40,20 +40,20 @@ export default async function Home() {
 
             <div id="edu-content" className="flex flex-col gap-3">
               {/* {education.map(data => (
-                <Container tldr={false} data={data} />
+                <Container tldr={searchParams.tldr === "true" ? true: false} data={data} />
               ))} */}
             </div>
           </div>
 
           <br />
           <div className="flex items-center justify-center min-w-screen my-4">
-            <div className="border border-divider w-1/2"></div>
+            <div className="border border-divider dark:border-darkdivider w-1/2"></div>
           </div>
           <br />
 
           {/* Experience Section */}
           <div>
-            <div id="work-exp" className="text-lg">
+            <div id="experience" className="text-lg">
               <div id="workexp-header" className="mb-4">
                 <h3 className="text-4xl font-bold">Work Experience 💼</h3>
                 {/* <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p> */}
@@ -61,7 +61,7 @@ export default async function Home() {
 
               <div id="workexp-content">
                 {/* {experience.map(data => (
-                  <Container tldr={false} data={data} />
+                  <Container tldr={searchParams.tldr === "true" ? true: false} data={data} />
                 ))} */}
               </div>
             </div>
@@ -81,7 +81,7 @@ export default async function Home() {
 
         <br />
         <div className="flex items-center justify-center min-w-screen my-4">
-          <div className="border border-divider w-1/2"></div>
+          <div className="border border-divider dark:border-darkdivider w-1/2"></div>
         </div>
         <br />
 
@@ -89,40 +89,42 @@ export default async function Home() {
         <div id="projects" className="text-lg">
           <div id="proj-header" className="mb-4">
             <h3 className="text-4xl font-bold">Projects 🛠</h3>
-            <p>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they're all open-sourced on GitHub too!</p>
+            <p>I love working on various projects because I always learn something new while working on them. Checkout some of the projects I have worked on, they&apos;re all open-sourced on GitHub too!</p>
           </div>
 
           <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          
+            {projects.map(proj => (
+              <ProjectContainer key={proj.name} project={proj} />
+            ))}
           </div>
         </div>
 
         <br />
         <div className="flex items-center justify-center min-w-screen my-4">
-            <div className="border border-divider w-1/2"></div>
+            <div className="border border-divider dark:border-darkdivider w-1/2"></div>
         </div>
         <br />
 
         {/* Achievements and Certifications */}
-        <div id="achievementscerts" className="text-lg flex flex-row gap-14">
+        <div id="achievements" className="text-lg flex flex-row gap-14">
             {/* Achievements */}
-            <div id="achievements" className="w-full flex flex-col items-start">
-              <h3 className="text-4xl font-bold mb-4">Achievements 🏅</h3>
+            <div id="ach" className="w-full flex flex-col items-start">
+              <h3 className="text-4xl font-bold mb-5">Achievements 🏅</h3>
               {achievements.map((ach, i) => (
-                <div className="w-full">
-                  <ACContainer key={ach.name} data={ach} />
-                  <div className={`border border-divider my-4 ${i == achievements.length - 1 && "hidden"}`}></div>
+                <div key={ach.name} className="w-full">
+                  <ACContainer data={ach} />
+                  <div className={`border border-divider dark:border-darkdivider my-4 ${i == achievements.length - 1 && "hidden"}`}></div>
                 </div>
               ))}
             </div>
 
             {/* Certifications */}
             <div id="certifications" className="w-full flex flex-col items-start">
-              <h3 className="text-4xl font-bold mb-4">Certifications 📜</h3>
+              <h3 className="text-4xl font-bold mb-5">Certifications 📜</h3>
               {certificates.map((cert, i) => (
-                <div className="w-full">
-                  <ACContainer key={cert.name} data={cert} />
-                  <div className={`border border-divider my-4 ${i == certificates.length - 1 && "hidden"}`}></div>
+                <div key={cert.name} className="w-full">
+                  <ACContainer data={cert} />
+                  <div className={`border border-divider dark:border-darkdivider my-4 ${i == certificates.length - 1 && "hidden"}`}></div>
                 </div>
               ))}
             </div>

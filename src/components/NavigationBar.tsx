@@ -22,8 +22,8 @@ const pages: Page[] = [{
     id: "Projects",
     scrollId: "projects"
 }, {
-    id: "Knowledge",
-    scrollId: "knowledgeandskills"
+    id: "Achievements",
+    scrollId: "achievements"
 }]
 
 export default function NavigationBar() {
@@ -41,18 +41,21 @@ export default function NavigationBar() {
     }
 
     const handleNavClick = (page: Page) => {
-        return page;
+        const element = document.getElementById(page.scrollId)
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+        }
     }
 
     return (
-        <nav className="w-full bg-background fixed px-10 py-8 z-30">
+        <nav className="w-full bg-background dark:bg-darkbackground fixed px-10 py-8 z-30">
             <div className="flex flex-row justify-between">
-                <Image src="/EcLogoNew.svg" alt="Logo" width={30} height={30} />
+                <Image src={theme === "dark" ? "/EcLogoDark.svg" : "/EcLogoLight.svg"} alt="Logo" width={30} height={30} />
 
-                <div className="hidden text-xl space-x-5 sm:flex flex-row">
+                <div className="hidden text-md md:text-xl space-x-5 sm:flex flex-row">
                     {pages.map((page, i) => (
                         <div key={page.id} className="flex flex-row space-x-5 items-center">
-                            <a className="cursor-pointer">{ page.id }</a>
+                            <a className="cursor-pointer" onClick={() => handleNavClick(page)}>{ page.id }</a>
                             {i !== pages.length - 1 && <div className="border-l border"></div>}
                         </div>
                     ))}
@@ -78,7 +81,7 @@ export default function NavigationBar() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className={`bg-background duration-200 shadow-md space-y-1 pt-5 pb-2 text-lg`}>
+                <div className={`bg-background dark:bg-darkbackground duration-200 shadow-md space-y-1 pt-5 pb-2 text-lg`}>
                     {pages.map((page) => (
                         <div onClick={() => handleNavClick(page)} key={page.id} className="cursor-pointer py-2 duration-200 hover:font-semibold">
                             {page.id}

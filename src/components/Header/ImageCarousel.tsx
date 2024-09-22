@@ -25,6 +25,7 @@ export default function ImageCarousel() {
       <div className="embla__container">
         {images.map((image, index) => (
           <img
+            key={index}
             src={image}
             alt={`Slide ${index + 1}`}
             className="embla__slide"

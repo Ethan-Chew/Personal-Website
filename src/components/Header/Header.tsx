@@ -9,12 +9,12 @@ export default function Header() {
     return (
         <div className="py-14">
             <div className="space-y-3">
-                <h1 className="text-5xl sm:text-6.5xl">Hey! <br className="block sm:hidden" /> I&apos;m <span className="font-semibold text-accent">Ethan Chew</span> 👋</h1>
+                <h1 className="text-5xl sm:text-6.5xl">Hey! <br className="block sm:hidden" /> I&apos;m <span className="font-semibold text-accent dark:text-darkaccent">Ethan Chew</span> 👋</h1>
                 <p className="text-lg sm:text-xl">Student Developer  |  Private Pilot  | Photography</p>
             </div>
 
             <br />
-            <div className="border border-lightgrey"></div>
+            <div className="border border-divider dark:border-darkdivider"></div>
             <br />
 
             <div className="space-y-4 max-w-4xl sm:text-lg">
@@ -26,19 +26,19 @@ export default function Header() {
 
             <div className="flex flex-row pt-4 gap-3">
                 <Link href="https://go.ethanchew.com/linkedin" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-darkbtngrey hover:bg-darkbtnhover rounded-lg duration-200`}>
+                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
                         <FaLinkedin size={25} />
                     </div>
                 </Link>
 
                 <Link href="https://go.ethanchew.com/github" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-darkbtngrey hover:bg-darkbtnhover rounded-lg duration-200`}>
+                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
                         <FaGithub size={25} />
                     </div>
                 </Link>
 
                 <Link href="mailto:hello@ethanchew.com" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-darkbtngrey hover:bg-darkbtnhover rounded-lg duration-200`}>
+                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
                         <MdEmail size={25} />
                     </div>
                 </Link>
