@@ -4,13 +4,14 @@ import { Project, Experience, Education } from "@/db/schema"
 import { cache } from 'react'
 export const revalidate = 7200 // revalidate the data at most every hour
 
+import { achievements, certificates } from "@/data/certs";
 import Container from "@/components/Container";
 import Header from "@/components/Header/Header";
 import NavigationBar from "@/components/NavigationBar";
 import TldrButton from "@/components/TldrButton";
 import ProjectContainer from "@/components/ProjectContainer/ProjectContainer";
-import { achievements, certificates } from "@/data/certs";
 import ACContainer from "@/components/ACContainer";
+import Footer from "@/components/Footer";
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const getFromDB: (db: string) => Promise<Project[] | Experience[] | Education[]> = cache(async (db: string) => {
@@ -34,7 +35,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           {/* Education Section */}
           <div id="education" className="text-lg">
             <div id="edu-header" className="mb-4">
-              <h3 className="text-4xl font-bold mb-2">My Education 🏫</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-2">My Education 🏫</h3>
               <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p>
             </div>
 
@@ -55,7 +56,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           <div>
             <div id="experience" className="text-lg">
               <div id="workexp-header" className="mb-4">
-                <h3 className="text-4xl font-bold">Work Experience 💼</h3>
+                <h3 className="text-3xl md:text-4xl font-bold">Work Experience 💼</h3>
               </div>
 
               <div id="workexp-content" className="flex flex-col gap-3">
@@ -67,7 +68,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
 
             <div id="leadership-exp" className="mt-7 text-lg">
               <div id="leadershipexp-header" className="mb-4">
-                <h3 className="text-4xl font-bold">Leadership Experience 👥</h3>
+                <h3 className="text-3xl md:text-4xl font-bold">Leadership Experience 👥</h3>
               </div>
 
               <div id="leadershipexp-content" className="flex flex-col gap-3">
@@ -88,8 +89,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {/* Projects */}
         <div id="projects" className="text-lg">
           <div id="proj-header" className="mb-4">
-            <h3 className="text-4xl font-bold mb-2">Projects 🛠</h3>
-            <p>A showcase of my works, which are all open-sourced on GitHub.</p>
+            <h3 className="text-3xl md:text-4xl font-bold mb-2">Projects 🛠</h3>
             <p>I love on working on diverse projects that teach me something new. Checkout some of my open-source projects below!</p>
           </div>
 
@@ -107,10 +107,10 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         <br />
 
         {/* Achievements and Certifications */}
-        <div id="achievements" className="text-lg flex flex-row gap-14">
+        <div id="achievements" className="text-lg flex flex-col md:flex-row gap-14">
             {/* Achievements */}
             <div id="ach" className="w-full flex flex-col items-start">
-              <h3 className="text-4xl font-bold mb-5">Achievements 🏅</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-5">Achievements 🏅</h3>
               {achievements.map((ach, i) => (
                 <div key={ach.name} className="w-full">
                   <ACContainer data={ach} />
@@ -121,7 +121,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
 
             {/* Certifications */}
             <div id="certifications" className="w-full flex flex-col items-start">
-              <h3 className="text-4xl font-bold mb-5">Certifications 📜</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-5">Certifications 📜</h3>
               {certificates.map((cert, i) => (
                 <div key={cert.name} className="w-full">
                   <ACContainer data={cert} />
@@ -134,6 +134,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {/* Tldr */}
         <TldrButton />
       </div>
+      
+      <Footer />
     </main>
   );
 }

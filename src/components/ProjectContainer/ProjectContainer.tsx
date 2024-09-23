@@ -9,7 +9,7 @@ export default function ProjectContainer({ project }: { project: Project }) {
     const { theme } = useTheme();
 
     return (
-        <div className="p-5 rounded-xl bg-[#242424] border border-lightgrey flex flex-col">
+        <div className="p-5 rounded-xl bg-[#F5F5F5] dark:bg-[#242424] border border-lightgrey flex flex-col">
             <div>
                 <h3 className="text-2xl font-semibold">{ project.name }</h3>
                 <p className="text-neutral-500">{ project.startDate } - { project.endDate }</p>

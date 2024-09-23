@@ -41,7 +41,7 @@ export const achievements: CertsAchievements[] = [
     },
     {
         name: "Ngee Ann Polytechnic Scholarship",
-        date: "2023 - 2024",
+        date: "2023 - Current",
         icon: null,
         link: null,
     }

@@ -10,9 +10,9 @@ function Button() {
 
     const handleBtn = () => {
         if (tldr !== "true") {
-            router.push("?tldr=true");
+            router.replace("?tldr=true", { scroll: false });
         } else {
-            router.push("?tldr=false");
+            router.replace("?tldr=false", { scroll: false });
         }
     }
 
@@ -21,7 +21,7 @@ function Button() {
             <button className="fixed bottom-10 right-10 py-2 px-10 bg-accent dark:bg-darkaccent text-white hover:drop-shadow-[0_0px_10px_rgba(18,145,143,.4)] font-bold text-xl rounded-full duration-200" onClick={handleBtn}>
                 { tldr == "true" ? "un-tl;dr" : "tl;dr" }
             </button>
-            <Confetti active={ tldr == "true" } />
+            {/* <Confetti active={ tldr == "true" } /> */}
         </>
     )
 }
