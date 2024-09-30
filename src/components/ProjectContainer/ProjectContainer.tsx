@@ -11,14 +11,14 @@ export default function ProjectContainer({ project }: { project: Project }) {
     return (
         <div className="p-5 rounded-xl bg-[#F5F5F5] dark:bg-[#242424] border border-lightgrey flex flex-col">
             <div>
-                <h3 className="text-2xl font-semibold">{ project.name }</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold">{ project.name }</h3>
                 <p className="text-neutral-500">{ project.startDate } - { project.endDate }</p>
             </div>
 
             <p className="py-2"><span className="font-semibold">{ project.language }</span> | { project.desc }</p>
             <div className="flex-grow"></div>
 
-            <div className="flex flex-row gap-3">
+            <div className="flex gap-3">
                 {/* GitHub Repository Link */}
                 <Link href={project.ghRepo}>
                     <div className='rounded-lg bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover flex flex-row space-x-3 justify-center px-6 py-3'>

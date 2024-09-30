@@ -5,13 +5,15 @@ import { cache } from 'react'
 export const revalidate = 7200 // revalidate the data at most every hour
 
 import { achievements, certificates } from "@/data/certs";
-import Container from "@/components/Container";
+import ExpContainer from "@/components/ExpContainer";
 import Header from "@/components/Header/Header";
 import NavigationBar from "@/components/NavigationBar";
 import TldrButton from "@/components/TldrButton";
 import ProjectContainer from "@/components/ProjectContainer/ProjectContainer";
-import ACContainer from "@/components/ACContainer";
+import AccoladesContainer from "@/components/AccoladesContainer";
 import Footer from "@/components/Footer";
+import Divider from "@/components/Divider";
+import SkillsContainer from "@/components/SkillsContainer";
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const getFromDB: (db: string) => Promise<Project[] | Experience[] | Education[]> = cache(async (db: string) => {
@@ -26,14 +28,14 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
     <main>
       <NavigationBar />
 
-      <div className="p-10">
+      <div className="p-7 sm:p-10">
         <div className="min-h-screen">
           <Header />
         </div>
 
         <div className="flex flex-col space-y-7">
           {/* Education Section */}
-          <div id="education" className="text-lg">
+          <div id="education" className="sm:text-lg">
             <div id="edu-header" className="mb-4">
               <h3 className="text-3xl md:text-4xl font-bold mb-2">My Education 🏫</h3>
               <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p>
@@ -41,79 +43,67 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
 
             <div id="edu-content" className="flex flex-col gap-3">
               {education.map(data => (
-                <Container key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
+                <ExpContainer key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
               ))}
             </div>
           </div>
 
-          <br />
-          <div className="flex items-center justify-center min-w-screen my-4">
-            <div className="border border-divider dark:border-darkdivider w-1/2"></div>
-          </div>
-          <br />
+          <Divider />
 
           {/* Experience Section */}
           <div>
-            <div id="experience" className="text-lg">
+            <div id="experience" className="sm:text-lg">
               <div id="workexp-header" className="mb-4">
                 <h3 className="text-3xl md:text-4xl font-bold">Work Experience 💼</h3>
               </div>
 
               <div id="workexp-content" className="flex flex-col gap-3">
                 {experience.filter(data => data.type === "work").map(data => (
-                  <Container key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
+                  <ExpContainer key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
                 ))}
               </div>
             </div>
 
-            <div id="leadership-exp" className="mt-7 text-lg">
+            <div id="leadership-exp" className="mt-7 sm:text-lg">
               <div id="leadershipexp-header" className="mb-4">
                 <h3 className="text-3xl md:text-4xl font-bold">Leadership Experience 👥</h3>
               </div>
 
               <div id="leadershipexp-content" className="flex flex-col gap-3">
                 {experience.filter(data => data.type === "leadership").map(data => (
-                  <Container key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
+                  <ExpContainer key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
                 ))}
               </div>
             </div>
           </div>
         </div>
 
-        <br />
-        <div className="flex items-center justify-center min-w-screen my-4">
-          <div className="border border-divider dark:border-darkdivider w-1/2"></div>
-        </div>
-        <br />
+        <Divider />
 
         {/* Projects */}
-        <div id="projects" className="text-lg">
+        <div id="projects" className="sm:text-lg">
           <div id="proj-header" className="mb-4">
             <h3 className="text-3xl md:text-4xl font-bold mb-2">Projects 🛠</h3>
             <p>I love on working on diverse projects that teach me something new. Checkout some of my open-source projects below!</p>
           </div>
 
-          <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {projects.map(proj => (
               <ProjectContainer key={proj.name} project={proj} />
             ))}
           </div>
         </div>
 
-        <br />
-        <div className="flex items-center justify-center min-w-screen my-4">
-            <div className="border border-divider dark:border-darkdivider w-1/2"></div>
-        </div>
-        <br />
+        <Divider />
 
         {/* Achievements and Certifications */}
-        <div id="achievements" className="text-lg flex flex-col md:flex-row gap-14">
+        <div id="achievements" className="sm:text-lg flex flex-col md:flex-row gap-14">
             {/* Achievements */}
             <div id="ach" className="w-full flex flex-col items-start">
               <h3 className="text-3xl md:text-4xl font-bold mb-5">Achievements 🏅</h3>
               {achievements.map((ach, i) => (
                 <div key={ach.name} className="w-full">
-                  <ACContainer data={ach} />
+                  <AccoladesContainer data={ach} />
                   <div className={`border border-divider dark:border-darkdivider my-4 ${i == achievements.length - 1 && "hidden"}`}></div>
                 </div>
               ))}
@@ -124,12 +114,24 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
               <h3 className="text-3xl md:text-4xl font-bold mb-5">Certifications 📜</h3>
               {certificates.map((cert, i) => (
                 <div key={cert.name} className="w-full">
-                  <ACContainer data={cert} />
+                  <AccoladesContainer data={cert} />
                   <div className={`border border-divider dark:border-darkdivider my-4 ${i == certificates.length - 1 && "hidden"}`}></div>
                 </div>
               ))}
             </div>
         </div>
+
+        {/* <Divider /> */}
+
+        {/*  */}
+        {/* <div id="skills" className="sm:text-lg">
+          <div id="skills-header" className="mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-2">Skills 🎓</h3>
+            <p>I&apos;m always learning and honing my skills. These are some of the technologies, tools and frameworks that I currently know!</p>
+          </div>
+
+          <SkillsContainer />
+        </div> */}
         
         {/* Tldr */}
         <TldrButton />
