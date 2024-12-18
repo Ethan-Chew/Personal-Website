@@ -48,11 +48,11 @@ export default function NavigationBar() {
     }
 
     return (
-        <nav className="w-full bg-background dark:bg-darkbackground fixed px-10 py-8 z-30">
+        <nav className="w-full bg-background dark:bg-darkbackground fixed px-10 py-6 z-30">
             <div className="flex flex-row justify-between">
                 <Image src={theme === "dark" ? "/ECLogoDark.svg" : "/ECLogoLight.svg"} alt="Logo" width={30} height={30} />
 
-                <div className="hidden text-md md:text-xl space-x-5 sm:flex flex-row">
+                <div className="hidden text-md md:text-lg space-x-5 sm:flex flex-row">
                     {pages.map((page, i) => (
                         <div key={page.id} className="flex flex-row space-x-5 items-center">
                             <a className="cursor-pointer" onClick={() => handleNavClick(page)}>{ page.id }</a>
