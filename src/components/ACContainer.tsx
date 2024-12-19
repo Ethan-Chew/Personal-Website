@@ -1,4 +1,4 @@
-import { CertsAchievements } from "@/data/certs";
+import { CertsAchievements } from "../../public/data/certs";
 import { FaSwift } from "react-icons/fa";
 import { DiScrum } from "react-icons/di";
 import Link from "next/link";
