@@ -48,9 +48,9 @@ export default function NavigationBar() {
     }
 
     return (
-        <nav className="w-full bg-background dark:bg-darkbackground fixed px-10 py-6 z-30">
+        <nav className="w-full bg-background dark:bg-darkbackground fixed px-7 sm:px-10 py-8 z-30">
             <div className="flex flex-row justify-between">
-                <Image src={theme === "dark" ? "/ECLogoDark.svg" : "/ECLogoLight.svg"} alt="Logo" width={30} height={30} />
+                <Image src={theme === "light" ? "/ECLogoLight.svg" : "/ECLogoDark.svg"} alt="Logo" width={30} height={30} />
 
                 <div className="hidden text-md md:text-lg space-x-5 sm:flex flex-row">
                     {pages.map((page, i) => (
@@ -81,12 +81,17 @@ export default function NavigationBar() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className={`bg-background dark:bg-darkbackground duration-200 shadow-md space-y-1 pt-5 pb-2 text-lg`}>
+                <div className={`bg-background dark:bg-darkbackground duration-200 space-y-1 pt-5 pb-2 text-lg block sm:hidden`}>
                     {pages.map((page) => (
                         <div onClick={() => handleNavClick(page)} key={page.id} className="cursor-pointer py-2 duration-200 hover:font-semibold">
                             {page.id}
                         </div>
                     ))}
+
+                    <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className='pt-2 flex flex-row gap-5 duration-200'>
+                        <a>Theme ({ theme && theme.charAt(0).toUpperCase() + theme.slice(1) })</a>
+                        {theme === "dark" ? <BsFillSunFill size={23} /> : <BsFillMoonFill size={23} />}
+                    </button>
                 </div>
             </Transition>
         </nav>

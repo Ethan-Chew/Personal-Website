@@ -3,11 +3,11 @@ import Link from "next/link"
 // Icons
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import ImageCarousel from "./ImageCarousel"
+import { IoDocumentText } from "react-icons/io5";
 
 export default function Header() {
     return (
-        <div className="py-14">
+        <div className="py-20 md:py-14">
             <div className="space-y-3">
                 <h1 className="text-5xl sm:text-6.5xl">Hey! <br className="block sm:hidden" /> I&apos;m <span className="font-semibold text-accent dark:text-darkaccent">Ethan Chew</span> 👋</h1>
                 <p className="text-lg sm:text-xl">Student Developer  |  Private Pilot  | Photography</p>
@@ -42,9 +42,13 @@ export default function Header() {
                         <MdEmail size={25} />
                     </div>
                 </Link>
-            </div>
 
-            {/* <ImageCarousel /> */}
+                <Link href="https://go.ethanchew.com/cv" rel="noreferrer" target="_blank">
+                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
+                        <IoDocumentText size={25} />
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

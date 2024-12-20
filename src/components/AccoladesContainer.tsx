@@ -3,7 +3,7 @@ import { FaSwift } from "react-icons/fa";
 import { DiScrum } from "react-icons/di";
 import Link from "next/link";
 
-export default function ACContainer({ data }: { data: CertsAchievements}) {
+export default function AccoladesContainer({ data }: { data: CertsAchievements}) {
     return (
         <Link href={data.link ? data.link : ""} className={data.link === null ? "pointer-events-none" : "cursor-pointer"}>
             <div className="flex flex-row gap-3 items-center">
@@ -13,7 +13,7 @@ export default function ACContainer({ data }: { data: CertsAchievements}) {
                     </div>
                 : <></> }
                 <div>
-                    <p className="font-semibold text-xl">{ data.name }</p>
+                    <p className="font-semibold text-lg md:text-xl">{ data.name }</p>
                     <p className="text-neutral-500 text-base">{ data.date }</p>
                 </div>
             </div>

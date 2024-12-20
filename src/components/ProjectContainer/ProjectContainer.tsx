@@ -23,7 +23,7 @@ export default function ProjectContainer({ project }: { project: Project }) {
 
             <div className="flex-grow"></div>
 
-            <div className="flex flex-row gap-3">
+            <div className="flex gap-3">
                 {/* GitHub Repository Link */}
                 <Link href={project.ghRepo}>
                     <div className='rounded-lg bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover flex flex-row space-x-3 justify-center px-6 py-3'>
