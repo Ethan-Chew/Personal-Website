@@ -11,15 +11,15 @@ export default function ProjectContainer({ project }: { project: Project }) {
     const { theme } = useTheme();
 
     return (
-        <div className="p-5 rounded-xl bg-[#F5F5F5] dark:bg-[#242424] border border-lightgrey flex flex-col">
+        <div className="p-5 rounded-xl bg-neutral-100 dark:bg-[#242424] border border-lightgrey flex flex-col">
             { project.image && <Image src={project.image} alt={project.name} width={800} height={400} className="rounded-lg mb-3" /> }
             <div className="flex flex-row items-center gap-4">
                 <h3 className="text-2xl font-semibold">{ project.name }</h3>
                 <ProjectTagContainer tagId={project.tag} />
             </div>
-            <p className="text-sm mt-1 text-white/60">{ project.language }</p>
+            <p className="text-sm mt-1 text-black/60 dark:text-white/60">{ project.language }</p>
 
-            <p className="text-white/90 text-base py-3">{ project.desc }</p>
+            <p className="text-black/90 dark:text-white/90 text-base py-3">{ project.desc }</p>
 
             <div className="flex-grow"></div>
 

@@ -7,6 +7,7 @@ export interface ProjectTag {
     bgDark: string
 }
 
+export type ProjectKey = 'mobile' | 'website' | 'webapp' | 'app';
 export const projectTags: ProjectTag[] = [
     {
         id: "mobile",

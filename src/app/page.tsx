@@ -93,13 +93,12 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
             <p>I love on working on diverse projects that teach me something new. Checkout some of my open-source projects below!</p>
           </div>
 
-          <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {projects.map(proj => (
               <ProjectContainer key={proj.name} project={proj} />
             ))}
           </div>
         </div>
-
         <br />
         <div className="flex items-center justify-center min-w-screen my-4">
             <div className="border border-divider dark:border-darkdivider w-1/2"></div>
