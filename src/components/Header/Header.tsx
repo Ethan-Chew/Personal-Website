@@ -4,7 +4,6 @@ import Link from "next/link"
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { IoDocumentText } from "react-icons/io5";
-import ImageCarousel from "./ImageCarousel"
 
 export default function Header() {
     return (
@@ -44,14 +43,12 @@ export default function Header() {
                     </div>
                 </Link>
 
-                <a href="/files/Ethan_Chew_CV.pdf">
+                <Link href="https://go.ethanchew.com/cv" rel="noreferrer" target="_blank">
                     <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
                         <IoDocumentText size={25} />
                     </div>
-                </a>
+                </Link>
             </div>
-
-            {/* <ImageCarousel /> */}
         </div>
     )
 }

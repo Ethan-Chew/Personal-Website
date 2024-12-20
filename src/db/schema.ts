@@ -1,5 +1,6 @@
 export interface Project {
     name: string,
+    tag: string,
     language: string,
     ghRepo: string,
     startDate: string,
@@ -8,6 +9,7 @@ export interface Project {
     desc: string,
     appStoreLink: string | null,
     order: number,
+    image: string | null
 }
 
 export interface Experience {

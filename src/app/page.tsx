@@ -4,7 +4,7 @@ import { Project, Experience, Education } from "@/db/schema"
 import { cache } from 'react'
 export const revalidate = 7200 // revalidate the data at most every hour
 
-import { achievements, certificates } from "@/data/certs";
+import { achievements, certificates } from "../../public/data/certs";
 import ExpContainer from "@/components/ExpContainer";
 import Header from "@/components/Header/Header";
 import NavigationBar from "@/components/NavigationBar";
