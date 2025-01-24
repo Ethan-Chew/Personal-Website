@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`antialiased bg-background dark:bg-darkbackground duration-150 ${inter.className}`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
           <Analytics />
         </ThemeProvider>
