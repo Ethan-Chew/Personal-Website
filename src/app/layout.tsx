@@ -1,3 +1,4 @@
+import NavigationBar from "@/components/NavigationBar";
 import type { Metadata } from "next";
 import { ThemeProvider } from 'next-themes'
 import { Inter } from 'next/font/google'
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`antialiased bg-background dark:bg-darkbackground duration-150 ${inter.className}`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
+          <NavigationBar />
           {children}
           <Analytics />
         </ThemeProvider>

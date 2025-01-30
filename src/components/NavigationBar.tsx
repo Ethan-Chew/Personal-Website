@@ -6,6 +6,7 @@ import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useTheme } from "next-themes";
 import { useEffect, useState, Fragment } from "react";
 import { Transition } from "@headlessui/react"
+import { motion } from "motion/react";
 
 interface Page {
     id: string,
@@ -55,7 +56,17 @@ export default function NavigationBar() {
                 <div className="hidden text-md md:text-lg space-x-5 sm:flex flex-row">
                     {pages.map((page, i) => (
                         <div key={page.id} className="flex flex-row space-x-5 items-center">
-                            <a className="cursor-pointer" onClick={() => handleNavClick(page)}>{ page.id }</a>
+                            <motion.a
+                                initial={{ opacity: 1, scale: 1 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                }}
+                                className="cursor-pointer"
+                                onClick={() => handleNavClick(page)}
+                            >
+                                { page.id }
+                            </motion.a>
                             {i !== pages.length - 1 && <div className="border-l border"></div>}
                         </div>
                     ))}

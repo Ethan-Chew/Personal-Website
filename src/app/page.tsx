@@ -7,7 +7,6 @@ export const revalidate = 7200 // revalidate the data at most every hour
 import { achievements, certificates } from "../../public/data/certs";
 import ExpContainer from "@/components/ExpContainer";
 import Header from "@/components/Header/Header";
-import NavigationBar from "@/components/NavigationBar";
 import TldrButton from "@/components/TldrButton";
 import ProjectContainer from "@/components/ProjectContainer/ProjectContainer";
 import AccoladesContainer from "@/components/AccoladesContainer";
@@ -26,8 +25,6 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
 
   return (
     <main>
-      <NavigationBar />
-
       <div className="p-7 sm:p-10">
         <div className="min-h-screen">
           <Header />
@@ -128,18 +125,6 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
               </div>
           </section>
         </AnimatePresence>
-
-        {/* <Divider /> */}
-
-        {/*  */}
-        {/* <div id="skills" className="sm:text-lg">
-          <div id="skills-header" className="mb-4">
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">Skills 🎓</h3>
-            <p>I&apos;m always learning and honing my skills. These are some of the technologies, tools and frameworks that I currently know!</p>
-          </div>
-
-          <SkillsContainer />
-        </div> */}
         
         {/* Tldr */}
         <TldrButton />

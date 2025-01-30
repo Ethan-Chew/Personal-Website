@@ -12,7 +12,19 @@ export default function ProjectContainer({ project }: { project: Project }) {
 
     return (
         <div className="p-5 rounded-xl bg-neutral-100 dark:bg-[#242424] border border-lightgrey flex flex-col">
-            { project.image && <Image src={project.image} alt={project.name} width={800} height={400} className="rounded-lg mb-3" /> }
+            { project.image && 
+                <Image 
+                    src={project.image}
+                    alt={project.name}
+                    width={800}
+                    height={400}
+                    data-loaded='false'
+                    onLoad={event => {
+                        event.currentTarget.setAttribute('data-loaded', 'true')
+                    }}
+                    className='rounded-lg mb-3 data-[loaded=false]:animate-pulse data-[loaded=false]:bg-gray-100/10'
+                /> 
+            }
             <div className="flex flex-row items-center gap-4">
                 <h3 className="text-2xl font-semibold">{ project.name }</h3>
                 <ProjectTagContainer tagId={project.tag} />
@@ -26,7 +38,7 @@ export default function ProjectContainer({ project }: { project: Project }) {
             <div className="flex gap-3">
                 {/* GitHub Repository Link */}
                 <Link href={project.ghRepo}>
-                    <div className='rounded-lg bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover flex flex-row space-x-3 justify-center px-6 py-3'>
+                    <div className='rounded-lg bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover duration-150 flex flex-row space-x-3 justify-center px-6 py-3'>
                         <img src={theme === "light" ? "/github-mark.png" : "/github-mark-white.png"} alt="GitHub Icon" className={styles.icon} />
                         <p className='font-semibold'>GitHub</p>
                     </div>
@@ -35,7 +47,7 @@ export default function ProjectContainer({ project }: { project: Project }) {
                 {/* Website Link */}
                 { project.website ? 
                 <Link href={project.website}>
-                    <div className='rounded-lg bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover flex flex-row space-x-3 justify-center px-6 py-3'>
+                    <div className='rounded-lg bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover duration-150 flex flex-row space-x-3 justify-center px-6 py-3'>
                         <img src={theme === "light" ? "/webBlack.png" : "/webWhite.png"} alt="Website Icon" className={styles.icon} />
                         <p className='font-semibold'>Website</p>
                     </div>
