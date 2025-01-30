@@ -13,6 +13,7 @@ import AccoladesContainer from "@/components/AccoladesContainer";
 import Footer from "@/components/Footer";
 import Divider from "@/components/Divider";
 import AnimatePresence from "@/components/AnimatePresence";
+import SkillsContainer from "@/components/SkillsContainer";
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const getFromDB: (db: string) => Promise<Project[] | Experience[] | Education[]> = cache(async (db: string) => {
@@ -94,6 +95,19 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
                 <ProjectContainer key={proj.name} project={proj} />
               ))}
             </div>
+          </section>
+        </AnimatePresence>
+
+        <Divider />
+
+        {/* Skills */}
+        <AnimatePresence>
+          <section id="skills" className="sm:text-lg">
+            <div id="skills-header" className="mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold mb-2">Technologies & Frameworks 🛠</h3>
+              <p>I&apos;m always learning something new, especially when it </p>
+            </div>
+            <SkillsContainer />
           </section>
         </AnimatePresence>
 
