@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import Divider from "@/components/Divider";
 import AnimatePresence from "@/components/AnimatePresence";
 import SkillsContainer from "@/components/SkillsContainer";
+import { FaCode } from "react-icons/fa6";
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const getFromDB: (db: string) => Promise<Project[] | Experience[] | Education[]> = cache(async (db: string) => {
@@ -104,8 +105,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         <AnimatePresence>
           <section id="skills" className="sm:text-lg">
             <div id="skills-header" className="mb-4">
-              <h3 className="text-3xl md:text-4xl font-bold mb-2">Technologies & Frameworks 🛠</h3>
-              <p>I&apos;m always learning something new, especially when it </p>
+              <h3 className="text-3xl md:text-4xl font-bold mb-2">Technologies & Frameworks 👨‍💻</h3>
+              <p>I&apos;m always learning something new, especially when it comes to exploring new technologies and frameworks!</p>
             </div>
             <SkillsContainer />
           </section>
