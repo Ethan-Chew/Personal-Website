@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { FaReact, FaJava } from "react-icons/fa";
+import { FaReact, FaJava, FaLaravel } from "react-icons/fa";
 import { SiCplusplus, SiCsharp, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiMysql, SiNextdotjs, SiPython, SiSupabase, SiSwift, SiTypescript } from "react-icons/si";
 
 interface ITechnology {
@@ -10,6 +10,7 @@ interface ITechnology {
 }
 
 const technologies: ITechnology[] = [
+    { name: "Laravel", icon: <FaLaravel />, year: 2025, type: "Full-Stack" },
     { name: "React", icon: <FaReact />, year: 2020, type: "Web" },
     { name: "Java", icon: <FaJava />, year: 2024, type: "Mobile" },
     { name: "Next.js", icon: <SiNextdotjs />, year: 2022, type: "Web" },
@@ -30,7 +31,7 @@ const technologies: ITechnology[] = [
   
 export default function SkillsContainer() {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-start max-h-[60vh] overflow-y-scroll no-scrollbar">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-start max-h-[60vh] pb-5 overflow-y-scroll no-scrollbar">
             { technologies.sort((a, b) => b.year - a.year).map(tech => <ItemContainer key={tech.name} tech={tech} />) }
         </div>
     );

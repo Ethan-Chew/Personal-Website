@@ -28,6 +28,12 @@ export const certificates: CertsAchievements[] = [
 
 export const achievements: CertsAchievements[] = [
     {
+        name: "Medallion of Excellence - Web Technologies",
+        date: "WorldSkills Singapore 2025",
+        icon: null,
+        link: null,
+    },
+    {
         name: "CAAS Unmanned Aircraft Pilot's Licence",
         date: "December 2024",
         icon: null,
