@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import Divider from "@/components/Divider";
 import AnimatePresence from "@/components/AnimatePresence";
 import SkillsContainer from "@/components/SkillsContainer";
+import PhotographySection from "@/components/PhotographySection";
 import { FaCode } from "react-icons/fa6";
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
@@ -36,12 +37,12 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           {/* Education Section */}
           <AnimatePresence>
             <section id="education" className="sm:text-lg">
-              <div id="edu-header" className="mb-4">
-                <h3 className="text-3xl md:text-4xl font-bold mb-2">My Education 🏫</h3>
-                <p>Pieces of paper that proves i&apos;m ✨somewhat qualified✨ that I know what i&apos;m doing</p>
+                <div id="edu-header" className="mb-8">
+                <h3 className="text-3xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white">Education</h3>
+                <p className="text-neutral-600 dark:text-neutral-400">Academic journey and qualifications.</p>
               </div>
 
-              <div id="edu-content" className="flex flex-col gap-3">
+              <div id="edu-content" className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800">
                 {education.map(data => (
                   <ExpContainer key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
                 ))}
@@ -55,23 +56,24 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           <AnimatePresence>
             <section className="group intersect:animate-slide-in-from-left">
               <div id="experience" className="sm:text-lg group">
-                <div id="workexp-header" className="mb-4">
-                  <h3 className="text-3xl md:text-4xl font-bold">Work Experience 💼</h3>
+                <div id="workexp-header" className="mb-8">
+                  <h3 className="text-3xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">Experience</h3>
+                  <p className="text-neutral-600 dark:text-neutral-400">Professional work and leadership roles.</p>
                 </div>
 
-                <div id="workexp-content" className="flex flex-col gap-3">
+                <div id="workexp-content" className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800">
                   {experience.filter(data => data.type === "work").map(data => (
                     <ExpContainer key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
                   ))}
                 </div>
               </div>
 
-              <div id="leadership-exp" className="mt-7 sm:text-lg group">
-                <div id="leadershipexp-header" className="mb-4">
-                  <h3 className="text-3xl md:text-4xl font-bold">Leadership Experience 👥</h3>
+              <div id="leadership-exp" className="mt-16 sm:text-lg group">
+                <div id="leadershipexp-header" className="mb-8">
+                  <h3 className="text-2xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">Leadership</h3>
                 </div>
 
-                <div id="leadershipexp-content" className="flex flex-col gap-3">
+                <div id="leadershipexp-content" className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800">
                   {experience.filter(data => data.type === "leadership").map(data => (
                     <ExpContainer key={data.name} tldr={searchParams.tldr === "true" ? true: false} data={data} />
                   ))}
@@ -86,12 +88,12 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {/* Projects */}
         <AnimatePresence>
           <section id="projects" className="sm:text-lg">
-            <div id="proj-header" className="mb-4">
-              <h3 className="text-3xl md:text-4xl font-bold mb-2">Projects 🛠</h3>
-              <p>I love on working on diverse projects that teach me something new. Checkout some of my open-source projects below!</p>
+            <div id="proj-header" className="mb-10">
+              <h3 className="text-3xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white">Projects</h3>
+              <p className="text-neutral-600 dark:text-neutral-400">A selection of my favourite works, ranging from web apps to mobile applications.</p>
             </div>
 
-            <div id="proj-content" className="gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div id="proj-content" className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {projects.map(proj => (
                 <ProjectContainer key={proj.name} project={proj} />
               ))}
@@ -104,9 +106,9 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {/* Skills */}
         <AnimatePresence>
           <section id="skills" className="sm:text-lg">
-            <div id="skills-header" className="mb-4">
-              <h3 className="text-3xl md:text-4xl font-bold mb-2">Technologies & Frameworks 👨‍💻</h3>
-              <p>I&apos;m always learning something new, especially when it comes to exploring new technologies and frameworks!</p>
+            <div id="skills-header" className="mb-8">
+              <h3 className="text-3xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white">Technologies</h3>
+              <p className="text-neutral-600 dark:text-neutral-400">Languages, frameworks, and tools I work with.</p>
             </div>
             <SkillsContainer />
           </section>
@@ -119,22 +121,22 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           <section id="achievements" className="sm:text-lg flex flex-col md:flex-row gap-14">
               {/* Achievements */}
               <div id="ach" className="w-full flex flex-col items-start">
-                <h3 className="text-3xl md:text-4xl font-bold mb-5">Achievements 🏅</h3>
+                <h3 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900 dark:text-white">Achievements</h3>
                 {achievements.map((ach, i) => (
                   <div key={ach.name} className="w-full">
                     <AccoladesContainer data={ach} />
-                    <div className={`border border-divider dark:border-darkdivider my-4 ${i == achievements.length - 1 && "hidden"}`}></div>
+                    <div className={`border-b border-neutral-200 dark:border-neutral-800 my-4 ${i == achievements.length - 1 && "hidden"}`}></div>
                   </div>
                 ))}
               </div>
 
               {/* Certifications */}
               <div id="certifications" className="w-full flex flex-col items-start">
-                <h3 className="text-3xl md:text-4xl font-bold mb-5">Certifications 📜</h3>
+                <h3 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900 dark:text-white">Certifications</h3>
                 {certificates.map((cert, i) => (
                   <div key={cert.name} className="w-full">
                     <AccoladesContainer data={cert} />
-                    <div className={`border border-divider dark:border-darkdivider my-4 ${i == certificates.length - 1 && "hidden"}`}></div>
+                    <div className={`border-b border-neutral-200 dark:border-neutral-800 my-4 ${i == certificates.length - 1 && "hidden"}`}></div>
                   </div>
                 ))}
               </div>
@@ -143,6 +145,10 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         
         {/* Tldr */}
         <TldrButton />
+
+        <div className="mt-20">
+             <PhotographySection />
+        </div>
       </div>
       
       <Footer />

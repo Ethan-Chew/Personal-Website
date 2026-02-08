@@ -28,6 +28,12 @@ export const certificates: CertsAchievements[] = [
 
 export const achievements: CertsAchievements[] = [
     {
+        name: "Polytechnic Champions",
+        date: "Dell InnovateFest Hackathon 2025",
+        icon: null,
+        link: null,
+    },
+    {
         name: "Medallion of Excellence - Web Technologies",
         date: "WorldSkills Singapore 2025",
         icon: null,

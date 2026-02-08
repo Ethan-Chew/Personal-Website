@@ -7,48 +7,48 @@ import { IoDocumentText } from "react-icons/io5";
 
 export default function Header() {
     return (
-        <div className="py-20 md:py-14">
-            <div className="space-y-3">
-                <h1 className="text-5xl sm:text-6.5xl">Hey! <br className="block sm:hidden" /> I&apos;m <span className="font-semibold text-accent dark:text-darkaccent">Ethan Chew</span> 👋</h1>
-                <p className="text-lg sm:text-xl">Student Developer  |  Private Pilot  | Photography</p>
+        <div className="py-24 md:py-32">
+            <div className="space-y-6">
+                <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                    Hey, I&apos;m <span className="text-accent dark:text-darkaccent">Ethan Chew</span>
+                </h1>
+                <p className="text-xl sm:text-2xl text-neutral-600 dark:text-neutral-400 font-light">
+                    Student Developer  <span className="mx-2">·</span>  Private Pilot  <span className="mx-2">·</span>  Photographer
+                </p>
             </div>
 
-            <br />
-            <div className="border border-divider dark:border-darkdivider"></div>
-            <br />
+            <div className="my-10 border-t border-divider dark:border-darkdivider w-24"></div>
 
-            <div className="space-y-4 max-w-4xl sm:text-lg">
-                <p>I&apos;m a <span className="font-bold">{ Math.floor((new Date().getTime() - new Date(2006, 10, 19).getTime()) / (1000 * 60 * 60 * 24 * 365.25)) }-year old</span> student from Singapore 🇸🇬, studying <span className="underline">Information Technology</span> at Ngee Ann Polytechnic. My passion for programming started at a young age, and I&apos;ve been actively pursuing it since 2019, when I entered secondary school.</p>
-                <p>Turning some &apos;overcomplicated english&apos; on my computer screen into fully-working ideas excites me. I&apos;ve dabbled in many fields in programming, and have really grown to love both Web and App Development. Learning, however, never truly ends, and I am always working to refine and improve my skills.</p>
-                <p>Beyond the confines of my computer, I have many hobbies, but Aviation and Photography takes the cake. I am a licensed Private Pilot with over 73 hours in the sky. There&apos;s really nothing quite like viewing the world from above.</p>
-                <p>I&apos;m always excited to connect with new people, so feel free to reach out and say hi! :)</p>
+            <div className="max-w-4xl text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed space-y-6">
+                <p>
+                    I&apos;m a <span className="font-semibold text-neutral-900 dark:text-neutral-200">{Math.floor((new Date().getTime() - new Date(2006, 10, 19).getTime()) / (1000 * 60 * 60 * 24 * 365.25))}-year old</span> student from Singapore 🇸🇬, studying <span className="font-semibold text-neutral-900 dark:text-neutral-200">Information Technology</span> at Ngee Ann Polytechnic. 
+                    I build web, app, and AI-driven solutions with a focus on using <span className="font-semibold text-neutral-900 dark:text-neutral-200">technology for public good</span>, always learning and refining along the way.
+                </p>
+                <p className="italic">
+                    &quot;When once you have tasted flight, you will forever walk the earth with your eyes turned skyward.&quot;
+                </p>
+                <p>
+                    Beyond the screen, I&apos;m a Private Pilot and photographer, always chasing new perspectives from the sky and through my lens.
+                </p>
+                <p>
+                    I&apos;m always excited to connect with new people, so feel free to reach out and say hi!
+                </p>
             </div>
 
-            <div className="flex flex-row pt-4 gap-3">
-                <Link href="https://go.ethanchew.com/linkedin" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
-                        <FaLinkedin size={25} />
-                    </div>
-                </Link>
-
-                <Link href="https://go.ethanchew.com/github" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
-                        <FaGithub size={25} />
-                    </div>
-                </Link>
-
-                <Link href="mailto:hello@ethanchew.com" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
-                        <MdEmail size={25} />
-                    </div>
-                </Link>
-
-                <Link href="https://go.ethanchew.com/cv" rel="noreferrer" target="_blank">
-                    <div className={`p-3 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-lg duration-200`}>
-                        <IoDocumentText size={25} />
-                    </div>
-                </Link>
+            <div className="flex flex-row pt-10 gap-6">
+                <SocialLink href="https://go.ethanchew.com/linkedin" icon={<FaLinkedin size={28} />} />
+                <SocialLink href="https://go.ethanchew.com/github" icon={<FaGithub size={28} />} />
+                <SocialLink href="mailto:hello@ethanchew.com" icon={<MdEmail size={28} />} />
+                <SocialLink href="https://go.ethanchew.com/cv" icon={<IoDocumentText size={28} />} />
             </div>
         </div>
+    )
+}
+
+function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
+    return (
+        <Link href={href} target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-accent dark:hover:text-darkaccent transition-colors duration-200">
+            {icon}
+        </Link>
     )
 }

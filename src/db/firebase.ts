@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app'
+import { initializeApp, getApps } from 'firebase/app'
 import { getFirestore, Firestore } from "firebase/firestore"
 
 const firebaseConfig = {
@@ -14,7 +14,10 @@ const firebaseConfig = {
 let db: Firestore | null = null
 
 try {
-    initializeApp(firebaseConfig)
+    // console.log("Firebase Config:", JSON.stringify(firebaseConfig, null, 2)) // Debugging
+    if (!getApps().length) {
+        initializeApp(firebaseConfig)
+    }
     db = getFirestore()
 } catch (err) {
     console.log(err)

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { FaReact, FaJava, FaLaravel } from "react-icons/fa";
-import { SiCplusplus, SiCsharp, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiMysql, SiNextdotjs, SiPython, SiSupabase, SiSwift, SiTypescript } from "react-icons/si";
+import { SiHuggingface, SiPytorch, SiCplusplus, SiCsharp, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiMysql, SiNextdotjs, SiPython, SiSupabase, SiSwift, SiTypescript } from "react-icons/si";
 
 interface ITechnology {
     name: string;
@@ -10,6 +10,8 @@ interface ITechnology {
 }
 
 const technologies: ITechnology[] = [
+    { name: "Hugging Face", icon: <SiHuggingface />, year: 2025, type: "AI Development" },
+    { name: "PyTorch", icon: <SiPytorch />, year: 2025, type: "AI Development" },
     { name: "Laravel", icon: <FaLaravel />, year: 2025, type: "Full-Stack" },
     { name: "React", icon: <FaReact />, year: 2020, type: "Web" },
     { name: "Java", icon: <FaJava />, year: 2024, type: "Mobile" },

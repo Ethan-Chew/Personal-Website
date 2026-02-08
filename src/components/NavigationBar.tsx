@@ -49,7 +49,7 @@ export default function NavigationBar() {
     }
 
     return (
-        <nav className="w-full bg-background dark:bg-darkbackground fixed px-7 sm:px-10 py-8 z-30">
+        <nav className="w-full bg-background/80 dark:bg-darkbackground/80 backdrop-blur-md fixed px-7 sm:px-10 py-6 z-30 transition-all duration-300 border-b border-transparent dark:border-white/5">
             <div className="flex flex-row justify-between">
                 <Image src={theme === "light" ? "/ECLogoLight.svg" : "/ECLogoDark.svg"} alt="Logo" width={30} height={30} />
 
