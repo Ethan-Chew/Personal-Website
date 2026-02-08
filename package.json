@@ -14,7 +14,7 @@
     "embla-carousel-auto-scroll": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
     "motion": "^12.0.5",
-    "next": "14.2.13",
+    "next": "14.2.35",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
