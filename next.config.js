@@ -2,7 +2,6 @@ const nextConfig = {
   experimental: {
     serverMinification: false,
   },
-  outputFileTracing: true,
   images: {
     remotePatterns: [
       {
