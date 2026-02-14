@@ -1,5 +1,5 @@
 import { initializeApp, getApps } from 'firebase/app'
-import { getFirestore, Firestore } from "firebase/firestore"
+import { getFirestore, Firestore } from "firebase/firestore/lite"
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
@@ -11,16 +11,20 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
 
-let db: Firestore | null = null
+let db: Firestore;
 
 try {
-    // console.log("Firebase Config:", JSON.stringify(firebaseConfig, null, 2)) // Debugging
-    if (!getApps().length) {
-        initializeApp(firebaseConfig)
+    if (getApps().length > 0) {
+        db = getFirestore(getApps()[0]);
+    } else {
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
     }
-    db = getFirestore()
 } catch (err) {
-    console.log(err)
+    console.warn("Firebase initialization error (likely due to build environment):", err);
+    // Don't throw, just let db be undefined or a mock. 
+    // retrieveData.ts handles errors when using db.
+    db = {} as Firestore;
 }
 
 export default db

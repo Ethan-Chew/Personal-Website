@@ -1,4 +1,3 @@
-import NavigationBar from "@/components/NavigationBar"
 import { Metadata } from "next"
 import Link from "next/link"
 
@@ -10,7 +9,6 @@ export const metadata: Metadata = {
 export default function NotFound() {
     return (
         <>
-            <NavigationBar />
             <div className="loader bg-background dark:bg-darkbackground flex min-w-screen min-h-screen justify-center items-center">
                 <div className="text-center max-w-sm">
                     <div className="my-9">
@@ -20,7 +18,7 @@ export default function NotFound() {
                     <p className="text-md mb-8">
                         Oops! There is nothing here.. Did you type the wrong link, or... did <b>I</b> have a <i>skill issue?</i> :p
                     </p>
-                    <Link color="blue.200" href="/" rel="noreferrer" className="p-3 px-5 duration-200 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-3xl">
+                    <Link href="/" rel="noreferrer" className="p-3 px-5 duration-200 bg-lightbtngrey hover:bg-lightbtnhover dark:bg-darkbtngrey dark:hover:bg-darkbtnhover rounded-3xl">
                         Back to Home
                     </Link>
                 </div>

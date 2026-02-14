@@ -1,0 +1,26 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+main = ".open-next/worker.js"
+name = "personal-website"
+compatibility_date = "2026-02-13"
+compatibility_flags = [ "nodejs_compat" ]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[[kv_namespaces]]
+binding = "NEXT_INC_CACHE_KV"
+id = "7c0a213bd24b4ff1aa4937057701220c"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "personal-website"
+
+[vars]
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="ethancheww.firebaseapp.com"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="ethancheww"
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="ethancheww.appspot.com"
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="113750028131"
+NEXT_PUBLIC_FIREBASE_APP_ID="1:113750028131:web:0269497dfedb4160706d5"
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="G-XBF3B75BTV"
+NEXT_PUBLIC_FIREBASE_API_KEY="AIzaSyD9E9Oxv0L4a3pxEvQ0muI5GRuyUlGxF7s"

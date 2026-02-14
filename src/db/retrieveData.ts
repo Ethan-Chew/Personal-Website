@@ -1,23 +1,36 @@
 // Database
 import db from "@/db/firebase"
-import { DocumentData, collection, getDocs } from "firebase/firestore";
+import { DocumentData, collection, getDocs } from "firebase/firestore/lite";
 import { Project, Experience, Education, Skill, Certificate, Achievement } from "@/db/schema"
 
 export default class getFirestore {
     static async getCollection<T extends Project[] | Experience[] | Education[]>(collectionName: string): Promise<T> {
-        if (db === null) throw new Error("Database not initialized");
-        const querySnapshot = await getDocs(collection(db, collectionName));
-        const data: Experience[] | Education[] | Project[] | DocumentData = []
+        try {
+            // Check if db is a valid Firestore instance (has internal properties) or just an empty object mock
+            // 'type' property exists on FirestoreLite instances but not on our mock {}
+            if (!db || Object.keys(db).length === 0) {
+                console.warn(`Firestore instance is invalid or mock. Returning empty array for ${collectionName}.`);
+                return [] as unknown as T;
+            }
 
-        querySnapshot.forEach((doc) => {
-            data.push(doc.data())
-        })
+            const querySnapshot = await getDocs(collection(db, collectionName));
+            const data: Experience[] | Education[] | Project[] | DocumentData = []
 
-        if (data.length > 0 && (data as Project[])[0].order !== undefined) { // Perform Type Guard to check for Project Data Type
-            return data.sort((a: Project, b: Project) => a.order - b.order) as T
+            querySnapshot.forEach((doc) => {
+                data.push(doc.data())
+            })
+
+            if (data.length > 0 && (data as Project[])[0].order !== undefined) { // Perform Type Guard to check for Project Data Type
+                return data.sort((a: Project, b: Project) => a.order - b.order) as T
+            }
+
+            return this.sortCollection(data as T)
+        } catch (error: any) {
+            console.warn(`Error fetching collection ${collectionName}:`, error);
+            // Return empty array for ANY error during build/ISR to prevent crash
+            // This allows the page to be generated even if Firebase is down/quota exceeded
+            return [] as unknown as T;
         }
-
-        return this.sortCollection(data as T)
     }
 
     static sortCollection<T extends Project[] | Experience[] | Education[]>(items: T): T {
@@ -75,37 +88,5 @@ export default class getFirestore {
         return sortedData as T
     }
 
-    static async getSkills(): Promise<Skill[]> {
-        if (db === null) throw new Error("Database not initialized");
-        const querySnapshot = await getDocs(collection(db, 'skills'));
-        const data: Skill[] = []
-        querySnapshot.forEach((doc) => {
-            data.push(doc.data() as Skill)
-        })
-        return data.sort((a, b) => b.year - a.year)
-    }
 
-    static async getCertificates(): Promise<Certificate[]> {
-        if (db === null) throw new Error("Database not initialized");
-        const querySnapshot = await getDocs(collection(db, 'certificates'));
-        const data: Certificate[] = []
-        querySnapshot.forEach((doc) => {
-            data.push(doc.data() as Certificate)
-        })
-        // Simple string sort or parse date if needed. 
-        // Current data format "May 2024". 
-        // For now, let's just return as is or basic sort. User can verify order.
-        return data
-    }
-
-    static async getAchievements(): Promise<Achievement[]> {
-        if (db === null) throw new Error("Database not initialized");
-        const querySnapshot = await getDocs(collection(db, 'achievements'));
-        const data: Achievement[] = []
-        querySnapshot.forEach((doc) => {
-            // Filter out unrelated collections if they share name? No, 'achievements' is unique.
-            data.push(doc.data() as Achievement)
-        })
-        return data
-    }
 }

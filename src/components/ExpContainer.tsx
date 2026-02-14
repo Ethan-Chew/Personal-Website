@@ -1,11 +1,14 @@
+"use client";
 import { Education, Experience, typeIsEducation } from "@/db/schema";
+import { useTldr } from "./TldrContext";
 
 interface IContainer {
-    tldr: boolean;
     data: Education | Experience;
 }
 
-export default function ExpContainer({ tldr, data }: IContainer) {
+export default function ExpContainer({ data }: IContainer) {
+    const { tldr } = useTldr();
+    
     return (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 py-8 px-4 -mx-4 rounded-xl transition-colors duration-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50">
             <div className="md:col-span-1 space-y-1.5">
