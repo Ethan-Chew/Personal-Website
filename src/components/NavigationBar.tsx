@@ -6,7 +6,7 @@ import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useTheme } from "next-themes";
 import { useEffect, useState, Fragment } from "react";
 import { Transition } from "@headlessui/react"
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 interface Page {
     id: string,

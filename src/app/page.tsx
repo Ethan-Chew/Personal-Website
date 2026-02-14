@@ -1,8 +1,7 @@
-// Database and Data Handling
-import getFirestore from "@/db/retrieveData"
+// Database Schema
 import { Project, Experience, Education } from "@/db/schema"
-import { cache } from 'react'
-export const revalidate = 7200 // revalidate the data at most every hour
+import getFirestore from "@/db/retrieveData";
+import { unstable_cache } from 'next/cache';
 
 import { achievements, certificates } from "../../public/data/certs";
 import ExpContainer from "@/components/ExpContainer";
@@ -15,16 +14,30 @@ import Divider from "@/components/Divider";
 import AnimatePresence from "@/components/AnimatePresence";
 import SkillsContainer from "@/components/SkillsContainer";
 import PhotographySection from "@/components/PhotographySection";
-import { FaCode } from "react-icons/fa6";
+
+// Cached data fetchers with 2-hour revalidation
+const getCachedEducation = unstable_cache(
+  async () => getFirestore.getCollection<Education[]>("education"),
+  ['education'],
+  { revalidate: 7200, tags: ['education'] }
+);
+
+const getCachedExperience = unstable_cache(
+  async () => getFirestore.getCollection<Experience[]>("experience"),
+  ['experience'],
+  { revalidate: 7200, tags: ['experience'] }
+);
+
+const getCachedProjects = unstable_cache(
+  async () => getFirestore.getCollection<Project[]>("topProjects"),
+  ['topProjects'],
+  { revalidate: 7200, tags: ['projects'] }
+);
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-  const getFromDB: (db: string) => Promise<Project[] | Experience[] | Education[]> = cache(async (db: string) => {
-    return await getFirestore.getCollection(db);
-  });
-
-  const education: Education[] = await getFromDB("education") as Education[];
-  const experience: Experience[] = await getFromDB("experience") as Experience[];
-  const projects: Project[] = await getFromDB("topProjects") as Project[];
+  const education: Education[] = await getCachedEducation();
+  const experience: Experience[] = await getCachedExperience();
+  const projects: Project[] = await getCachedProjects();
 
   return (
     <main>
