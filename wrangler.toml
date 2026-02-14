@@ -1,12 +1,8 @@
 "$schema" = "./node_modules/wrangler/config-schema.json"
-main = ".open-next/worker.js"
 name = "personal-website"
 compatibility_date = "2026-02-13"
 compatibility_flags = [ "nodejs_compat" ]
-
-[assets]
-directory = ".open-next/assets"
-binding = "ASSETS"
+pages_build_output_dir = ".open-next"
 
 [[kv_namespaces]]
 binding = "NEXT_INC_CACHE_KV"
