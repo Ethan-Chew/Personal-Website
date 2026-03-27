@@ -12,6 +12,12 @@ export interface Project {
     image: string | null
 }
 
+export interface PastRole {
+    name: string,      // e.g. "Admin Head"
+    startDate: string, // e.g. "Jan 2024"
+    endDate: string    // e.g. "Jan 2025"
+}
+
 export interface Experience {
     name: string,
     desc: string,
@@ -19,7 +25,8 @@ export interface Experience {
     place: string,
     startDate: string,
     endDate: string,
-    type: string
+    type: string,
+    pastRoles?: PastRole[] // Previous positions within same organisation
 }
 
 export function typeIsEducation(data: Education | Experience): data is Education {
